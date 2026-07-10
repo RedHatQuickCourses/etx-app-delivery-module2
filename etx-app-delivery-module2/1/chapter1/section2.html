@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Check your work :: Cloud-Native Development with Dev Spaces</title>
+    <title>Architecture :: Cloud-Native Development with Dev Spaces</title>
+    <link rel="prev" href="section1.html">
+    <link rel="next" href="section3.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -42,7 +44,67 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../index.html">Home</a>
+    <a class="nav-link" href="../index.html">Application Platform Delivery Foundations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Dev Spaces Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Red Hat OpenShift Dev Spaces</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section2.html">Architectures</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">Key Concepts</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/day2-lab1-environment.html">Software Factory</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-lab1-supporting-services.html">Supporting Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-cluster-setup.html">Deploy Dev Spaces Operator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-devspaces-install.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-devspaces-integrations.html">GitLab Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-lab1-devspaces.html">Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-lab1-ci-pipeline.html">CI Pipeline</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-lab1-app-deployment.html">Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/day2-lab1-promotion.html">Promotion Pipeline</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -75,7 +137,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Cloud-Native Development with Dev Spaces</a></li>
-    <li><a href="section2.html">Check your work</a></li>
+    <li><a href="index.html">Dev Spaces Overview</a></li>
+    <li><a href="section2.html">Architectures</a></li>
   </ul>
 </nav>
 </div>
@@ -84,72 +147,64 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Check your work</h1>
-<div class="sect1">
-<h2 id="_follow_below_steps_in_the_lab_to_check_your_work"><a class="anchor" href="#_follow_below_steps_in_the_lab_to_check_your_work"></a>Follow below steps in the lab to check your work</h2>
-<div class="sectionbody">
+<h1 class="page">Architecture</h1>
 <div class="paragraph">
-<p>FIXME: Add the instructions to be followed in the lab environment to make sure the problem has been resolved. You may chose to remove this block if grading script is provided in the lab to check the work.</p>
+<p>Red Hat OpenShift Dev Spaces runs (as a set of managed containers) on top of the OpenShift,
+and delegates several responsibilities around security, user management, resource allocation,
+and multi-tenancy to the underlying base platform.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_check_your_work_using_the_grading_script"><a class="anchor" href="#_check_your_work_using_the_grading_script"></a>Check your work using the grading script</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>After you have resolved the issue and met the success criteria, login to <code>FIXME</code> system as <code>FIXME</code> user and run the grading script as shown here to check your work:</p>
+<p>The product consists of a set of components interacting with each other to provide the necessary functionality for a web-based IDE.</p>
 </div>
-<div class="listingblock execute">
+<div class="imageblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">break-fix-script grade</code></pre>
+<img src="_images/devspaces-architecture.png" alt="devspaces architecture">
 </div>
-</div>
-<div class="listingblock">
-<div class="title">Sample output</div>
-<div class="content">
-<pre>[root@classroom ~]# break-fix-script grade
-Initiating break-fix-script with option grade
-Grading.  Please wait.
-Success.
-COMPLETION CODE: &lt;check your output for this value&gt;
-Completed break-fix-script with option grade successfully</pre>
-</div>
+<div class="title">Figure 1. Red Hat OpenShift Dev Spaces Architecture (High Level)</div>
 </div>
 <div class="paragraph">
-<p>FIXME: Remove the below block if no grading script is provided to check the work in the break-fix activity. In this case make sure you use the above block to provide step-by-step instructions learner can follow to check their work.</p>
+<p>Dev Spaces has a few core components:</p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Dev Spaces Operator</strong></dt>
+<dd>
+<p>Manages the lifecycle of the platform.
+Installed from OperatorHub.</p>
+</dd>
+<dt class="hdlist1"><strong>CheCluster Custom Resource</strong></dt>
+<dd>
+<p>The single configuration object for the entire Dev Spaces deployment.
+Controls everything from resource limits to storage strategy to Git integration.</p>
+</dd>
+<dt class="hdlist1"><strong>DevWorkspace Operator</strong></dt>
+<dd>
+<p>Extends the OpenShift API to manage individual workspace pods.
+Installed automatically as a dependency.</p>
+</dd>
+<dt class="hdlist1"><strong>User Dashboard</strong></dt>
+<dd>
+<p>Web UI where developers create, start, stop, and manage their workspaces.</p>
+</dd>
+<dt class="hdlist1"><strong>Gateway</strong></dt>
+<dd>
+<p>A Traefik-based reverse proxy that handles authentication (via OpenShift OAuth) and routes traffic to workspace pods.</p>
+</dd>
+<dt class="hdlist1"><strong>Plugin Registry</strong></dt>
+<dd>
+<p>Serves IDE extensions.
+By default an embedded Open VSX registry with a limited set of extensions&#8201;&#8212;&#8201;you will want to point this at the public Open VSX registry.</p>
+</dd>
+<dt class="hdlist1"><strong>Devfile Registry</strong></dt>
+<dd>
+<p>Provides sample workspace definitions for the dashboard&#8217;s "getting started" experience.</p>
+</dd>
+</dl>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_submit_the_completion_code"><a class="anchor" href="#_submit_the_completion_code"></a>Submit the completion code</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Skip this if not applicable for you.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For RedHat internal audience: Submit that completion code <a href="https://link-to-appropriate-lms.com" target="_blank" rel="noopener">here</a> to receive a grade for this training</p>
-</li>
-<li>
-<p>For RedHat partners: Submit that completion code <a href="https://link-to-appropriate-lms.com" target="_blank" rel="noopener">here</a> to receive a grade for this training</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>FIXME: Change the links in the above lines to the link for appropriate audience specific LMS where learner can provide completion code. Remove this block if submitting completion is not applicable.</p>
-</div>
-</div>
-</div>
+<nav class="pagination">
+  <span class="prev"><a href="section1.html">Red Hat OpenShift Dev Spaces</a></span>
+  <span class="next"><a href="section3.html">Key Concepts</a></span>
+</nav>
 </article>
   </div>
 </main>

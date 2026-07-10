@@ -1,11 +1,81 @@
 {
-  "totalSeconds": 11,
-  "pageCount": 1,
+  "totalSeconds": 2173,
+  "pageCount": 15,
   "pages": [
     {
       "module": "ROOT",
       "page": "index.adoc",
-      "seconds": 11
+      "seconds": 89
+    },
+    {
+      "module": "LABENV",
+      "page": "index.adoc",
+      "seconds": 68
+    },
+    {
+      "module": "chapter1",
+      "page": "index.adoc",
+      "seconds": 85
+    },
+    {
+      "module": "chapter1",
+      "page": "section1.adoc",
+      "seconds": 38
+    },
+    {
+      "module": "chapter1",
+      "page": "section2.adoc",
+      "seconds": 58
+    },
+    {
+      "module": "chapter1",
+      "page": "section3.adoc",
+      "seconds": 33
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-environment.adoc",
+      "seconds": 209
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-supporting-services.adoc",
+      "seconds": 205
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-cluster-setup.adoc",
+      "seconds": 17
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-devspaces-install.adoc",
+      "seconds": 66
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-devspaces-integrations.adoc",
+      "seconds": 50
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-devspaces.adoc",
+      "seconds": 255
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-ci-pipeline.adoc",
+      "seconds": 339
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-app-deployment.adoc",
+      "seconds": 403
+    },
+    {
+      "module": "chapter2",
+      "page": "day2-lab1-promotion.adoc",
+      "seconds": 258
     }
   ]
 }

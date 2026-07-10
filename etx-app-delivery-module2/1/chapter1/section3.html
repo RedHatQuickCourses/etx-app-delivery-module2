@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Environment :: Cloud-Native Development with Dev Spaces</title>
-    <link rel="prev" href="../index.html">
-    <link rel="next" href="../chapter1/index.html">
+    <title>Key Concepts :: Cloud-Native Development with Dev Spaces</title>
+    <link rel="prev" href="section2.html">
+    <link rel="next" href="../chapter2/day2-lab1-environment.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -50,8 +50,8 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Lab Environment</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -59,16 +59,16 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter1/index.html">Dev Spaces Overview</a>
+    <a class="nav-link" href="index.html">Dev Spaces Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section1.html">Red Hat OpenShift Dev Spaces</a>
+    <a class="nav-link" href="section1.html">Red Hat OpenShift Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section2.html">Architectures</a>
+    <a class="nav-link" href="section2.html">Architectures</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section3.html">Key Concepts</a>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section3.html">Key Concepts</a>
   </li>
 </ul>
   </li>
@@ -137,7 +137,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Cloud-Native Development with Dev Spaces</a></li>
-    <li><a href="index.html">Lab Environment</a></li>
+    <li><a href="index.html">Dev Spaces Overview</a></li>
+    <li><a href="section3.html">Key Concepts</a></li>
   </ul>
 </nav>
 </div>
@@ -146,78 +147,45 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Environment</h1>
+<h1 class="page">Key Concepts</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Click the <a href="https://demo.redhat.com/">RHDP</a> link above, log in to RHDP, and click <code>Order</code> to request a new <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-dev?item=babylon-catalog-dev/openshift-cnv.app-platform-factory-cnv.dev&amp;utm_source=webapp&amp;utm_medium=share-link">Service Enablement: App Platform Software Factory</a>. On the order page for the catalog item, do the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Activity</strong>: Select <code>Practice/Enablement</code></p>
-</li>
-<li>
-<p><strong>Purpose</strong>: Select <code>Learning about the Product</code></p>
-</li>
-<li>
-<p><strong>Salesforce ID</strong>: If you have an opportunity ID, enter it into this field, otherwise select <code>Project</code>, and then enter "Learning about RHCL" in the text field. You will see a warning message that a Salesforce ID is required, but you can safely ignore it.</p>
-</li>
-<li>
-<p><strong>Features</strong>: Select <code>Enable Let&#8217;s Encrypt</code></p>
-</li>
-<li>
-<p><strong>Region</strong>: Select the AWS region closest to your location</p>
-</li>
-<li>
-<p><strong>User count</strong>: <code>1</code></p>
-</li>
-<li>
-<p><strong>Control Plane Count</strong>: <code>1</code></p>
-</li>
-<li>
-<p><strong>OpenShift Version</strong>: <code>4.16</code></p>
-</li>
-<li>
-<p><strong>Control Plane Instance Type</strong>: <code>m6a.4xlarge</code></p>
-</li>
-<li>
-<p>Select the checkbox at the bottom of the page to confirm that lab costs will be charged to your cost center, and click <code>Order</code>.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lab environment will take an hour to provision. You can check the status and details of the OpenShift cluster from the <code>Services</code> page of RHDP. The classroom is available for 48 hours initially. You can extend the duration of classroom availability by clicking <code>Help &gt; Get Technical Help</code> in RHDP, and then requesting an extension by opening a ServiceNow ticket with the RHDP team.
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Devfile</dt>
+<dd>
+<p>A YAML file (typically <code>devfile.yaml</code> at the repo root) that declares the workspace environment: container image, resource limits, endpoints, commands, and volumes.
+Devfiles are versioned alongside application code.</p>
+</dd>
+<dt class="hdlist1">Universal Developer Image (UDI)</dt>
+<dd>
+<p>A pre-built container image (<code>quay.io/devfile/universal-developer-image:ubi9-latest</code>) that includes common tools and runtimes (Java, Node.js, Python, Go, C/C++, etc.) plus Podman and Buildah.
+If a repository has no devfile, Dev Spaces uses UDI by default.</p>
+</dd>
+<dt class="hdlist1">CheCluster CR</dt>
+<dd>
+<p>The primary configuration surface.
+Rather than editing multiple config files, you configure Dev Spaces by patching one CheCluster resource.</p>
+</dd>
+<dt class="hdlist1">Workspace Namespace</dt>
+<dd>
+<p>Each user gets an auto-provisioned namespace (<code>&lt;username&gt;-devspaces</code>) where their workspace pods run.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rhdp_portal_links"><a class="anchor" href="#_rhdp_portal_links"></a>RHDP Portal Links</h2>
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://demo.redhat.com/">RedHat Associates</a></p>
-</li>
-<li>
-<p><a href="https://partner.demo.redhat.com/">RedHat Partners</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Proceed to <a href="#day2-devspaces-devfiles.adoc" class="xref unresolved">Devfiles &amp; Base Images</a>.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="../index.html">Application Platform Delivery Foundations</a></span>
-  <span class="next"><a href="../chapter1/index.html">Dev Spaces Overview</a></span>
+  <span class="prev"><a href="section2.html">Architectures</a></span>
+  <span class="next"><a href="../chapter2/day2-lab1-environment.html">Software Factory</a></span>
 </nav>
 </article>
   </div>
