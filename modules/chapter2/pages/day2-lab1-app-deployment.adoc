@@ -1,4 +1,4 @@
-= Lab 1: Application Deployment with Argo CD
+= Lab 6: Application Deployment with Argo CD
 :navtitle: Application Deployment
 
 == Overview

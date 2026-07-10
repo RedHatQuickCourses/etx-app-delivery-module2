@@ -1,4 +1,4 @@
-= Lab 1: Dev Spaces and IDE Setup
+= Lab 4: Dev Spaces and IDE Setup
 :navtitle: Dev Spaces & IDE Setup
 
 == Overview

@@ -1,4 +1,4 @@
-= Lab 1: Application CI Pipeline
+= Lab 5: Application CI Pipeline
 :navtitle: CI Pipeline
 
 == Overview

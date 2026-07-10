@@ -1,4 +1,4 @@
-= Lab 1: Promotion Pipeline
+= Lab 7: Promotion Pipeline
 :navtitle: Promotion Pipeline
 
 == Overview

@@ -1,4 +1,4 @@
-= Lab 1: Deploy Supporting Services
+= Lab 2: Deploy Supporting Services
 :navtitle: Supporting Services
 
 == Overview
