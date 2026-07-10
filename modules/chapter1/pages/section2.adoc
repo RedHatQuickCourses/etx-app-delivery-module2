@@ -1,35 +1,37 @@
-= Check your work
+= Architecture
+:navtitle: Architectures
 
-== Follow below steps in the lab to check your work
+Red Hat OpenShift Dev Spaces runs (as a set of managed containers) on top of the OpenShift,
+and delegates several responsibilities around security, user management, resource allocation,
+and multi-tenancy to the underlying base platform.
 
-FIXME: Add the instructions to be followed in the lab environment to make sure the problem has been resolved. You may chose to remove this block if grading script is provided in the lab to check the work.
+The product consists of a set of components interacting with each other to provide the necessary functionality for a web-based IDE. 
 
-== Check your work using the grading script
+image::devspaces-architecture.png[title=Red Hat OpenShift Dev Spaces Architecture (High Level)]
 
-After you have resolved the issue and met the success criteria, login to `FIXME` system as `FIXME` user and run the grading script as shown here to check your work:
+Dev Spaces has a few core components:
 
-[source,bash,role=execute]
-----
-break-fix-script grade
-----
+*Dev Spaces Operator*::
+Manages the lifecycle of the platform.
+Installed from OperatorHub.
 
-.Sample output
-----
-[root@classroom ~]# break-fix-script grade
-Initiating break-fix-script with option grade
-Grading.  Please wait.
-Success.
-COMPLETION CODE: <check your output for this value>
-Completed break-fix-script with option grade successfully
-----
+*CheCluster Custom Resource*::
+The single configuration object for the entire Dev Spaces deployment.
+Controls everything from resource limits to storage strategy to Git integration.
 
-FIXME: Remove the below block if no grading script is provided to check the work in the break-fix activity. In this case make sure you use the above block to provide step-by-step instructions learner can follow to check their work.
+*DevWorkspace Operator*::
+Extends the OpenShift API to manage individual workspace pods.
+Installed automatically as a dependency.
 
-== Submit the completion code
+*User Dashboard*::
+Web UI where developers create, start, stop, and manage their workspaces.
 
-NOTE: Skip this if not applicable for you.
+*Gateway*::
+A Traefik-based reverse proxy that handles authentication (via OpenShift OAuth) and routes traffic to workspace pods.
 
-- For RedHat internal audience: Submit that completion code https://link-to-appropriate-lms.com[here,window=_blank] to receive a grade for this training
-- For RedHat partners: Submit that completion code https://link-to-appropriate-lms.com[here,window=_blank] to receive a grade for this training
+*Plugin Registry*::
+Serves IDE extensions.
+By default an embedded Open VSX registry with a limited set of extensions -- you will want to point this at the public Open VSX registry.
 
-FIXME: Change the links in the above lines to the link for appropriate audience specific LMS where learner can provide completion code. Remove this block if submitting completion is not applicable.
+*Devfile Registry*::
+Provides sample workspace definitions for the dashboard's "getting started" experience.

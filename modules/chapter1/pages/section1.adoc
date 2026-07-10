@@ -1,15 +1,12 @@
-= Break-fix activity
+= What is Red Hat OpenShift Dev Spaces?
+:navtitle: Red Hat OpenShift Dev Spaces
 
-This section presents a scenario based on a real customer issue.
+**Red Hat OpenShift Dev Spaces** provides Cloud Development Environments (CDEs) -- fully configured, containerized workspaces that run on OpenShift.
+Instead of spending time setting up a local development environment, developers get a browser-based VS Code or JetBrains IDE backed by a workspace pod with all the tools, runtimes, and dependencies they need.
 
-. Read the scenario and success criteria.
-. Follow any instructions provided for setting up your lab environment.
-. Resolve the issue as simulated in your lab environment.
-. After resolving the issue, run the grading script and submit the completion code as prompted.
+Key benefits:
 
-
-**You must successfully complete this section to receive a passing grade for this module.**
-
-
-If you exhaust your experience and resources, and you're unable to solve the issue on your own, use the guided solution to step through one possible solution, with tips for addressing similar issues.
-
+* *Consistency* -- Every developer works in the same environment, eliminating "works on my machine" issues based on environment definitions as code
+* *Speed* -- New team members can start coding in minutes, not days
+* *Security* -- Development environments run inside the organization network, and the source code stays on the cluster; nothing lives on developer laptops
+* *Kubernetes-native* -- Build and test cloud-native applications on OpenShift with preconfigured developer credentials and access to the cluster

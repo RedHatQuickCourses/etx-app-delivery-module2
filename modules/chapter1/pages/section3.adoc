@@ -1,0 +1,21 @@
+= Key Concepts
+:navtitle: Key Concepts
+
+Devfile::
+A YAML file (typically `devfile.yaml` at the repo root) that declares the workspace environment: container image, resource limits, endpoints, commands, and volumes.
+Devfiles are versioned alongside application code.
+
+Universal Developer Image (UDI)::
+A pre-built container image (`quay.io/devfile/universal-developer-image:ubi9-latest`) that includes common tools and runtimes (Java, Node.js, Python, Go, C/C++, etc.) plus Podman and Buildah.
+If a repository has no devfile, Dev Spaces uses UDI by default.
+
+CheCluster CR::
+The primary configuration surface.
+Rather than editing multiple config files, you configure Dev Spaces by patching one CheCluster resource.
+
+Workspace Namespace::
+Each user gets an auto-provisioned namespace (`<username>-devspaces`) where their workspace pods run.
+
+== Next Steps
+
+Proceed to xref:day2-devspaces-devfiles.adoc[Devfiles & Base Images].

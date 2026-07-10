@@ -1,12 +1,54 @@
-= An Example Break-fix course
+= Cloud-Native Development with Dev Spaces
 :navtitle: Home
 
 == Introduction
 
-TITLE1: Red Hat Enterprise Linux 9 (FIXME product)
+Welcome to this quick course on the _**Application Platform Delivery Foundations**_.
+This course is the `first` in a series of `six` courses about **Application Platform Delivery**:
 
-TITLE2: Break-fix Practice 1 (FIXME title)
+* https://link[_Foundations: Developer Experience and GitOps Workflows_, window=browser]
+* _Cloud-Native Development with Dev Spaces_, window=browser(_This course_)
+* https://link[_Software Factory and CI/CD_, window=browser]
+* https://link[_Application Modernization_, window=browser]
+* https://link[_Developer Hub and Platform Engineering_, window=browser]
+* https://link[_Trusted Software Supply Chain (TSSC)_, window=browser]
 
-Description:
-This break-fix training simulates a problem FIXME . You'll investigate and solve the problem in a hands-on lab environment to complete the training.
+== What's in this course?
 
+Enable learners to understand the principles of Developer Experience, Platform Engineering, and GitOps-based software delivery while preparing the environment and skills required for subsequent Software Factory implementation labs.
+
+Duration: 2 hours
+
+== Contributors
+
+The PTL team acknowledges the valuable contributions of the following Red Hat associates:
+
+* .. (SME)
+* .. (SME)
+* Yogita Soni (Content Architect)
+* Anna Swicegood (Learning Product Manager)
+
+== Objectives
+
+On completing this course, you should be able to:
+
+Based on the section index, here are concise learning objectives:
+
+### Learning Objectives
+
+By the end of this module, you will be able to:
+
+* Explain the challenges that Platform Engineering addresses and its role in improving developer experience.
+* Describe the core principles of GitOps and how it enables consistent, automated application delivery.
+* Identify the components of the lab environment and verify that it is ready for the exercises.
+* Understand common Git branching strategies and determine when to use each approach.
+* Validate essential Git operations using fundamental Git commands.
+* Explain the GitHub Flow workflow for collaborative software development.
+* Apply Git and GitHub best practices through hands-on lab exercises involving branching, committing, merging, and pull requests.
+* Summarize the key concepts of Developer Experience, Platform Engineering, Git, and GitOps workflows.
+
+== Prerequisites
+
+This course assumes that you have the following prior experience:
+
+1. https://training-lms.redhat.com/lmt/clmscoursedetails.prmain?in_sessionId=5034892A2J492834&in_selfContained=N&in_offeringId=57857955&in_tab_group=&in_from_module=CLMSBROWSEV2.PRMAIN[Red Hat OpenShift Container Platform (OCP) Technical Overview] or Kubernetes Basics
