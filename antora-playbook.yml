@@ -1,6 +1,6 @@
 site:
-  title: FIXME Course Title
-  start_page: REPLACEREPONAME::index.adoc
+  title: Cloud-Native Development with Dev Spaces
+  start_page: etx-app-delivery-module2::index.adoc
 
 content:
   sources:

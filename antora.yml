@@ -1,10 +1,5 @@
-name: REPLACEREPONAME
-title: FIXME Course Title
+name: etx-app-delivery-module2
+title: Cloud-Native Development with Dev Spaces
 version: 1
 nav:
 - modules/ROOT/nav.adoc
-- modules/LABENV/nav.adoc
-- modules/chapter1/nav.adoc
-- modules/chapter2/nav.adoc
-- modules/chapter3/nav.adoc
-- modules/appendix/nav.adoc
