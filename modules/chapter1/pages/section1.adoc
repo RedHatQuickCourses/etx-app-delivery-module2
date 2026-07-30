@@ -1,12 +1,45 @@
-= What is Red Hat OpenShift Dev Spaces?
-:navtitle: Red Hat OpenShift Dev Spaces
+= Developer Experience Lifecycle
 
-**Red Hat OpenShift Dev Spaces** provides Cloud Development Environments (CDEs) -- fully configured, containerized workspaces that run on OpenShift.
-Instead of spending time setting up a local development environment, developers get a browser-based VS Code or JetBrains IDE backed by a workspace pod with all the tools, runtimes, and dependencies they need.
+* Imagine a developer joining a platform for the first time. 
++
+image::loop.png[align="center", height="650", width="650"]
++
+* They begin with **onboarding**, gaining access to the tools, environments, and resources needed to get started.
 
-Key benefits:
+* From there, they enter the **Inner Loop**—writing code, building, testing, and debugging applications. 
 
-* *Consistency* -- Every developer works in the same environment, eliminating "works on my machine" issues based on environment definitions as code
-* *Speed* -- New team members can start coding in minutes, not days
-* *Security* -- Development environments run inside the organization network, and the source code stays on the cluster; nothing lives on developer laptops
-* *Kubernetes-native* -- Build and test cloud-native applications on OpenShift with preconfigured developer credentials and access to the cluster
+* Once changes are ready, they move into the **Outer Loop**, where code is reviewed, validated, secured, and deployed through automated delivery pipelines.
+
+* After deployment, applications enter the **Support Lifecycle**, where monitoring, observability, and operational processes help keep them running reliably.
+
+* Together, these stages form the **Developer Experience Lifecycle**. 
+
+* Without a right integration between both loops (*Inner and Outer*), based on right processes supported by the Platform Teams, the Developer Experience will be impacted with low rates of productivity, poor performance, and low adoption rates of the platform created supposed to help or support them.
+
+* This complexity must be addressed accordingly.
+
+== Accelerating Developer Productivity and Security
+
+* _Imagine an organization that has invested in a modern application platform, yet developers still struggle with onboarding, deployment processes, tooling decisions, and slow feedback cycles. At the same time, platform teams are working hard to provide capabilities that developers may not be fully adopting or utilizing._
+
+* This is where a **Developer Experience Assessment** helps.
+
+* Through a collaborative engagement, Red Hat Consulting works closely with platform teams and developers to understand how software is built, delivered, and operated across the organization. 
+
+* Together, they identify pain points, uncover opportunities for improvement, and align platform capabilities with developer needs.
+
+* The outcome is a prioritized roadmap that helps improve:
+** Developer productivity
+** Strengthen security
+** Accelerate platform adoption. 
+
+* The roadmap also provides guidance for building key capabilities such as:
+** **An Internal Developer Portal (IDP)**
+** **A Trusted Software Supply Chain (TSSC)**
+** **Self-service developer experiences**
+
+* _Success requires more than technology alone._ 
+
+* It depends on active collaboration, hands-on workshops, and open discussions where platform teams and developers work together to shape the future developer experience.
+
+

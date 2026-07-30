@@ -1,0 +1,152 @@
+= Developing Applications with OpenShift Dev Spaces
+:navtitle: Dev Spaces Overview
+
+In the previous lesson, you learned how a **Software Factory** standardizes software delivery by providing developers with reusable services, automation, and engineering best practices.
+
+One of the first capabilities provided by a Software Factory is a standardized development environment.
+
+Instead of asking every developer to install IDEs, programming language runtimes, SDKs, CLI tools, and dependencies on their own workstation, organizations provide ready-to-use development environments that developers can access on demand.
+
+This capability is provided by **Red Hat OpenShift Dev Spaces**.
+
+TIP: Think about how long it takes today for a new developer to prepare their laptop before writing their first line of code. How much of that effort could be eliminated with a preconfigured development environment?
+
+== The Challenge
+
+Setting up a local development environment is often one of the most time-consuming parts of developer onboarding.
+
+A typical setup includes:
+
+* Installing an IDE.
+* Installing programming language runtimes.
+* Downloading SDKs and command-line tools.
+* Configuring Kubernetes access.
+* Installing extensions and plugins.
+* Managing project dependencies.
+* Matching software versions used by the rest of the team.
+
+Even after completing this setup, developers frequently encounter environment differences that lead to the familiar problem:
+
+[quote]
+____
+"It works on my machine."
+____
+
+These inconsistencies slow onboarding, complicate collaboration, and introduce avoidable deployment issues.
+
+[IMPORTANT]
+====
+When every developer maintains a different workstation configuration, development environments gradually drift apart, making troubleshooting, collaboration, and onboarding increasingly difficult.
+====
+
+== What is OpenShift Dev Spaces?
+
+OpenShift Dev Spaces provides **Cloud Development Environments (CDEs)** that run directly on OpenShift.
+
+image::devspace.png[align="center",width="300"]
+
+Instead of developing on a local workstation, developers use browser-based workspaces that are already configured with the required IDE, programming language runtimes, tools, dependencies, and cluster access.
+
+
+Each workspace runs as containers on the OpenShift cluster while developers access it through a web browser using a familiar development environment.
+
+This allows every developer to work with a consistent and reproducible environment regardless of the machine they are using.
+
+== Why Cloud Development Environments?
+
+Cloud Development Environments improve both developer productivity and platform consistency.
+
+[cols="1,3",options="header"]
+|===
+|Capability |Benefit
+
+|Rapid onboarding
+|Developers begin coding within minutes instead of spending hours preparing their workstation.
+
+|Consistent environments
+|Every developer uses the same tools, runtime versions, and dependencies.
+
+|Cloud-native development
+|Applications are developed in an environment that closely matches production.
+
+|Centralized security
+|Source code and development environments remain inside the organization's OpenShift platform.
+
+|Platform management
+|Development environments are centrally maintained by Platform Engineers.
+|===
+
+== Dev Spaces in the Software Factory
+
+Within a Software Factory, Dev Spaces provides the standardized environment where application development begins.
+
+A typical workflow looks like this:
+
+. Launch a development workspace.
+. Clone or open the application source code.
+. Develop and test application features.
+. Commit changes to Git.
+. Trigger the automated software delivery pipeline.
+. Allow the Software Factory to build, validate, and deploy the application.
+
+Developers focus on writing application code while the Software Factory handles the surrounding automation and platform operations.
+
+== Benefits
+
+For developers:
+
+* Start coding immediately without local setup.
+* Access projects from any machine using only a browser.
+* Work in consistent environments across development teams.
+* Easily switch between projects without reinstalling tools.
+
+For Platform Engineers:
+
+* Standardize development environments.
+* Simplify developer onboarding.
+* Improve security by centralizing development resources.
+* Reduce environment-related support requests.
+
+[NOTE]
+====
+OpenShift Dev Spaces standardizes where developers build software, allowing Platform Engineers to centrally manage development environments while developers focus on delivering application features.
+====
+
+== Reflection
+
+.Think about your own organization (Click to expand)
+[%collapsible]
+====
+* How long does it take to prepare a new developer workstation?
+* Which tools must developers install manually?
+* How often do environment differences cause development or deployment issues?
+* How could centralized development environments improve developer productivity?
+====
+
+== Check Your Understanding
+
+.Quiz Time! (Click to expand)
+[%collapsible]
+====
+
+Which statement best describes OpenShift Dev Spaces?
+
+A. A desktop IDE installed on developer laptops.
+
+B. A cloud-based development environment running on OpenShift that provides standardized workspaces.
+
+C. A Continuous Integration platform.
+
+D. A Git repository hosting service.
+
+*Answer*
+
+**B** — OpenShift Dev Spaces provides standardized, browser-based development environments running on OpenShift.
+====
+
+== Key Takeaway
+
+[NOTE]
+====
+OpenShift Dev Spaces provides standardized Cloud Development Environments that eliminate workstation setup, improve consistency, and enable developers to start building applications quickly within the Software Factory.
+====

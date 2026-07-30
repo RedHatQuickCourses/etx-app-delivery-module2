@@ -1,0 +1,81 @@
+= OpenShift Dev Spaces Architecture
+:navtitle: Dev Spaces Architecture
+
+In the previous lesson, you learned how OpenShift Dev Spaces provides standardized Cloud Development Environments for developers.
+
+In this lesson, you'll look behind the scenes to understand how Dev Spaces creates and manages developer workspaces on OpenShift.
+
+You don't need to manage these components directly, but understanding their roles will help you see how Dev Spaces delivers secure, repeatable development environments.
+
+image::arch.png[OpenShift Dev Spaces Architecture,align="center"]
+
+== How a Workspace is Created
+
+When a developer creates a new workspace, Dev Spaces follows a simple workflow:
+
+. The developer selects or imports a project that contains a **Devfile**.
+. The Dev Spaces Dashboard sends the workspace request.
+. The Dev Spaces Server reads the Devfile definition.
+. A **DevWorkspace** resource is created on OpenShift.
+. OpenShift provisions the required workspace containers.
+. The developer connects to the running workspace through the browser.
+
+This process ensures every workspace is created from the same version-controlled configuration, providing a consistent development environment for every developer.
+
+== Core Components
+
+The architecture consists of several services that work together to provision and manage developer workspaces.
+
+[cols="1,3",options="header"]
+|===
+|Component |Purpose
+
+|Devfile Registry
+|Stores reusable Devfile templates that define workspace configurations and sample development environments.
+
+|Plugin Registry
+|Provides IDE extensions and plugins that are installed into developer workspaces.
+
+|Dev Spaces Dashboard
+|The browser-based interface where developers create, start, stop, and manage their workspaces.
+
+|Dev Spaces Server
+|The core service that processes workspace requests, interprets Devfiles, and coordinates workspace creation.
+
+|Gateway
+|Routes user requests to the appropriate Dev Spaces services and workspace pods. It also handles authentication and authorization using OpenShift OAuth and Role-Based Access Control (RBAC).
+
+|PostgreSQL
+|Stores configuration data and workspace metadata used by the Dev Spaces platform.
+
+|OpenShift API
+|Creates and manages the Kubernetes resources required for each developer workspace.
+
+|DevWorkspace
+|A Kubernetes custom resource that represents an individual development workspace running on OpenShift.
+|===
+
+== How Dev Spaces Fits the Software Factory
+
+Within the Software Factory, Dev Spaces provides the standardized development environment where application development begins.
+
+Platform Engineers maintain the Dev Spaces platform, while developers simply launch a workspace and begin writing code.
+
+Because workspaces are defined as code and provisioned automatically, organizations gain:
+
+* Consistent development environments
+* Faster developer onboarding
+* Simplified platform management
+* Improved security and governance
+
+[NOTE]
+====
+Most developers interact only with the Dev Spaces Dashboard. The remaining components operate behind the scenes to automatically provision, secure, and manage development workspaces on OpenShift.
+====
+
+== Key Takeaway
+
+[NOTE]
+====
+OpenShift Dev Spaces combines Devfiles, platform services, and OpenShift to automatically provision standardized development workspaces, allowing developers to focus on building applications instead of configuring their development environment.
+====

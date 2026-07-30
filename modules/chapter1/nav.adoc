@@ -1,4 +1,18 @@
-* xref:index.adoc[]
-** xref:section1.adoc[]
-** xref:section2.adoc[]
+* Version Control
+//** xref:index.adoc[]
 ** xref:section3.adoc[]
+** xref:lab-env-overview.adoc[]
+** xref:lab-1.adoc[]
+** xref:lab-2.adoc[]
+* DevEx and DevSpaces
+** xref:devX.adoc[Developer Experience Matters]
+** xref:section4.adoc[]
+** xref:devspace_arch.adoc[]
+** xref:devspace_working.adoc[]
+** xref:section5.adoc[]
+* Hands-on Lab
+** xref:lab-3.adoc[]
+** xref:lab-5.adoc[]
+** xref:lab-4.adoc[]
+** xref:section12.adoc[]
+

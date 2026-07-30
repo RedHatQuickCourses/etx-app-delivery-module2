@@ -1,0 +1,86 @@
+= Lab: Environment Overview
+:navtitle: Lab: Environment Overview
+
+Before starting the hands-on exercises, familiarize yourself with the lab environment and the services available throughout this learning path.
+
+The core infrastructure has already been deployed and configured. During the remaining labs, you'll build upon this foundation by deploying additional platform capabilities and integrating them into a complete *Application Platform Software Factory*.
+
+== Lab Environment
+
+The following platform services are pre-configured and ready to use throughout the lab.
+
+[cols="1,2,2",options="header"]
+|===
+|Service |Purpose |Access
+
+|Red Hat Build of Keycloak (RHBK)
+|Provides centralized Single Sign-On (SSO) and identity management for the lab.
+|`KEYCLOAK_URL` _(Refer to the Lab Information page in RHDP.)_
+
+|GitLab CE
+|Hosts the application source code and Git repositories used during the lab.
+|`GITLAB_URL` _(Refer to the Lab Information page in RHDP.)_
+
+|Red Hat Quay
+|Enterprise container registry used to store and distribute container images.
+|`QUAY_URL` _(Refer to the Lab Information page in RHDP.)_
+
+|OpenShift GitOps
+|Provides GitOps-based continuous delivery and manages platform resources.
+|Pre-configured
+|===
+
+== Lab Credentials
+
+Use the following user accounts throughout the lab.
+
+[cols="1,1,2",options="header"]
+|===
+|Username |Password |Purpose
+
+|`platform-admin`
+|`openshift`
+|Platform administrator
+
+|`platform-developer`
+|`openshift`
+|Application developer
+
+|`platform-user`
+|`openshift`
+|Standard user
+|===
+
+Unless otherwise instructed, authenticate to GitLab, Quay, and other integrated services using **Keycloak Single Sign-On (SSO)** with one of the lab accounts above.
+
+== OpenShift Clusters
+
+The lab environment consists of two OpenShift clusters.
+
+[cols="1,2",options="header"]
+|===
+|Cluster |Purpose
+
+|Primary Cluster
+|Development environment where you'll build, test, and deploy applications.
+
+|Secondary Cluster
+|Staging and Production environment used to demonstrate multi-cluster application promotion.
+|===
+
+The required namespaces have already been created and are ready for use.
+
+== What You'll Deploy
+
+Throughout this training, you'll deploy and configure the following application platform capabilities:
+
+* PostgreSQL
+* Red Hat AMQ Streams (Kafka)
+* Red Hat OpenShift Pipelines (Tekton)
+* Red Hat build of OpenTelemetry
+* Red Hat OpenShift Dev Spaces
+* Red Hat OpenShift GitOps (Argo CD)
+
+By the end of the _learning path_, these components will be integrated to create a complete *Application Platform Software Factory*.
+
+NOTE: Core infrastructure components—including Red Hat Build of Keycloak, GitLab, Red Hat Quay, and HashiCorp Vault—have already been provisioned and do not require installation.

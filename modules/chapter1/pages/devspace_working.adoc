@@ -1,0 +1,95 @@
+= Creating Your First Dev Workspace
+:navtitle: Creating a Workspace
+
+Now let's see what actually happens when a developer signs in and creates a development workspace.
+
+image::working.png[align="center"]
+
+== Workspace Creation Workflow
+
+Creating a workspace is designed to be a simple self-service experience.
+
+Behind the scenes, Dev Spaces automatically provisions the required OpenShift resources so developers can begin coding within minutes.
+
+The workflow consists of the following steps:
+
+. The developer signs in to the Dev Spaces Dashboard using their OpenShift credentials.
+. Dev Spaces authenticates the user through OpenShift OAuth.
+. If this is the user's first login, OpenShift automatically creates a dedicated namespace named `<username>-devspaces`.
+. The developer creates either:
++
+* An empty workspace, or
+* A workspace based on a predefined template.
+
+. Dev Spaces creates a **DevWorkspace** resource.
+. The DevWorkspace references a **DevWorkspaceTemplate**, which defines the containers, tools, storage, and runtime configuration required for the workspace.
+. OpenShift provisions the workspace pod.
+. The developer connects to the running workspace through their browser and begins coding.
+
+== Authentication
+
+By default, OpenShift Dev Spaces integrates directly with the OpenShift authentication system.
+
+This provides a seamless sign-in experience using existing cluster credentials.
+
+Key points:
+
+* Uses OpenShift OAuth by default.
+* Supports any OpenID Connect (OIDC) identity provider.
+* Can integrate with Red Hat Single Sign-On (RHSSO) or Red Hat Build of Keycloak.
+* Uses OpenShift Role-Based Access Control (RBAC) to control access to workspaces.
+
+Because authentication is delegated to OpenShift, developers don't need separate Dev Spaces accounts.
+
+== Automatic Workspace Isolation
+
+Every developer receives an isolated workspace namespace.
+
+For example:
+
+[source,text]
+----
+alice-devspaces
+bob-devspaces
+charlie-devspaces
+----
+
+Each namespace contains only that developer's workspaces and resources.
+
+This provides:
+
+* Resource isolation
+* Better security
+* Simplified administration
+* Multi-tenant development environments
+
+Platform Engineers can centrally manage resource quotas and permissions while developers remain isolated from one another.
+
+== Workspace Templates
+
+Developers don't need to manually configure development environments.
+
+Instead, they create workspaces from reusable templates.
+
+A template typically defines:
+
+* Development container image
+* IDE configuration
+* Required tools and runtimes
+* Persistent storage
+* Environment variables
+* Startup commands
+
+These templates ensure every developer starts from a consistent environment that follows organizational standards.
+
+[NOTE]
+====
+Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.
+====
+
+== Key Takeaway
+
+[NOTE]
+====
+OpenShift Dev Spaces automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.
+====

@@ -1,37 +1,99 @@
-= Architecture
-:navtitle: Architectures
+= Lab Setup and Requirements
+:navtitle: Requirements & Environment Setup
 
-Red Hat OpenShift Dev Spaces runs (as a set of managed containers) on top of the OpenShift,
-and delegates several responsibilities around security, user management, resource allocation,
-and multi-tenancy to the underlying base platform.
 
-The product consists of a set of components interacting with each other to provide the necessary functionality for a web-based IDE. 
 
-image::devspaces-architecture.png[title=Red Hat OpenShift Dev Spaces Architecture (High Level)]
 
-Dev Spaces has a few core components:
+== Overview
 
-*Dev Spaces Operator*::
-Manages the lifecycle of the platform.
-Installed from OperatorHub.
+This initial setup session establishes the foundational environment used throughout the remaining 5 modules in this series of course.
+Ensure all requirements are met before proceeding.
 
-*CheCluster Custom Resource*::
-The single configuration object for the entire Dev Spaces deployment.
-Controls everything from resource limits to storage strategy to Git integration.
+== Requirements
 
-*DevWorkspace Operator*::
-Extends the OpenShift API to manage individual workspace pods.
-Installed automatically as a dependency.
+=== OpenShift Cluster
 
-*User Dashboard*::
-Web UI where developers create, start, stop, and manage their workspaces.
+You will need an OpenShift Container Platform cluster for the labs.
+Order a https://catalog.demo.redhat.com/catalog/babylon-catalog-prod/order/published.ocp4-cluster.prod[Red Hat OpenShift Container Platform Cluster (Multi-Cloud),window="_blank"] from the Red Hat Demo Platform with the following options:
 
-*Gateway*::
-A Traefik-based reverse proxy that handles authentication (via OpenShift OAuth) and routes traffic to workspace pods.
+[cols="1,2",options="header"]
+|===
+| Option | Value
 
-*Plugin Registry*::
-Serves IDE extensions.
-By default an embedded Open VSX registry with a limited set of extensions -- you will want to point this at the public Open VSX registry.
+| Activity
+| Practice / Enablement
 
-*Devfile Registry*::
-Provides sample workspace definitions for the dashboard's "getting started" experience.
+| Purpose
+| Conduct internal training/enablement
+
+| Cloud Provider
+| cnv
+
+| OpenShift Version
+| 4.21
+
+| Cluster Size
+| multinode
+
+| OpenShift Worker Count
+| 3
+
+| Worker CPU
+| 16
+
+| Worker memory
+| 32Gi
+
+| Create Users on Cluster
+| Unchecked
+
+| Enable OpenShift Lightspeed
+| Unchecked
+|===
+
+IMPORTANT: Order your cluster *before* the lab begins -- provisioning can take up to 60 minutes.
+Once provisioning is complete you will receive an email with your cluster credentials and console URL.
+
+=== Git Server Access
+
+* Access to the provided Git server instance
+* Repository permissions confirmed
+
+=== Laptop Setup
+
+* Git client installed and configured
+* Terminal or IDE with Git integration
+* SSH key or personal access token configured for the Git server
+
+== Environment Verification
+
+Verify your OpenShift cluster is accessible:
+
+[source,bash,role=execute,subs="attributes"]
+----
+oc login -u admin --server={openshift_api_url}
+oc whoami
+oc get nodes
+----
+
+Verify your Git client is installed:
+
+[source,bash,subs="attributes"]
+----
+git --version
+----
+
+Confirm you can authenticate to the Git server:
+
+[source,bash]
+----
+# Get GitLab URL dynamically
+GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+
+# Clone the repository
+git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git
+----
+
+== Next Steps
+
+Once your environment is verified, proceed to xref:day1-branching-strategies.adoc[Branching Strategies].
