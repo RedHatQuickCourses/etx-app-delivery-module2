@@ -8,3 +8,4 @@ FIXME: Add short description about your training here.
 
 FIXME: Add here the list of objectives being covered in this training.
 
+# CI/CD test
