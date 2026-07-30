@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing Applications with OpenShift Dev Spaces :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="devX.html">
+    <link rel="next" href="devspace_arch.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section1.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section2.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-1.html">Lab1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2.html">Lab 2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section4.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section5.html">Devfiles</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Hands-on Lab</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 3</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 4</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 5</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section12.html">Lab 6</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="section4.html">Dev Spaces Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Developing Applications with OpenShift Dev Spaces</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the previous lesson, you learned how a <strong>Software Factory</strong> standardizes software delivery by providing developers with reusable services, automation, and engineering best practices.</p>
+</div>
+<div class="paragraph">
+<p>One of the first capabilities provided by a Software Factory is a standardized development environment.</p>
+</div>
+<div class="paragraph">
+<p>Instead of asking every developer to install IDEs, programming language runtimes, SDKs, CLI tools, and dependencies on their own workstation, organizations provide ready-to-use development environments that developers can access on demand.</p>
+</div>
+<div class="paragraph">
+<p>This capability is provided by <strong>Red Hat OpenShift Dev Spaces</strong>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Think about how long it takes today for a new developer to prepare their laptop before writing their first line of code. How much of that effort could be eliminated with a preconfigured development environment?
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_challenge"><a class="anchor" href="#_the_challenge"></a>The Challenge</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Setting up a local development environment is often one of the most time-consuming parts of developer onboarding.</p>
+</div>
+<div class="paragraph">
+<p>A typical setup includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Installing an IDE.</p>
+</li>
+<li>
+<p>Installing programming language runtimes.</p>
+</li>
+<li>
+<p>Downloading SDKs and command-line tools.</p>
+</li>
+<li>
+<p>Configuring Kubernetes access.</p>
+</li>
+<li>
+<p>Installing extensions and plugins.</p>
+</li>
+<li>
+<p>Managing project dependencies.</p>
+</li>
+<li>
+<p>Matching software versions used by the rest of the team.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Even after completing this setup, developers frequently encounter environment differences that lead to the familiar problem:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>"It works on my machine."</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>These inconsistencies slow onboarding, complicate collaboration, and introduce avoidable deployment issues.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When every developer maintains a different workstation configuration, development environments gradually drift apart, making troubleshooting, collaboration, and onboarding increasingly difficult.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_openshift_dev_spaces"><a class="anchor" href="#_what_is_openshift_dev_spaces"></a>What is OpenShift Dev Spaces?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift Dev Spaces provides <strong>Cloud Development Environments (CDEs)</strong> that run directly on OpenShift.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/devspace.png" alt="devspace" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of developing on a local workstation, developers use browser-based workspaces that are already configured with the required IDE, programming language runtimes, tools, dependencies, and cluster access.</p>
+</div>
+<div class="paragraph">
+<p>Each workspace runs as containers on the OpenShift cluster while developers access it through a web browser using a familiar development environment.</p>
+</div>
+<div class="paragraph">
+<p>This allows every developer to work with a consistent and reproducible environment regardless of the machine they are using.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_cloud_development_environments"><a class="anchor" href="#_why_cloud_development_environments"></a>Why Cloud Development Environments?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Development Environments improve both developer productivity and platform consistency.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Capability</th>
+<th class="tableblock halign-left valign-top">Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rapid onboarding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Developers begin coding within minutes instead of spending hours preparing their workstation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consistent environments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Every developer uses the same tools, runtime versions, and dependencies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-native development</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Applications are developed in an environment that closely matches production.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Centralized security</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source code and development environments remain inside the organization&#8217;s OpenShift platform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Development environments are centrally maintained by Platform Engineers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dev_spaces_in_the_software_factory"><a class="anchor" href="#_dev_spaces_in_the_software_factory"></a>Dev Spaces in the Software Factory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within a Software Factory, Dev Spaces provides the standardized environment where application development begins.</p>
+</div>
+<div class="paragraph">
+<p>A typical workflow looks like this:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Launch a development workspace.</p>
+</li>
+<li>
+<p>Clone or open the application source code.</p>
+</li>
+<li>
+<p>Develop and test application features.</p>
+</li>
+<li>
+<p>Commit changes to Git.</p>
+</li>
+<li>
+<p>Trigger the automated software delivery pipeline.</p>
+</li>
+<li>
+<p>Allow the Software Factory to build, validate, and deploy the application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Developers focus on writing application code while the Software Factory handles the surrounding automation and platform operations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits"><a class="anchor" href="#_benefits"></a>Benefits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For developers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start coding immediately without local setup.</p>
+</li>
+<li>
+<p>Access projects from any machine using only a browser.</p>
+</li>
+<li>
+<p>Work in consistent environments across development teams.</p>
+</li>
+<li>
+<p>Easily switch between projects without reinstalling tools.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For Platform Engineers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Standardize development environments.</p>
+</li>
+<li>
+<p>Simplify developer onboarding.</p>
+</li>
+<li>
+<p>Improve security by centralizing development resources.</p>
+</li>
+<li>
+<p>Reduce environment-related support requests.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenShift Dev Spaces standardizes where developers build software, allowing Platform Engineers to centrally manage development environments while developers focus on delivering application features.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reflection"><a class="anchor" href="#_reflection"></a>Reflection</h2>
+<div class="sectionbody">
+<details>
+<summary class="title">Think about your own organization (Click to expand)</summary>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>How long does it take to prepare a new developer workstation?</p>
+</li>
+<li>
+<p>Which tools must developers install manually?</p>
+</li>
+<li>
+<p>How often do environment differences cause development or deployment issues?</p>
+</li>
+<li>
+<p>How could centralized development environments improve developer productivity?</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_check_your_understanding"><a class="anchor" href="#_check_your_understanding"></a>Check Your Understanding</h2>
+<div class="sectionbody">
+<details>
+<summary class="title">Quiz Time! (Click to expand)</summary>
+<div class="content">
+<div class="paragraph">
+<p>Which statement best describes OpenShift Dev Spaces?</p>
+</div>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>A desktop IDE installed on developer laptops.</p>
+</li>
+<li>
+<p>A cloud-based development environment running on OpenShift that provides standardized workspaces.</p>
+</li>
+<li>
+<p>A Continuous Integration platform.</p>
+</li>
+<li>
+<p>A Git repository hosting service.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Answer</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>B</strong> — OpenShift Dev Spaces provides standardized, browser-based development environments running on OpenShift.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_takeaway"><a class="anchor" href="#_key_takeaway"></a>Key Takeaway</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenShift Dev Spaces provides standardized Cloud Development Environments that eliminate workstation setup, improve consistency, and enable developers to start building applications quickly within the Software Factory.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="devX.html">Developer Experience Matters</a></span>
+  <span class="next"><a href="devspace_arch.html">Dev Spaces Architecture</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

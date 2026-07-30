@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>What is a Devfile? :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="devspace_working.html">
+    <link rel="next" href="lab-3.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section1.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section2.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-1.html">Lab1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2.html">Lab 2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section4.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section5.html">Devfiles</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Hands-on Lab</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 3</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 4</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 5</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section12.html">Lab 6</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="section5.html">Devfiles</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">What is a Devfile?</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the previous lesson, you learned how OpenShift Dev Spaces provisions developer workspaces automatically.</p>
+</div>
+<div class="paragraph">
+<p>But how does Dev Spaces know which tools, runtimes, and commands should be available inside each workspace?</p>
+</div>
+<div class="paragraph">
+<p>The answer is a <strong>Devfile</strong>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/devfile.png" alt="devfile" width="500">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_devfile"><a class="anchor" href="#_what_is_a_devfile"></a>What is a Devfile?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <a href="https://devfile.io/" target="_blank" rel="noopener">Devfile</a> is a YAML file, typically named <code>devfile.yaml</code>, stored in the root of a Git repository.</p>
+</div>
+<div class="paragraph">
+<p>Platform Engineers use Devfiles to describe and standardize development environments, allowing every developer working on a project to use the same tools, runtime, and workspace configuration.</p>
+</div>
+<div class="paragraph">
+<p>Instead of manually configuring development environments, Dev Spaces simply reads the Devfile and provisions the workspace automatically.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A Devfile acts as the blueprint for a development workspace. It defines everything needed to create a consistent development environment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_does_a_devfile_define"><a class="anchor" href="#_what_does_a_devfile_define"></a>What Does a Devfile Define?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Devfile can describe every aspect of a development workspace, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Project metadata such as the repository and default branch</p>
+</li>
+<li>
+<p>The development editor and IDE configuration</p>
+</li>
+<li>
+<p>Container images and runtime environment</p>
+</li>
+<li>
+<p>Development tools and dependencies</p>
+</li>
+<li>
+<p>Build and runtime environments</p>
+</li>
+<li>
+<p>Volumes and persistent storage</p>
+</li>
+<li>
+<p>Build, run, debug, and test commands</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Because the Devfile is version-controlled alongside the application source code, every developer receives the same development environment regardless of their local machine.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_devfiles_matter"><a class="anchor" href="#_why_devfiles_matter"></a>Why Devfiles Matter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Without Devfiles, every developer must configure their own workstation.</p>
+</div>
+<div class="paragraph">
+<p>This often leads to inconsistent tool versions, missing dependencies, and the classic problem:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>"It works on my machine."</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Devfiles eliminate this by defining the workspace as code.</p>
+</div>
+<div class="paragraph">
+<p>Benefits include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Consistent development environments</p>
+</li>
+<li>
+<p>Faster developer onboarding</p>
+</li>
+<li>
+<p>Reproducible workspaces</p>
+</li>
+<li>
+<p>Version-controlled environment definitions</p>
+</li>
+<li>
+<p>Simplified collaboration across teams</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devfile_structure"><a class="anchor" href="#_devfile_structure"></a>Devfile Structure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Devfile is written in YAML and is organized into several logical sections.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.2.0
+metadata:
+  name: my-project
+
+attributes: {}   # IDE settings
+components: []   # Containers, volumes, endpoints
+commands: []     # Build, run, debug commands
+events: {}       # Lifecycle hooks</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The most common sections are:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Section</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Metadata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies the workspace and project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores IDE-specific configuration, such as recommended extensions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Components</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines containers, volumes, endpoints, and other workspace resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies build, run, test, and debug commands available from the IDE.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes lifecycle actions such as <code>preStart</code> and <code>postStart</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devfiles_and_the_universal_developer_image"><a class="anchor" href="#_devfiles_and_the_universal_developer_image"></a>Devfiles and the Universal Developer Image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Devfile is recommended, but it is not required to create a workspace.</p>
+</div>
+<div class="paragraph">
+<p>If a Git repository does not contain a <code>devfile.yaml</code>, OpenShift Dev Spaces automatically provisions a workspace using the <strong>Universal Developer Image (UDI)</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The Universal Developer Image includes many commonly used development tools and programming language runtimes, allowing developers to start coding immediately.</p>
+</div>
+<div class="paragraph">
+<p>As projects become more specialized, teams typically provide their own Devfile to customize the workspace with project-specific tools, dependencies, and commands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_devfiles_fit_the_software_factory"><a class="anchor" href="#_how_devfiles_fit_the_software_factory"></a>How Devfiles Fit the Software Factory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the Software Factory, Platform Engineers maintain Devfiles as reusable definitions for development environments.</p>
+</div>
+<div class="paragraph">
+<p>Developers simply clone a repository or create a new workspace, and Dev Spaces provisions the environment automatically.</p>
+</div>
+<div class="paragraph">
+<p>This ensures every project follows organizational standards while reducing setup time and operational overhead.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Devfiles define development environments as code, allowing organizations to deliver standardized, repeatable, and version-controlled workspaces across teams.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_takeaway"><a class="anchor" href="#_key_takeaway"></a>Key Takeaway</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A Devfile is the blueprint for a Dev Spaces workspace. It defines the tools, containers, commands, and runtime configuration required for development, enabling consistent and reproducible environments for every developer.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="next"><a href="lab-3.html">Lab 3</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

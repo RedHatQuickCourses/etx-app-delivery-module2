@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Developer Experience Lifecycle :: Software Factory &amp; Developer Experience</title>
+    <title>Lab 1: Getting Started :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-env-overview.html">
+    <link rel="next" href="lab-2.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -81,7 +83,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="lab-1.html">Lab1</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -159,7 +161,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="section1.html">Developer Experience Lifecycle</a></li>
+    <li>Version Control</li>
+    <li><a href="lab-1.html">Lab1</a></li>
   </ul>
 </nav>
 </div>
@@ -168,103 +171,173 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Developer Experience Lifecycle</h1>
+<h1 class="page">Lab 1: Getting Started</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll access the Software Factory environment and prepare the application that will be used throughout the remaining exercises.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Imagine a developer joining a platform for the first time.</p>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/loop.png" alt="loop" width="650" height="650">
-</div>
-</div>
+<p>Authenticated to GitLab using enterprise Single Sign-On</p>
 </li>
 <li>
-<p>They begin with <strong>onboarding</strong>, gaining access to the tools, environments, and resources needed to get started.</p>
+<p>Cloned the workshop application repository</p>
 </li>
 <li>
-<p>From there, they enter the <strong>Inner Loop</strong>—writing code, building, testing, and debugging applications.</p>
-</li>
-<li>
-<p>Once changes are ready, they move into the <strong>Outer Loop</strong>, where code is reviewed, validated, secured, and deployed through automated delivery pipelines.</p>
-</li>
-<li>
-<p>After deployment, applications enter the <strong>Support Lifecycle</strong>, where monitoring, observability, and operational processes help keep them running reliably.</p>
-</li>
-<li>
-<p>Together, these stages form the <strong>Developer Experience Lifecycle</strong>.</p>
-</li>
-<li>
-<p>Without a right integration between both loops (<strong>Inner and Outer</strong>), based on right processes supported by the Platform Teams, the Developer Experience will be impacted with low rates of productivity, poor performance, and low adoption rates of the platform created supposed to help or support them.</p>
-</li>
-<li>
-<p>This complexity must be addressed accordingly.</p>
+<p>Verified access to the OpenShift cluster</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_accelerating_developer_productivity_and_security"><a class="anchor" href="#_accelerating_developer_productivity_and_security"></a>Accelerating Developer Productivity and Security</h2>
+<h2 id="_sign_in_to_gitlab"><a class="anchor" href="#_sign_in_to_gitlab"></a>Sign in to GitLab</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
+<div class="paragraph">
+<p>The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><em>Imagine an organization that has invested in a modern application platform, yet developers still struggle with onboarding, deployment processes, tooling decisions, and slow feedback cycles. At the same time, platform teams are working hard to provide capabilities that developers may not be fully adopting or utilizing.</em></p>
+<p>Navigate to the <strong>GitLab URL</strong> provided on your lab information page (for example, <code><a href="https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io" class="bare">https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io</a></code>).</p>
 </li>
 <li>
-<p>This is where a <strong>Developer Experience Assessment</strong> helps.</p>
+<p>Click btn:[ETX Lab SSO] as shown in the screenshot:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/signin.png" alt="signin" width="500">
+</div>
+</div>
 </li>
 <li>
-<p>Through a collaborative engagement, Red Hat Consulting works closely with platform teams and developers to understand how software is built, delivered, and operated across the organization.</p>
-</li>
-<li>
-<p>Together, they identify pain points, uncover opportunities for improvement, and align platform capabilities with developer needs.</p>
-</li>
-<li>
-<p>The outcome is a prioritized roadmap that helps improve:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Developer productivity</p>
-</li>
-<li>
-<p>Strengthen security</p>
-</li>
-<li>
-<p>Accelerate platform adoption.</p>
-</li>
-</ul>
+<p>Sign in using the provided credentials:</p>
+<div class="paragraph">
+<p><code>platform-developer</code> / <code>openshift</code></p>
 </div>
 </li>
 <li>
-<p>The roadmap also provides guidance for building key capabilities such as:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>An Internal Developer Portal (IDP)</strong></p>
-</li>
-<li>
-<p><strong>A Trusted Software Supply Chain (TSSC)</strong></p>
-</li>
-<li>
-<p><strong>Self-service developer experiences</strong></p>
-</li>
-</ul>
+<p>After successful authentication, you&#8217;ll be redirected back to GitLab.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitlab.png" alt="gitlab" width="500">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The first time you sign in, GitLab automatically creates a user profile linked to your Keycloak identity.
+</td>
+</tr>
+</table>
 </div>
 </li>
-<li>
-<p><em>Success requires more than technology alone.</em></p>
-</li>
-<li>
-<p>It depends on active collaboration, hands-on workshops, and open discussions where platform teams and developers work together to shape the future developer experience.</p>
-</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_clone_the_workshop_repository"><a class="anchor" href="#_clone_the_workshop_repository"></a>Clone the Workshop Repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Throughout the training you&#8217;ll work with the <strong>ETX App Base</strong> application.</p>
+</div>
+<div class="paragraph">
+<p>Use the <strong>OpenShift Web Terminal</strong> to clone the repository.</p>
+</div>
+<div class="paragraph">
+<p>&lt;Add step around login into openshift console by taking it&#8217;s access from lab environment page&gt;</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Open the Web Terminal by clicking the <strong>&gt;_</strong> icon in the upper-right corner of the OpenShift Console.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>First, determine the GitLab URL.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">GITLAB_URL="https://$(oc get route \
+  -n gitlab \
+  -l app=webservice \
+  -o jsonpath='{.items[0].spec.host}')"
+
+echo "${GITLAB_URL}"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Clone the application repository.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mkdir -p ~/workshop
+cd ~/workshop
+
+git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git
+cd etx_app_base_app</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Git repository is named <code>etx_app_base_app</code>. Kubernetes resources created later in the workshop use the naming convention <code>etx-app-base-app-*</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This repository intentionally does <strong>not</strong> contain a <code>devfile.yaml</code>. In the next lab, you&#8217;ll create one yourself and use it to launch a Dev Spaces workspace.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_openshift_access"><a class="anchor" href="#_verify_openshift_access"></a>Verify OpenShift Access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Confirm that you&#8217;re connected to the openshift cluster and have access to the development project.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc whoami --show-server
+
+oc project etx-app-dev</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="lab-env-overview.html">Lab: Environment Overview</a></span>
+  <span class="next"><a href="lab-2.html">Lab 2</a></span>
+</nav>
 </article>
   </div>
 </main>

@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Environment :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="../index.html">
-    <link rel="next" href="../chapter0/section1.html">
+    <title>Self-Service with Software Templates :: Software Factory &amp; Developer Experience</title>
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -50,8 +48,8 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Lab Environment</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -62,10 +60,10 @@
     <span class="nav-text">Software Factory Overview</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter0/section1.html">Introduction</a>
+    <a class="nav-link" href="section1.html">Introduction</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter0/section2.html">A Day in the Software Factory</a>
+    <a class="nav-link" href="section2.html">A Day in the Software Factory</a>
   </li>
 </ul>
   </li>
@@ -161,7 +159,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="index.html">Lab Environment</a></li>
+    <li><a href="self-serve.html">Self-Service with Software Templates</a></li>
   </ul>
 </nav>
 </div>
@@ -170,79 +168,191 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Environment</h1>
+<h1 class="page">Self-Service with Software Templates</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Click the <a href="https://demo.redhat.com/">RHDP</a> link above, log in to RHDP, and click <code>Order</code> to request a new <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-dev?item=babylon-catalog-dev/openshift-cnv.app-platform-factory-cnv.dev&amp;utm_source=webapp&amp;utm_medium=share-link">Service Enablement: App Platform Software Factory</a>. On the order page for the catalog item, do the following:</p>
+<p>Developers need a fast and consistent way to create <strong>new</strong> applications without manually configuring repositories, pipelines, deployment manifests, and platform integrations.</p>
+</div>
+<div class="paragraph">
+<p>This is where <strong>Software Templates</strong> come in.</p>
+</div>
+<div class="paragraph">
+<p>Software Templates, also known as <strong>Golden Paths</strong>, provide standardized project blueprints that automate the creation of new applications. Rather than starting from an empty repository, developers begin with an organization-approved template that already includes the required project structure, configurations, and automation.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/self-serve.png" alt="Self-Service with Software Templates">
+</div>
+</div>
+<div class="paragraph">
+<p>The diagram above illustrates how Software Templates simplify application development by capturing organizational best practices and turning them into reusable automation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_capture_your_best_practices"><a class="anchor" href="#_capture_your_best_practices"></a>Capture Your Best Practices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Platform Engineers work with development teams to identify proven architectural patterns, coding standards, deployment practices, and organizational policies.</p>
+</div>
+<div class="paragraph">
+<p>Instead of documenting these practices for developers to follow manually, they are codified into reusable Software Templates.</p>
+</div>
+<div class="paragraph">
+<p>As a result, every new project begins with the same approved foundation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bake_your_processes_into_templates"><a class="anchor" href="#_bake_your_processes_into_templates"></a>Bake Your Processes into Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once best practices have been captured, Platform Engineers package them into Software Templates.</p>
+</div>
+<div class="paragraph">
+<p>A template defines everything required to bootstrap a new application, including:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Activity</strong>: Select <code>Practice/Enablement</code></p>
+<p>Project structure and source code scaffold</p>
 </li>
 <li>
-<p><strong>Purpose</strong>: Select <code>Learning about the Product</code></p>
+<p>Git repository creation</p>
 </li>
 <li>
-<p><strong>Salesforce ID</strong>: If you have an opportunity ID, enter it into this field, otherwise select <code>Project</code>, and then enter "Learning about RHCL" in the text field. You will see a warning message that a Salesforce ID is required, but you can safely ignore it.</p>
+<p>CI/CD pipeline configuration</p>
 </li>
 <li>
-<p><strong>Features</strong>: Select <code>Enable Let&#8217;s Encrypt</code></p>
+<p>Deployment manifests, such as Helm charts or Kustomize overlays</p>
 </li>
 <li>
-<p><strong>Region</strong>: Select the AWS region closest to your location</p>
+<p>Dev Spaces configuration for cloud-based development</p>
 </li>
 <li>
-<p><strong>User count</strong>: <code>1</code></p>
+<p>Software Catalog registration</p>
 </li>
 <li>
-<p><strong>Control Plane Count</strong>: <code>1</code></p>
-</li>
-<li>
-<p><strong>OpenShift Version</strong>: <code>4.16</code></p>
-</li>
-<li>
-<p><strong>Control Plane Instance Type</strong>: <code>m6a.4xlarge</code></p>
-</li>
-<li>
-<p>Select the checkbox at the bottom of the page to confirm that lab costs will be charged to your cost center, and click <code>Order</code>.</p>
+<p>Organizational standards and recommended configurations</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
+<div class="paragraph">
+<p>Developers simply provide a few project-specific details, while the template automatically performs the remaining setup.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generate_new_projects_automatically"><a class="anchor" href="#_generate_new_projects_automatically"></a>Generate New Projects Automatically</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a developer selects a Software Template from Red Hat Developer Hub, the platform automatically provisions the required resources.</p>
+</div>
+<div class="paragraph">
+<p>Instead of manually creating repositories, configuring pipelines, or preparing deployment manifests, these tasks are performed automatically.</p>
+</div>
+<div class="paragraph">
+<p>The generated project is immediately committed to the organization&#8217;s version control system and is ready for development.</p>
+</div>
+<div class="paragraph">
+<p>This allows developers to focus on implementing business functionality instead of performing repetitive setup tasks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_get_started_in_seconds"><a class="anchor" href="#_get_started_in_seconds"></a>Get Started in Seconds</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Traditional project onboarding often involves several manual activities, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Requesting repositories</p>
+</li>
+<li>
+<p>Downloading starter projects</p>
+</li>
+<li>
+<p>Copying and modifying configuration files</p>
+</li>
+<li>
+<p>Creating CI/CD pipelines</p>
+</li>
+<li>
+<p>Configuring deployment resources</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Software Templates eliminate these repetitive tasks by automating the entire project creation process.</p>
+</div>
+<div class="paragraph">
+<p>Developers receive a production-ready project within seconds, while Platform Engineers can ensure every project follows organizational standards from the very beginning.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_benefits_of_software_templates"><a class="anchor" href="#_key_benefits_of_software_templates"></a>Key Benefits of Software Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Software Templates provide advantages for both developers and platform teams.</p>
+</div>
+<div class="paragraph">
+<p>For developers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Quickly create new projects using proven architectural patterns.</p>
+</li>
+<li>
+<p>Eliminate repetitive project setup activities.</p>
+</li>
+<li>
+<p>Begin development immediately with a fully configured project.</p>
+</li>
+<li>
+<p>Follow organizational standards without additional effort.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For Platform Engineers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Standardize application architectures across teams.</p>
+</li>
+<li>
+<p>Embed security, compliance, and operational best practices into every project.</p>
+</li>
+<li>
+<p>Reduce support requests and onboarding time.</p>
+</li>
+<li>
+<p>Continuously improve templates as organizational standards evolve.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The lab environment will take an hour to provision. You can check the status and details of the OpenShift cluster from the <code>Services</code> page of RHDP. The classroom is available for 48 hours initially. You can extend the duration of classroom availability by clicking <code>Help &gt; Get Technical Help</code> in RHDP, and then requesting an extension by opening a ServiceNow ticket with the RHDP team.
+<div class="paragraph">
+<p>Software Templates do not replace developer creativity. Instead, they automate the repetitive foundation of every project, allowing developers to spend more time building business functionality while Platform Engineers ensure consistency across the Software Factory.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_rhdp_portal_links"><a class="anchor" href="#_rhdp_portal_links"></a>RHDP Portal Links</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://demo.redhat.com/">RedHat Associates</a></p>
-</li>
-<li>
-<p><a href="https://partner.demo.redhat.com/">RedHat Partners</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<nav class="pagination">
-  <span class="prev"><a href="../index.html">Software Factory &amp; Developer Experience</a></span>
-  <span class="next"><a href="../chapter0/section1.html">Introduction</a></span>
-</nav>
 </article>
   </div>
 </main>

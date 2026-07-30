@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Setup and Requirements :: Software Factory &amp; Developer Experience</title>
+    <title>OpenShift Dev Spaces Architecture :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="section4.html">
+    <link rel="next" href="devspace_working.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -99,7 +101,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section4.html">Dev Spaces Overview</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -159,7 +161,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="section2.html">Requirements &amp; Environment Setup</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="devspace_arch.html">Dev Spaces Architecture</a></li>
   </ul>
 </nav>
 </div>
@@ -168,167 +171,179 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Setup and Requirements</h1>
-<div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h1 class="page">OpenShift Dev Spaces Architecture</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This initial setup session establishes the foundational environment used throughout the remaining 5 modules in this series of course.
-Ensure all requirements are met before proceeding.</p>
+<p>In the previous lesson, you learned how OpenShift Dev Spaces provides standardized Cloud Development Environments for developers.</p>
+</div>
+<div class="paragraph">
+<p>In this lesson, you&#8217;ll look behind the scenes to understand how Dev Spaces creates and manages developer workspaces on OpenShift.</p>
+</div>
+<div class="paragraph">
+<p>You don&#8217;t need to manage these components directly, but understanding their roles will help you see how Dev Spaces delivers secure, repeatable development environments.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/arch.png" alt="OpenShift Dev Spaces Architecture">
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_requirements"><a class="anchor" href="#_requirements"></a>Requirements</h2>
+<h2 id="_how_a_workspace_is_created"><a class="anchor" href="#_how_a_workspace_is_created"></a>How a Workspace is Created</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_openshift_cluster"><a class="anchor" href="#_openshift_cluster"></a>OpenShift Cluster</h3>
 <div class="paragraph">
-<p>You will need an OpenShift Container Platform cluster for the labs.
-Order a <a href="https://catalog.demo.redhat.com/catalog/babylon-catalog-prod/order/published.ocp4-cluster.prod" target="_blank" rel="noopener">Red Hat OpenShift Container Platform Cluster (Multi-Cloud)</a> from the Red Hat Demo Platform with the following options:</p>
+<p>When a developer creates a new workspace, Dev Spaces follows a simple workflow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The developer selects or imports a project that contains a <strong>Devfile</strong>.</p>
+</li>
+<li>
+<p>The Dev Spaces Dashboard sends the workspace request.</p>
+</li>
+<li>
+<p>The Dev Spaces Server reads the Devfile definition.</p>
+</li>
+<li>
+<p>A <strong>DevWorkspace</strong> resource is created on OpenShift.</p>
+</li>
+<li>
+<p>OpenShift provisions the required workspace containers.</p>
+</li>
+<li>
+<p>The developer connects to the running workspace through the browser.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This process ensures every workspace is created from the same version-controlled configuration, providing a consistent development environment for every developer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_components"><a class="anchor" href="#_core_components"></a>Core Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The architecture consists of several services that work together to provision and manage developer workspaces.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 25%;">
+<col style="width: 75%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Activity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Practice / Enablement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Devfile Registry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores reusable Devfile templates that define workspace configurations and sample development environments.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Purpose</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Conduct internal training/enablement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plugin Registry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides IDE extensions and plugins that are installed into developer workspaces.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Provider</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cnv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dev Spaces Dashboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The browser-based interface where developers create, start, stop, and manage their workspaces.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift Version</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4.21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dev Spaces Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The core service that processes workspace requests, interprets Devfiles, and coordinates workspace creation.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster Size</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">multinode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Routes user requests to the appropriate Dev Spaces services and workspace pods. It also handles authentication and authorization using OpenShift OAuth and Role-Based Access Control (RBAC).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift Worker Count</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PostgreSQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores configuration data and workspace metadata used by the Dev Spaces platform.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Worker CPU</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates and manages the Kubernetes resources required for each developer workspace.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Worker memory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">32Gi</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Users on Cluster</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unchecked</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enable OpenShift Lightspeed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unchecked</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DevWorkspace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Kubernetes custom resource that represents an individual development workspace running on OpenShift.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock important">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_dev_spaces_fits_the_software_factory"><a class="anchor" href="#_how_dev_spaces_fits_the_software_factory"></a>How Dev Spaces Fits the Software Factory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the Software Factory, Dev Spaces provides the standardized development environment where application development begins.</p>
+</div>
+<div class="paragraph">
+<p>Platform Engineers maintain the Dev Spaces platform, while developers simply launch a workspace and begin writing code.</p>
+</div>
+<div class="paragraph">
+<p>Because workspaces are defined as code and provisioned automatically, organizations gain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Consistent development environments</p>
+</li>
+<li>
+<p>Faster developer onboarding</p>
+</li>
+<li>
+<p>Simplified platform management</p>
+</li>
+<li>
+<p>Improved security and governance</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Order your cluster <strong>before</strong> the lab begins&#8201;&#8212;&#8201;provisioning can take up to 60 minutes.
-Once provisioning is complete you will receive an email with your cluster credentials and console URL.
+<div class="paragraph">
+<p>Most developers interact only with the Dev Spaces Dashboard. The remaining components operate behind the scenes to automatically provision, secure, and manage development workspaces on OpenShift.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_git_server_access"><a class="anchor" href="#_git_server_access"></a>Git Server Access</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Access to the provided Git server instance</p>
-</li>
-<li>
-<p>Repository permissions confirmed</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_laptop_setup"><a class="anchor" href="#_laptop_setup"></a>Laptop Setup</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Git client installed and configured</p>
-</li>
-<li>
-<p>Terminal or IDE with Git integration</p>
-</li>
-<li>
-<p>SSH key or personal access token configured for the Git server</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="_environment_verification"><a class="anchor" href="#_environment_verification"></a>Environment Verification</h2>
+<h2 id="_key_takeaway"><a class="anchor" href="#_key_takeaway"></a>Key Takeaway</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Verify your OpenShift cluster is accessible:</p>
+<p>OpenShift Dev Spaces combines Devfiles, platform services, and OpenShift to automatically provision standardized development workspaces, allowing developers to focus on building applications instead of configuring their development environment.</p>
 </div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc login -u admin --server={openshift_api_url}
-oc whoami
-oc get nodes</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Verify your Git client is installed:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git --version</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Confirm you can authenticate to the Git server:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Get GitLab URL dynamically
-GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
-
-# Clone the repository
-git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git</code></pre>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once your environment is verified, proceed to <a href="#day1-branching-strategies.adoc" class="xref unresolved">Branching Strategies</a>.</p>
-</div>
-</div>
-</div>
+<nav class="pagination">
+  <span class="prev"><a href="section4.html">Dev Spaces Overview</a></span>
+  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+</nav>
 </article>
   </div>
 </main>

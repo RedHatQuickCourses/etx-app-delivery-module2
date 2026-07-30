@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Developer Experience Lifecycle :: Software Factory &amp; Developer Experience</title>
+    <title>Creating Your First Dev Workspace :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="devspace_arch.html">
+    <link rel="next" href="section5.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -102,7 +104,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -159,7 +161,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="section1.html">Developer Experience Lifecycle</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="devspace_working.html">Creating a Workspace</a></li>
   </ul>
 </nav>
 </div>
@@ -168,103 +171,223 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Developer Experience Lifecycle</h1>
+<h1 class="page">Creating Your First Dev Workspace</h1>
 <div id="preamble">
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Imagine a developer joining a platform for the first time.</p>
+<div class="paragraph">
+<p>Now let&#8217;s see what actually happens when a developer signs in and creates a development workspace.</p>
+</div>
 <div class="imageblock text-center">
 <div class="content">
-<img src="_images/loop.png" alt="loop" width="650" height="650">
+<img src="_images/working.png" alt="working">
 </div>
-</div>
-</li>
-<li>
-<p>They begin with <strong>onboarding</strong>, gaining access to the tools, environments, and resources needed to get started.</p>
-</li>
-<li>
-<p>From there, they enter the <strong>Inner Loop</strong>—writing code, building, testing, and debugging applications.</p>
-</li>
-<li>
-<p>Once changes are ready, they move into the <strong>Outer Loop</strong>, where code is reviewed, validated, secured, and deployed through automated delivery pipelines.</p>
-</li>
-<li>
-<p>After deployment, applications enter the <strong>Support Lifecycle</strong>, where monitoring, observability, and operational processes help keep them running reliably.</p>
-</li>
-<li>
-<p>Together, these stages form the <strong>Developer Experience Lifecycle</strong>.</p>
-</li>
-<li>
-<p>Without a right integration between both loops (<strong>Inner and Outer</strong>), based on right processes supported by the Platform Teams, the Developer Experience will be impacted with low rates of productivity, poor performance, and low adoption rates of the platform created supposed to help or support them.</p>
-</li>
-<li>
-<p>This complexity must be addressed accordingly.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_accelerating_developer_productivity_and_security"><a class="anchor" href="#_accelerating_developer_productivity_and_security"></a>Accelerating Developer Productivity and Security</h2>
+<h2 id="_workspace_creation_workflow"><a class="anchor" href="#_workspace_creation_workflow"></a>Workspace Creation Workflow</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Creating a workspace is designed to be a simple self-service experience.</p>
+</div>
+<div class="paragraph">
+<p>Behind the scenes, Dev Spaces automatically provisions the required OpenShift resources so developers can begin coding within minutes.</p>
+</div>
+<div class="paragraph">
+<p>The workflow consists of the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The developer signs in to the Dev Spaces Dashboard using their OpenShift credentials.</p>
+</li>
+<li>
+<p>Dev Spaces authenticates the user through OpenShift OAuth.</p>
+</li>
+<li>
+<p>If this is the user&#8217;s first login, OpenShift automatically creates a dedicated namespace named <code>&lt;username&gt;-devspaces</code>.</p>
+</li>
+<li>
+<p>The developer creates either:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Imagine an organization that has invested in a modern application platform, yet developers still struggle with onboarding, deployment processes, tooling decisions, and slow feedback cycles. At the same time, platform teams are working hard to provide capabilities that developers may not be fully adopting or utilizing.</em></p>
+<p>An empty workspace, or</p>
 </li>
 <li>
-<p>This is where a <strong>Developer Experience Assessment</strong> helps.</p>
-</li>
-<li>
-<p>Through a collaborative engagement, Red Hat Consulting works closely with platform teams and developers to understand how software is built, delivered, and operated across the organization.</p>
-</li>
-<li>
-<p>Together, they identify pain points, uncover opportunities for improvement, and align platform capabilities with developer needs.</p>
-</li>
-<li>
-<p>The outcome is a prioritized roadmap that helps improve:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Developer productivity</p>
-</li>
-<li>
-<p>Strengthen security</p>
-</li>
-<li>
-<p>Accelerate platform adoption.</p>
+<p>A workspace based on a predefined template.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>The roadmap also provides guidance for building key capabilities such as:</p>
+<p>Dev Spaces creates a <strong>DevWorkspace</strong> resource.</p>
+</li>
+<li>
+<p>The DevWorkspace references a <strong>DevWorkspaceTemplate</strong>, which defines the containers, tools, storage, and runtime configuration required for the workspace.</p>
+</li>
+<li>
+<p>OpenShift provisions the workspace pod.</p>
+</li>
+<li>
+<p>The developer connects to the running workspace through their browser and begins coding.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, OpenShift Dev Spaces integrates directly with the OpenShift authentication system.</p>
+</div>
+<div class="paragraph">
+<p>This provides a seamless sign-in experience using existing cluster credentials.</p>
+</div>
+<div class="paragraph">
+<p>Key points:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>An Internal Developer Portal (IDP)</strong></p>
+<p>Uses OpenShift OAuth by default.</p>
 </li>
 <li>
-<p><strong>A Trusted Software Supply Chain (TSSC)</strong></p>
+<p>Supports any OpenID Connect (OIDC) identity provider.</p>
 </li>
 <li>
-<p><strong>Self-service developer experiences</strong></p>
+<p>Can integrate with Red Hat Single Sign-On (RHSSO) or Red Hat Build of Keycloak.</p>
+</li>
+<li>
+<p>Uses OpenShift Role-Based Access Control (RBAC) to control access to workspaces.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Because authentication is delegated to OpenShift, developers don&#8217;t need separate Dev Spaces accounts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_automatic_workspace_isolation"><a class="anchor" href="#_automatic_workspace_isolation"></a>Automatic Workspace Isolation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every developer receives an isolated workspace namespace.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">alice-devspaces
+bob-devspaces
+charlie-devspaces</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each namespace contains only that developer&#8217;s workspaces and resources.</p>
+</div>
+<div class="paragraph">
+<p>This provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resource isolation</p>
 </li>
 <li>
-<p><em>Success requires more than technology alone.</em></p>
+<p>Better security</p>
 </li>
 <li>
-<p>It depends on active collaboration, hands-on workshops, and open discussions where platform teams and developers work together to shape the future developer experience.</p>
+<p>Simplified administration</p>
+</li>
+<li>
+<p>Multi-tenant development environments</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Platform Engineers can centrally manage resource quotas and permissions while developers remain isolated from one another.</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_workspace_templates"><a class="anchor" href="#_workspace_templates"></a>Workspace Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Developers don&#8217;t need to manually configure development environments.</p>
+</div>
+<div class="paragraph">
+<p>Instead, they create workspaces from reusable templates.</p>
+</div>
+<div class="paragraph">
+<p>A template typically defines:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Development container image</p>
+</li>
+<li>
+<p>IDE configuration</p>
+</li>
+<li>
+<p>Required tools and runtimes</p>
+</li>
+<li>
+<p>Persistent storage</p>
+</li>
+<li>
+<p>Environment variables</p>
+</li>
+<li>
+<p>Startup commands</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These templates ensure every developer starts from a consistent environment that follows organizational standards.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_takeaway"><a class="anchor" href="#_key_takeaway"></a>Key Takeaway</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenShift Dev Spaces automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="devspace_arch.html">Dev Spaces Architecture</a></span>
+  <span class="next"><a href="section5.html">Devfiles</a></span>
+</nav>
 </article>
   </div>
 </main>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Environment :: Software Factory &amp; Developer Experience</title>
+    <title>What Happens Behind the Scenes? :: Software Factory &amp; Developer Experience</title>
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
@@ -49,7 +49,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">Lab Environment</a>
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -60,10 +60,10 @@
     <span class="nav-text">Software Factory Overview</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter0/section1.html">Introduction</a>
+    <a class="nav-link" href="section1.html">Introduction</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter0/section2.html">A Day in the Software Factory</a>
+    <a class="nav-link" href="section2.html">A Day in the Software Factory</a>
   </li>
 </ul>
   </li>
@@ -159,7 +159,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="index-lab-role.html">Lab Environment</a></li>
+    <li><a href="template.html">Software Template Workflow</a></li>
   </ul>
 </nav>
 </div>
@@ -168,47 +168,182 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Environment</h1>
-<div class="sect1">
-<h2 id="_instructions_to_launch_your_lab_on_the_red_hat_online_learning_role_platform"><a class="anchor" href="#_instructions_to_launch_your_lab_on_the_red_hat_online_learning_role_platform"></a>Instructions to Launch Your Lab on the Red Hat Online Learning (ROLE) Platform</h2>
+<h1 class="page">What Happens Behind the Scenes?</h1>
+<div id="preamble">
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Log in</strong> to the <a href="#ROLE-Portal-Links">ROLE platform</a></p>
-</li>
-<li>
-<p><strong>Search</strong> for the catalog entry: <strong>FIXME Lab Catalog Name</strong>.</p>
-</li>
-<li>
-<p><strong>Click</strong> on the <strong>Launch</strong> button for the catalog entry in the search results.</p>
-</li>
-<li>
-<p>On the Course page, <strong>click</strong> the <strong>Lab Environment</strong> tab.</p>
-</li>
-<li>
-<p>Click on the <strong>Create</strong> button on the Lab Environment page to launch the lab.</p>
-</li>
-<li>
-<p>Wait for the lab creation process to complete.</p>
-</li>
-<li>
-<p>When the lab is created, refer to the <strong>SSH Private Key &amp; Instructions</strong> on the page to access your lab.</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>In the previous section, you learned that Software Templates, also known as <strong>Golden Paths</strong>, automate the creation of new projects using organization-approved best practices.</p>
 </div>
-<div class="sect2">
-<h3 id="ROLE-Portal-Links"><a class="anchor" href="#ROLE-Portal-Links"></a>ROLE Portal Links</h3>
+<div class="paragraph">
+<p>From a developer&#8217;s perspective, creating a new application is simple—they select a Software Template, provide a few project details, and click <strong>Create</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Behind the scenes, however, Red Hat Developer Hub orchestrates a series of automated tasks that prepare the project for development, deployment, and operations.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/template.png" alt="Software Template Workflow">
+</div>
+</div>
+<div class="paragraph">
+<p>The workflow above illustrates how a Software Template automates the complete project bootstrap process.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repository_setup"><a class="anchor" href="#_repository_setup"></a>Repository Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first stage prepares the application&#8217;s source repository.</p>
+</div>
+<div class="paragraph">
+<p>Developer Hub automatically performs tasks such as:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>RedHat associates: <a href="https://role.rhu.redhat.com/rol-rhu/app/" target="_blank" rel="noopener">https://role.rhu.redhat.com/rol-rhu/app/</a></p>
+<p>Creating a new Git repository.</p>
 </li>
 <li>
-<p>RedHat partners: <a href="https://rol.redhat.com/rol/app" target="_blank" rel="noopener">https://rol.redhat.com/rol/app</a></p>
+<p>Configuring repository permissions.</p>
+</li>
+<li>
+<p>Applying branch protection policies.</p>
+</li>
+<li>
+<p>Generating the initial application source code from the selected template.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Instead of manually creating repositories and copying starter projects, developers receive a ready-to-use project that already follows organizational standards.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_and_test"><a class="anchor" href="#_build_and_test"></a>Build and Test</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After the repository has been created, the template prepares everything required for continuous integration.</p>
+</div>
+<div class="paragraph">
+<p>Typical automation includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provisioning development and testing environments.</p>
+</li>
+<li>
+<p>Creating Continuous Integration (CI) pipelines.</p>
+</li>
+<li>
+<p>Configuring build automation.</p>
+</li>
+<li>
+<p>Preparing the project for automated testing.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When developers commit their code, the generated pipeline is already available to build, test, and validate the application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_orchestrate_and_deploy"><a class="anchor" href="#_orchestrate_and_deploy"></a>Orchestrate and Deploy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The final stage prepares the application for deployment into Kubernetes.</p>
+</div>
+<div class="paragraph">
+<p>Software Templates automatically generate deployment resources, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kubernetes deployment manifests.</p>
+</li>
+<li>
+<p>Helm charts or Kustomize overlays.</p>
+</li>
+<li>
+<p>Continuous Delivery (CD) pipeline configuration.</p>
+</li>
+<li>
+<p>Observability integrations for logs, metrics, and traces.</p>
+</li>
+<li>
+<p>Organizational security and governance policies.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By the time the template finishes executing, the application is ready to move through the Software Factory using standardized deployment workflows.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_end_to_end_automation"><a class="anchor" href="#_end_to_end_automation"></a>End-to-End Automation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rather than automating only project creation, Software Templates establish the complete foundation for application delivery.</p>
+</div>
+<div class="paragraph">
+<p>The generated project already includes everything needed to participate in the organization&#8217;s Software Factory, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Source control</p>
+</li>
+<li>
+<p>Continuous Integration</p>
+</li>
+<li>
+<p>Continuous Delivery</p>
+</li>
+<li>
+<p>Deployment manifests</p>
+</li>
+<li>
+<p>Observability</p>
+</li>
+<li>
+<p>Security and governance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As a result, developers can begin implementing business functionality immediately instead of spending time performing repetitive project setup activities.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Software Templates are created and maintained by Platform Engineers.</p>
+</div>
+<div class="paragraph">
+<p>As organizational standards evolve, Platform Engineers update the template once, allowing every newly generated application to automatically inherit the latest best practices without requiring developers to manually reconfigure their projects.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_takeaway"><a class="anchor" href="#_key_takeaway"></a>Key Takeaway</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Software Template is much more than a project scaffold.</p>
+</div>
+<div class="paragraph">
+<p>It automates the complete application onboarding process by provisioning repositories, pipelines, deployment resources, and operational integrations, allowing developers to focus on writing application code while the Software Factory handles the surrounding platform configuration.</p>
 </div>
 </div>
 </div>

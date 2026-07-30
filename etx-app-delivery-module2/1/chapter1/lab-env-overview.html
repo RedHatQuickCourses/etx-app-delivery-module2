@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab: Environment Overview :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="section3.html">
+    <link rel="next" href="lab-1.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section1.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter0/section2.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">Introduction</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-1.html">Lab1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2.html">Lab 2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section4.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section5.html">Devfiles</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Hands-on Lab</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 3</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 4</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 5</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section12.html">Lab 6</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>Version Control</li>
+    <li><a href="lab-env-overview.html">Lab: Environment Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab: Environment Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before starting the hands-on exercises, familiarize yourself with the lab environment and the services available throughout this learning path.</p>
+</div>
+<div class="paragraph">
+<p>The core infrastructure has already been deployed and configured. During the remaining labs, you&#8217;ll build upon this foundation by deploying additional platform capabilities and integrating them into a complete <strong>Application Platform Software Factory</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_environment"><a class="anchor" href="#_lab_environment"></a>Lab Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following platform services are pre-configured and ready to use throughout the lab.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Red Hat Build of Keycloak (RHBK)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides centralized Single Sign-On (SSO) and identity management for the lab.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>KEYCLOAK_URL</code> <em>(Refer to the Lab Information page in RHDP.)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitLab CE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hosts the application source code and Git repositories used during the lab.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GITLAB_URL</code> <em>(Refer to the Lab Information page in RHDP.)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Red Hat Quay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise container registry used to store and distribute container images.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>QUAY_URL</code> <em>(Refer to the Lab Information page in RHDP.)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift GitOps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides GitOps-based continuous delivery and manages platform resources.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pre-configured</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_credentials"><a class="anchor" href="#_lab_credentials"></a>Lab Credentials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the following user accounts throughout the lab.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Username</th>
+<th class="tableblock halign-left valign-top">Password</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform-admin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openshift</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Platform administrator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform-developer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openshift</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application developer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform-user</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openshift</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard user</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Unless otherwise instructed, authenticate to GitLab, Quay, and other integrated services using <strong>Keycloak Single Sign-On (SSO)</strong> with one of the lab accounts above.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openshift_clusters"><a class="anchor" href="#_openshift_clusters"></a>OpenShift Clusters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The lab environment consists of two OpenShift clusters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Cluster</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Development environment where you&#8217;ll build, test, and deploy applications.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secondary Cluster</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Staging and Production environment used to demonstrate multi-cluster application promotion.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The required namespaces have already been created and are ready for use.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_youll_deploy"><a class="anchor" href="#_what_youll_deploy"></a>What You&#8217;ll Deploy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Throughout this training, you&#8217;ll deploy and configure the following application platform capabilities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>PostgreSQL</p>
+</li>
+<li>
+<p>Red Hat AMQ Streams (Kafka)</p>
+</li>
+<li>
+<p>Red Hat OpenShift Pipelines (Tekton)</p>
+</li>
+<li>
+<p>Red Hat build of OpenTelemetry</p>
+</li>
+<li>
+<p>Red Hat OpenShift Dev Spaces</p>
+</li>
+<li>
+<p>Red Hat OpenShift GitOps (Argo CD)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By the end of the <em>learning path</em>, these components will be integrated to create a complete <strong>Application Platform Software Factory</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Core infrastructure components—including Red Hat Build of Keycloak, GitLab, Red Hat Quay, and HashiCorp Vault—have already been provisioned and do not require installation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="section3.html">Introduction</a></span>
+  <span class="next"><a href="lab-1.html">Lab1</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

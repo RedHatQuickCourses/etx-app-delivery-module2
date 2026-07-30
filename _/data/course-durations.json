@@ -1,6 +1,6 @@
 {
-  "totalSeconds": 2179,
-  "pageCount": 15,
+  "totalSeconds": 1987,
+  "pageCount": 17,
   "pages": [
     {
       "module": "ROOT",
@@ -13,69 +13,79 @@
       "seconds": 68
     },
     {
-      "module": "chapter1",
-      "page": "index.adoc",
-      "seconds": 85
-    },
-    {
-      "module": "chapter1",
+      "module": "chapter0",
       "page": "section1.adoc",
-      "seconds": 38
+      "seconds": 132
     },
     {
-      "module": "chapter1",
+      "module": "chapter0",
       "page": "section2.adoc",
-      "seconds": 58
+      "seconds": 97
     },
     {
       "module": "chapter1",
       "page": "section3.adoc",
-      "seconds": 33
+      "seconds": 167
     },
     {
-      "module": "chapter2",
-      "page": "day2-lab1-environment.adoc",
-      "seconds": 209
+      "module": "chapter1",
+      "page": "lab-env-overview.adoc",
+      "seconds": 102
     },
     {
-      "module": "chapter2",
-      "page": "day2-lab1-supporting-services.adoc",
-      "seconds": 205
+      "module": "chapter1",
+      "page": "lab-1.adoc",
+      "seconds": 70
     },
     {
-      "module": "chapter2",
-      "page": "day2-cluster-setup.adoc",
+      "module": "chapter1",
+      "page": "lab-2.adoc",
+      "seconds": 264
+    },
+    {
+      "module": "chapter1",
+      "page": "devX.adoc",
+      "seconds": 105
+    },
+    {
+      "module": "chapter1",
+      "page": "section4.adoc",
+      "seconds": 161
+    },
+    {
+      "module": "chapter1",
+      "page": "devspace_arch.adoc",
+      "seconds": 89
+    },
+    {
+      "module": "chapter1",
+      "page": "devspace_working.adoc",
+      "seconds": 71
+    },
+    {
+      "module": "chapter1",
+      "page": "section5.adoc",
+      "seconds": 132
+    },
+    {
+      "module": "chapter1",
+      "page": "lab-3.adoc",
       "seconds": 17
     },
     {
-      "module": "chapter2",
-      "page": "day2-devspaces-install.adoc",
-      "seconds": 66
+      "module": "chapter1",
+      "page": "lab-5.adoc",
+      "seconds": 68
     },
     {
-      "module": "chapter2",
-      "page": "day2-devspaces-integrations.adoc",
-      "seconds": 50
+      "module": "chapter1",
+      "page": "lab-4.adoc",
+      "seconds": 143
     },
     {
-      "module": "chapter2",
-      "page": "day2-lab1-devspaces.adoc",
-      "seconds": 255
-    },
-    {
-      "module": "chapter2",
-      "page": "day2-lab1-ci-pipeline.adoc",
-      "seconds": 339
-    },
-    {
-      "module": "chapter2",
-      "page": "day2-lab1-app-deployment.adoc",
-      "seconds": 403
-    },
-    {
-      "module": "chapter2",
-      "page": "day2-lab1-promotion.adoc",
-      "seconds": 258
+      "module": "chapter1",
+      "page": "section12.adoc",
+      "seconds": 206
     }
   ]
 }
