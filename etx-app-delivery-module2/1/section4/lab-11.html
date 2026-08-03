@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 11: Deploy and Run the Application :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab10.html">
+    <link rel="next" href="lab-summary.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="lab-11.html">Lab 11: Application Deployment</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 11: Deploy and Run the Application</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll run the ETX App Base application in Quarkus development mode and verify that it can connect to the PostgreSQL database and Kafka cluster deployed earlier in the training.</p>
+</div>
+<div class="paragraph">
+<p>Quarkus development mode provides a rapid development experience with live reload, allowing application changes to be reflected immediately without restarting the application.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Started the ETX App Base application in Quarkus development mode</p>
+</li>
+<li>
+<p>Verified connectivity to PostgreSQL and Kafka</p>
+</li>
+<li>
+<p>Accessed the running application from Red Hat Dev Spaces</p>
+</li>
+<li>
+<p>Learned how to manage the lifecycle of a Dev Spaces workspace</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_the_application_in_quarkus_development_mode"><a class="anchor" href="#_run_the_application_in_quarkus_development_mode"></a>Run the Application in Quarkus Development Mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you open a terminal in a Dev Spaces workspace, you&#8217;re automatically placed in the project directory.</p>
+</div>
+<div class="paragraph">
+<p>First, verify your current working directory.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pwd</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that the command returns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/projects/etx_app_base_app</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, start Quarkus development mode.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw compile quarkus:dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Quarkus uses the environment variables defined in your <code>devfile.yaml</code> to connect to the PostgreSQL database and Kafka cluster deployed in previous labs.</p>
+</div>
+<div class="paragraph">
+<p>Wait for the application to finish starting. You should see output similar to the following.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Listening for transport dt_socket at address: 5005
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,&lt; / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+
+INFO  [io.sma.rea.mes.kafka] SRMSG18229: Configured topics for channel 'emails-in': [intake]
+INFO  [io.sma.rea.mes.kafka] SRMSG18258: Kafka producer kafka-producer-emails-out, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.sma.rea.mes.kafka] SRMSG18257: Kafka consumer kafka-consumer-emails-in, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.quarkus] parasol-reimagined 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.17.5) started in 7.298s. Listening on: http://0.0.0.0:8080
+INFO  [io.quarkus] Profile dev activated. Live Coding activated.
+
+--
+Tests paused
+Press [e] to edit command line args, [r] to resume testing, [h] for more options&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify the following indicators of a successful startup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Debug port available</strong> (<code>5005</code>)</p>
+</li>
+<li>
+<p><strong>Kafka producer and consumer connected</strong></p>
+</li>
+<li>
+<p><strong>Application listening on port <code>8080</code></strong></p>
+</li>
+<li>
+<p><strong>Live Coding activated</strong></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Do not continue until Quarkus starts successfully and reports that Live Coding is activated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_access_the_running_application"><a class="anchor" href="#_access_the_running_application"></a>Access the Running Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After Quarkus starts, Red Hat Dev Spaces displays a notification in the lower-right corner with a link to the application endpoint.</p>
+</div>
+<div class="paragraph">
+<p>Click <strong>Open in New Tab</strong> or <strong>Open in Preview</strong> to open the application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="app.png"><img src="_images/app.png" alt="app" width="700"></a>
+</div>
+<div class="title">Figure 1. Application Endpoint Notification(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you dismiss the notification, stop Quarkus by pressing <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>C</kbd></span>, then restart it using <code>./mvnw compile quarkus:dev</code>. The notification will appear again.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The application URL follows this format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">https://&lt;username&gt;-&lt;project-name&gt;-quarkus-dev.apps.&lt;cluster-domain&gt;/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">https://admin-etx-app-base-app-quarkus-dev.apps.cluster-grsml.dynamic2.redhatworkshops.io/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also locate the application URL in the <strong>Endpoints</strong> view within the Dev Spaces IDE.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_external_service_connectivity"><a class="anchor" href="#_verify_external_service_connectivity"></a>Verify External Service Connectivity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The application automatically connects to the shared platform services using the environment variables defined in the Devfile.</p>
+</div>
+<div class="paragraph">
+<p>Verify that the application is using the following services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>PostgreSQL</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Host: <code>parasol-db.etx-app-dev.svc.cluster.local</code></p>
+</li>
+<li>
+<p>Port: <code>5432</code></p>
+</li>
+<li>
+<p>Database: <code>parasol</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Apache Kafka</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Bootstrap server: <code>parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092</code></p>
+</li>
+<li>
+<p>Topic: <code>intake</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These shared services were deployed earlier in the training and are available to all development workspaces.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_manage_the_workspace_lifecycle"><a class="anchor" href="#_manage_the_workspace_lifecycle"></a>Manage the Workspace Lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Dev Spaces allows you to stop, start, and delete workspaces while preserving your development environment when appropriate.</p>
+</div>
+<div class="paragraph">
+<p><strong>Stop a workspace</strong></p>
+</div>
+<div class="paragraph">
+<p>Stops the workspace pod while preserving the persistent workspace storage.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the Dev Spaces dashboard.</p>
+</li>
+<li>
+<p>Select the workspace.</p>
+</li>
+<li>
+<p>Click the options menu (⋮).</p>
+</li>
+<li>
+<p>Select <strong>Stop Workspace</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Start a workspace</strong></p>
+</div>
+<div class="paragraph">
+<p>Restarts a previously stopped workspace while preserving your files, Maven cache, and Git repository.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the options menu (⋮).</p>
+</li>
+<li>
+<p>Select <strong>Start in Background</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Delete a workspace</strong></p>
+</div>
+<div class="paragraph">
+<p>Deletes both the workspace pod and its associated persistent storage.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the options menu (⋮).</p>
+</li>
+<li>
+<p>Select <strong>Delete Workspace</strong>.</p>
+</li>
+<li>
+<p>Confirm the deletion.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Stop a workspace when you&#8217;re finished developing but intend to continue later. Delete a workspace only when you no longer need the development environment.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="lab10.html">Lab 10: Dev Spaces Workspace</a></span>
+  <span class="next"><a href="lab-summary.html">📋 Lab Summary</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

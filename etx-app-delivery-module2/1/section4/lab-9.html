@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 9: Configure GitLab Integration and Shared Secrets :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="devfiles.html">
+    <link rel="next" href="lab10.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 9: Configure GitLab Integration and Shared Secrets</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll integrate Red Hat Dev Spaces with GitLab using OAuth and configure shared secrets that are automatically available to developer workspaces.</p>
+</div>
+<div class="paragraph">
+<p>GitLab integration enables developers to clone, pull, and push repositories without manually configuring Git credentials. You&#8217;ll also configure shared workspace secrets that can be used to provide common configuration, API keys, and service credentials to every workspace.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configured GitLab OAuth integration for Red Hat Dev Spaces</p>
+</li>
+<li>
+<p>Registered GitLab as a source code management provider</p>
+</li>
+<li>
+<p>Created shared secrets for developer workspaces</p>
+</li>
+<li>
+<p>Learned how Dev Spaces automatically injects shared configuration into workspaces</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_gitlab_oauth_integration"><a class="anchor" href="#_configure_gitlab_oauth_integration"></a>Configure GitLab OAuth Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Dev Spaces integrates with GitLab using OAuth. Once configured, users authenticate with their GitLab account and can access repositories directly from their workspaces.</p>
+</div>
+<div class="sect2">
+<h3 id="_create_a_gitlab_oauth_application"><a class="anchor" href="#_create_a_gitlab_oauth_application"></a>Create a GitLab OAuth Application</h3>
+<div class="paragraph">
+<p>Create an OAuth application in GitLab that Red Hat Dev Spaces will use for authentication.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <strong>GitLab URL</strong> provided on your lab information page.</p>
+</li>
+<li>
+<p>Sign in using your GitLab credentials.</p>
+</li>
+<li>
+<p>Click your avatar in the upper-right corner.</p>
+</li>
+<li>
+<p>Select <span class="menuseq"><b class="menu">Edit</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Preferences</b></span>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/edit.png" alt="edit" width="300">
+</div>
+</div>
+</li>
+<li>
+<p>Navigate to <span class="menuseq"><b class="menu">Access</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Applications</b></span>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/access.png" alt="access" width="300">
+</div>
+</div>
+</li>
+<li>
+<p>Click <b class="button">Add new application</b>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/new.png" alt="new" width="700">
+</div>
+</div>
+</li>
+<li>
+<p>Configure the application using the following settings:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>devspaces</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redirect URI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://devspaces.{openshift_cluster_ingress_domain}/api/oauth/callback</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Confidential</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scopes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>api</code>, <code>write_repository</code>, <code>openid</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <b class="button">Save application</b>.</p>
+</li>
+<li>
+<p>Record the <strong>Application ID</strong> and <strong>Secret</strong>. You&#8217;ll use these values in the next step.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/appid.png" alt="appid" width="500">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_gitlab_authentication"><a class="anchor" href="#_configure_gitlab_authentication"></a>Configure GitLab Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Create a Kubernetes Secret that stores the GitLab OAuth credentials. Red Hat Dev Spaces automatically discovers this secret based on its labels and annotations.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Replace <code>GITLAB_APPLICATION_ID</code> and <code>GITLAB_APPLICATION_SECRET</code> with the values generated by GitLab before running the following commands.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Get the GitLab URL dynamically from the cluster
+GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+
+echo "Using GitLab URL: $GITLAB_URL"
+
+oc create secret generic gitlab-oauth-config \
+  -n openshift-devspaces \
+  --from-literal=id="$GITLAB_APPLICATION_ID" \
+  --from-literal=secret="$GITLAB_APPLICATION_SECRET"
+
+oc annotate secret gitlab-oauth-config \
+  -n openshift-devspaces \
+  che.eclipse.org/oauth-scm-server=gitlab \
+  che.eclipse.org/scm-server-endpoint="$GITLAB_URL"
+
+oc label secret gitlab-oauth-config \
+  -n openshift-devspaces \
+  app.kubernetes.io/part-of=che.eclipse.org \
+  app.kubernetes.io/component=oauth-scm-configuration
+
+echo "GitLab OAuth secret created successfully"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, register GitLab with the Dev Spaces <code>CheCluster</code>.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Get the GitLab URL dynamically from the cluster
+GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+
+echo "Registering GitLab URL: $GITLAB_URL"
+
+oc patch checluster devspaces -n openshift-devspaces \
+  --type='merge' \
+  -p "{\"spec\":{\"gitServices\":{\"gitlab\":[{\"secretName\":\"gitlab-oauth-config\",\"endpoint\":\"$GITLAB_URL\"}]}}}"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After GitLab is registered, users are prompted to authorize Dev Spaces the first time they open a workspace that references a GitLab repository. Once authorized, Git operations such as clone, pull, and push use the user&#8217;s GitLab identity automatically.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_shared_workspace_secrets"><a class="anchor" href="#_configure_shared_workspace_secrets"></a>Configure Shared Workspace Secrets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Red Hat Dev Spaces can automatically mount Kubernetes Secrets and ConfigMaps into every workspace. This allows administrators to provide shared configuration, credentials, or API keys without requiring developers to configure them manually.</p>
+</div>
+<div class="paragraph">
+<p>Secrets can be injected in one of the following ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Environment variables</strong> (<code>mount-as: env</code>)</p>
+</li>
+<li>
+<p><strong>Files</strong> (<code>mount-as: file</code>)</p>
+</li>
+<li>
+<p><strong>Individual files using subpaths</strong> (<code>mount-as: subpath</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_configure_ai_coding_assistant_credentials"><a class="anchor" href="#_example_configure_ai_coding_assistant_credentials"></a>Example: Configure AI Coding Assistant Credentials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example configures shared credentials for an AI coding assistant such as Continue, Roo, or Cline.</p>
+</div>
+<div class="paragraph">
+<p>Begin by obtaining an API key from the Red Hat Demo Platform MaaS service.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the MaaS portal.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/maas_login.png" alt="maas login" width="500">
+</div>
+</div>
+</li>
+<li>
+<p>Sign in using your Red Hat Demo Platform credentials.</p>
+</li>
+<li>
+<p>Subscribe to the <code>qwen3-14b</code> model if you haven&#8217;t already.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/maas_sub.png" alt="maas sub" width="500">
+</div>
+</div>
+</li>
+<li>
+<p>Navigate to <strong>API Keys</strong>.</p>
+</li>
+<li>
+<p>Create a new API key or select an existing one.</p>
+</li>
+<li>
+<p>Copy the generated API key.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Create the shared secret.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Replace <code>REPLACE_API_KEY</code> with your MaaS API key before running the command.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create secret generic continue-llm-credentials \
+  -n openshift-devspaces \
+  --from-literal=LLM_API_KEY="REPLACE_API_KEY" \
+  --from-literal=LLM_BASE_URL="https://maas-rhdp.apps.maas.redhatworkshops.io/v1"
+
+oc annotate secret continue-llm-credentials \
+  -n openshift-devspaces \
+  controller.devfile.io/mount-as=env
+
+oc label secret continue-llm-credentials \
+  -n openshift-devspaces \
+  app.kubernetes.io/part-of=che.eclipse.org \
+  app.kubernetes.io/component=workspaces-config
+
+echo "LLM credentials secret created successfully"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_the_shared_secret_configuration"><a class="anchor" href="#_verify_the_shared_secret_configuration"></a>Verify the Shared Secret Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After the secret has been created, every newly created workspace automatically receives the following environment variables:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LLM_API_KEY</code></p>
+</li>
+<li>
+<p><code>LLM_BASE_URL</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Later in this training, you&#8217;ll create a Devfile that uses these environment variables to automatically configure AI coding assistants such as Continue.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="devfiles.html">Devfiles</a></span>
+  <span class="next"><a href="lab10.html">Lab 10: Dev Spaces Workspace</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>
