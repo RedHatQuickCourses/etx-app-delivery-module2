@@ -545,12 +545,67 @@ git push origin feature/add-devfile</code></pre>
 </div>
 <div id="_tabs_1_direct_url_recommended--panel" class="tabpanel" aria-labelledby="_tabs_1_direct_url_recommended">
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>Use a direct URL to create a workspace from a specific branch.</p>
+</div>
+<div class="paragraph">
+<p>Get the required URLs:</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Get Dev Spaces URL
+DEVSPACES_URL="https://$(oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.cheURL}' | sed 's|https://||')"
+
+# Get GitLab URL
+GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+
+# Construct the direct workspace URL
+echo "${DEVSPACES_URL}#${GITLAB_URL}/software-factory/etx_app_base_app/-/tree/feature/add-devfile"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open the generated URL in your browser. Dev Spaces will:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Automatically import the repository from the feature/add-devfile branch</p>
+</li>
+<li>
+<p>Detect and use the devfile.yaml</p>
+</li>
+<li>
+<p>Configure the workspace with all environment variables and settings</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This skips the manual "Create Workspace → Import from Git" flow.</p>
 </div>
 </div>
 <div id="_tabs_1_manual_ui--panel" class="tabpanel" aria-labelledby="_tabs_1_manual_ui">
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>Create a workspace through the Dev Spaces dashboard.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click <b class="button">Create Workspace</b></p>
+</li>
+<li>
+<p>Select <strong>Import from Git</strong></p>
+</li>
+<li>
+<p>Paste the repository URL (use the actual GitLab URL from your cluster):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">{gitlab_url}/software-factory/etx_app_base_app/-/tree/feature/add-devfile</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click <b class="button">Create &amp; Open</b></p>
+</li>
+</ol>
 </div>
 </div>
 </div>

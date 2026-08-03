@@ -1,5 +1,5 @@
 {
-  "totalSeconds": 1916,
+  "totalSeconds": 1926,
   "pageCount": 24,
   "pages": [
     {
@@ -105,7 +105,7 @@
     {
       "module": "section4",
       "page": "lab10.adoc",
-      "seconds": 142
+      "seconds": 152
     },
     {
       "module": "section4",
