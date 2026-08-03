@@ -1,0 +1,162 @@
+= Lab 8: Configure Red Hat Dev Spaces
+:navtitle: Lab 8: Configure Red Hat Dev Spaces
+:experimental:
+
+In this lab, you'll configure Red Hat Dev Spaces by deploying a `CheCluster` instance and verifying that the Dev Spaces dashboard is available.
+
+A `CheCluster` defines the Dev Spaces server components, workspace configuration, authentication, and resource limits. Once deployed, it provides browser-based development environments for users.
+
+By the end of this lab, you will have:
+
+* Deployed a `CheCluster` instance
+* Verified that the Dev Spaces platform is running
+* Accessed the Dev Spaces dashboard
+* Confirmed that OpenShift authentication is working
+
+== Deploy the Dev Spaces Instance
+
+Begin by creating the namespace that will host the Dev Spaces components.
+
+[source,bash,role=execute]
+----
+oc create namespace openshift-devspaces
+----
+
+Next, deploy the `CheCluster` resource.
+
+Apply the following manifest.
+
+[source,bash,role=execute]
+----
+oc apply -f - <<'EOF'
+apiVersion: org.eclipse.che/v2
+kind: CheCluster
+metadata:
+  name: devspaces
+  namespace: openshift-devspaces
+spec:
+  components:
+    cheServer:
+      debug: false
+      logLevel: INFO
+    dashboard: {}
+    devWorkspace: {}
+    devfileRegistry: {}
+    imagePuller:
+      enable: false
+    metrics:
+      enable: true
+    pluginRegistry:
+      openVSXURL: "https://open-vsx.org"
+  containerRegistry: {}
+  devEnvironments:
+    startTimeoutSeconds: 600
+    secondsOfRunBeforeIdling: -1
+    secondsOfInactivityBeforeIdling: 1800
+    maxNumberOfWorkspacesPerUser: 5
+    maxNumberOfRunningWorkspacesPerUser: 2
+    defaultContainerResources:
+      limits:
+        cpu: "2"
+        memory: 6Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    disableContainerRunCapabilities: false
+    defaultEditor: che-incubator/che-code/latest
+    defaultNamespace:
+      autoProvision: true
+      template: <username>-devspaces
+    storage:
+      pvcStrategy: per-workspace
+EOF
+----
+
+IMPORTANT: Red Hat Dev Spaces uses OpenShift OAuth for authentication by default. Users sign in with their OpenShift credentials, and no external identity provider configuration is required.
+
+== Verify the Dev Spaces Deployment
+
+Wait for the `CheCluster` resource to be created.
+
+[source,bash,role=execute]
+----
+oc get checluster -n openshift-devspaces
+----
+
+Verify that a `CheCluster` named `devspaces` has been created.
+
+Next, monitor the Dev Spaces pods until they are fully started.
+
+[source,bash,role=execute]
+----
+oc get pods -n openshift-devspaces -w
+----
+
+Wait until all pods are in the `Running` state and each pod reports the expected number of ready containers (for example, `1/1` or `4/4`).
+
+Finally, verify that the `CheCluster` is active.
+
+[source,bash,role=execute]
+----
+oc get checluster devspaces \
+  -n openshift-devspaces \
+  -o jsonpath='{.status.chePhase}{"\n"}'
+----
+
+Verify that the command returns:
+
+----
+Active
+----
+
+IMPORTANT: Do not proceed until the `CheCluster` status is `Active`.
+
+== Access the Dev Spaces Dashboard
+
+Once the `CheCluster` is active, retrieve the Dev Spaces dashboard URL.
+
+[source,bash,role=execute]
+----
+oc get checluster devspaces \
+  -n openshift-devspaces \
+  -o jsonpath='{.status.cheURL}{"\n"}'
+----
+
+Open the URL in your web browser.
+
+When prompted, sign in using your OpenShift credentials (for example, `admin` and the cluster administrator password).
+
+If prompted to authorize access, click btn:[Allow selected permissions].
+
+.Authorize Dev Spaces Access(_Click the image to view it in full size in a new browser tab_)
+image::allow.png[link=allow.png, width=500]
+
+After authentication completes, the Dev Spaces home page is displayed.
+
+.Dev Spaces Home Page(_Click the image to view it in full size in a new browser tab_)
+image::devspaceimage.png[link=devspaceimage.png, width=500]
+
+TIP: You can also access Red Hat Dev Spaces directly from the OpenShift web console by clicking the Application Launcher in the upper-right corner and selecting *Red Hat OpenShift Dev Spaces*. You'll be automatically authenticated using your existing OpenShift session.
+
+== Appendix: Administrator Reference Commands
+
+The following commands are provided for reference and are commonly used by cluster administrators to modify Dev Spaces configuration.
+
+NOTE: Do not run these commands during the training unless you're instructed to change the Dev Spaces configuration.
+
+[source,bash]
+----
+# Change storage strategy
+oc patch checluster devspaces -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
+
+# Change maximum workspaces per user
+oc patch checluster devspaces -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
+
+# View the current storage strategy
+oc get checluster devspaces -n openshift-devspaces \
+  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'
+----

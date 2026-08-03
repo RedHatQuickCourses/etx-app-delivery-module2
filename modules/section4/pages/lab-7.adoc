@@ -1,0 +1,52 @@
+= Lab 7: Install and Verify Red Hat Dev Spaces
+:navtitle: Lab 7: Install Red Hat Dev Spaces
+:experimental:
+
+In this lab, you'll install the Red Hat Dev Spaces Operator from OperatorHub and verify that it has been installed successfully.
+
+By the end of this lab, you will have:
+
+* Installed the Red Hat Dev Spaces Operator
+* Verified that the operator installed successfully
+
+== Install the Red Hat Dev Spaces Operator
+
+Install the Red Hat Dev Spaces Operator from OperatorHub. This operator manages the lifecycle of Dev Spaces and the developer workspaces that you'll create later in this training.
+
+. Open the OpenShift web console.
+. From the navigation menu, select menu:Ecosystem[Software Catalog].
+. Search for *Red Hat OpenShift Dev Spaces*.
+. Select the operator and click btn:[Install].
+. Accept the default installation settings:
++
+* *Installation mode:* `All namespaces`
+* *Installed namespace:* `openshift-operators`
+* *Approval strategy:* `Automatic`
++
+. Click btn:[Install].
+. Wait until the operator status changes to *Succeeded*.
++
+.Dev Spaces Operator Installed(_Click the image to view it in full size in a new browser tab_)
+image::devs.png[link=devs.png, width=500]
+
+NOTE: Installing the Dev Spaces Operator also installs the DevWorkspace Operator, which manages the lifecycle of developer workspaces.
+
+== Verify the Operator Installation
+
+Confirm that the Red Hat Dev Spaces Operator has been installed successfully.
+
+[source,bash,role=execute]
+----
+oc get csv -n openshift-operators | grep devspaces
+----
+
+Verify that the command returns the Dev Spaces ClusterServiceVersion (CSV) with a status of `Succeeded`.
+
+A similar output should be displayed:
+
+[source,bash]
+----
+devspacesoperator.v3.27.1   Red Hat OpenShift Dev Spaces   3.27.1   devspacesoperator.v3.27.0   Succeeded
+----
+
+NOTE: The operator runs from the `openshift-operators` namespace. In the next lab, you'll create a `CheCluster` resource, which provisions the `openshift-devspaces` namespace along with the Dev Spaces server components required to host developer workspaces.

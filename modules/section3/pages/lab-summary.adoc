@@ -1,0 +1,19 @@
+= 📋 Lab Summary
+:navtitle: 📋 Lab Summary
+
+In this section, you prepared the application platform services required by the training application.
+
+You installed the required operators, deployed the supporting infrastructure, and verified that each service is running and ready for use in the remaining labs.
+
+You now have the following services available:
+
+* **Red Hat OpenShift Pipelines** – Provides the Tekton-based CI/CD engine for building and deploying applications.
+* **Red Hat AMQ Streams** – A single-node Apache Kafka cluster with the bootstrap endpoint `parasol-kafka-kafka-bootstrap:9092`.
+* **PostgreSQL Database** – A PostgreSQL instance available at `parasol-db:5432` with the `parasol` database.
+* **Red Hat Build of OpenTelemetry** – An OpenTelemetry Collector and automatic Java instrumentation configured for application observability.
+
+The training application will use the following service endpoints during subsequent labs:
+
+* **Kafka bootstrap server:** `parasol-kafka-kafka-bootstrap:9092`
+* **PostgreSQL host:** `parasol-db:5432`
+* **Database credentials:** Stored in the `parasol-db-secret` Secret

@@ -1,0 +1,147 @@
+= Lab 11: Deploy and Run the Application
+:navtitle: Lab 11: Application Deployment
+:experimental:
+
+In this lab, you'll run the ETX App Base application in Quarkus development mode and verify that it can connect to the PostgreSQL database and Kafka cluster deployed earlier in the training.
+
+Quarkus development mode provides a rapid development experience with live reload, allowing application changes to be reflected immediately without restarting the application.
+
+By the end of this lab, you will have:
+
+* Started the ETX App Base application in Quarkus development mode
+* Verified connectivity to PostgreSQL and Kafka
+* Accessed the running application from Red Hat Dev Spaces
+* Learned how to manage the lifecycle of a Dev Spaces workspace
+
+== Run the Application in Quarkus Development Mode
+
+When you open a terminal in a Dev Spaces workspace, you're automatically placed in the project directory.
+
+First, verify your current working directory.
+
+[source,bash,role=execute]
+----
+pwd
+----
+
+Verify that the command returns:
+
+[source,text]
+----
+/projects/etx_app_base_app
+----
+
+Next, start Quarkus development mode.
+
+[source,bash,role=execute]
+----
+./mvnw compile quarkus:dev
+----
+
+Quarkus uses the environment variables defined in your `devfile.yaml` to connect to the PostgreSQL database and Kafka cluster deployed in previous labs.
+
+Wait for the application to finish starting. You should see output similar to the following.
+
+[source,text]
+----
+Listening for transport dt_socket at address: 5005
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+
+INFO  [io.sma.rea.mes.kafka] SRMSG18229: Configured topics for channel 'emails-in': [intake]
+INFO  [io.sma.rea.mes.kafka] SRMSG18258: Kafka producer kafka-producer-emails-out, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.sma.rea.mes.kafka] SRMSG18257: Kafka consumer kafka-consumer-emails-in, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.quarkus] parasol-reimagined 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.17.5) started in 7.298s. Listening on: http://0.0.0.0:8080
+INFO  [io.quarkus] Profile dev activated. Live Coding activated.
+
+--
+Tests paused
+Press [e] to edit command line args, [r] to resume testing, [h] for more options>
+----
+
+Verify the following indicators of a successful startup:
+
+* **Debug port available** (`5005`)
+* **Kafka producer and consumer connected**
+* **Application listening on port `8080`**
+* **Live Coding activated**
+
+IMPORTANT: Do not continue until Quarkus starts successfully and reports that Live Coding is activated.
+
+== Access the Running Application
+
+After Quarkus starts, Red Hat Dev Spaces displays a notification in the lower-right corner with a link to the application endpoint.
+
+Click *Open in New Tab* or *Open in Preview* to open the application.
+
+.Application Endpoint Notification(_Click the image to view it in full size in a new browser tab_)
+image::app.png[link=app.png,width=700]
+
+TIP: If you dismiss the notification, stop Quarkus by pressing kbd:[Ctrl+C], then restart it using `./mvnw compile quarkus:dev`. The notification will appear again.
+
+The application URL follows this format:
+
+[source,text]
+----
+https://<username>-<project-name>-quarkus-dev.apps.<cluster-domain>/
+----
+
+For example:
+
+[source,text]
+----
+https://admin-etx-app-base-app-quarkus-dev.apps.cluster-grsml.dynamic2.redhatworkshops.io/
+----
+
+You can also locate the application URL in the *Endpoints* view within the Dev Spaces IDE.
+
+== Verify External Service Connectivity
+
+The application automatically connects to the shared platform services using the environment variables defined in the Devfile.
+
+Verify that the application is using the following services:
+
+* **PostgreSQL**
++
+** Host: `parasol-db.etx-app-dev.svc.cluster.local`
+** Port: `5432`
+** Database: `parasol`
+
+* **Apache Kafka**
++
+** Bootstrap server: `parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092`
+** Topic: `intake`
+
+NOTE: These shared services were deployed earlier in the training and are available to all development workspaces.
+
+== Manage the Workspace Lifecycle
+
+Red Hat Dev Spaces allows you to stop, start, and delete workspaces while preserving your development environment when appropriate.
+
+*Stop a workspace*
+
+Stops the workspace pod while preserving the persistent workspace storage.
+
+. Open the Dev Spaces dashboard.
+. Select the workspace.
+. Click the options menu (⋮).
+. Select *Stop Workspace*.
+
+*Start a workspace*
+
+Restarts a previously stopped workspace while preserving your files, Maven cache, and Git repository.
+
+. Open the options menu (⋮).
+. Select *Start in Background*.
+
+*Delete a workspace*
+
+Deletes both the workspace pod and its associated persistent storage.
+
+. Open the options menu (⋮).
+. Select *Delete Workspace*.
+. Confirm the deletion.
+
+TIP: Stop a workspace when you're finished developing but intend to continue later. Delete a workspace only when you no longer need the development environment.

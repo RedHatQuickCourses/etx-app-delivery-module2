@@ -1,0 +1,24 @@
+= 📋 Lab Summary
+:navtitle: 📋 Lab Summary
+
+In this section, you prepared a complete cloud-native development environment using Red Hat Dev Spaces and GitLab.
+
+You installed and configured Red Hat Dev Spaces, integrated it with GitLab, created a reusable Devfile, and launched the ETX App Base application in a browser-based development workspace connected to the supporting platform services.
+
+You now have the following components configured and ready:
+
+* **Red Hat Dev Spaces** – Browser-based development environments running on OpenShift.
+* **CheCluster** – Dev Spaces platform configured and accessible through the Dev Spaces dashboard.
+* **GitLab Integration** – OAuth authentication configured for seamless source control access from developer workspaces.
+* **Shared Workspace Secrets** – Common configuration and AI assistant credentials automatically injected into new workspaces.
+* **Devfile** – A version-controlled development environment definition stored alongside the application source code.
+* **ETX App Base Workspace** – A fully configured development workspace with Git, Maven, PostgreSQL, Kafka, and Quarkus tooling.
+* **Quarkus Development Mode** – The application running with live reload and connected to the shared PostgreSQL database and Kafka cluster.
+
+Your development environment now provides:
+
+* **Source Control** – GitLab repositories accessible directly from Dev Spaces.
+* **Application Runtime** – Quarkus development mode with hot reload.
+* **Database Connectivity** – PostgreSQL available through `parasol-db:5432`.
+* **Messaging Platform** – Apache Kafka available through `parasol-kafka-kafka-bootstrap:9092`.
+* **Cloud-native Development** – A consistent, reproducible development environment defined by the project's `devfile.yaml`.

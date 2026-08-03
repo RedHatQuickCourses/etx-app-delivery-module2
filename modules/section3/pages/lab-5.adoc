@@ -1,0 +1,116 @@
+= Lab 5: Install, Deploy, and Verify the Red Hat Build of OpenTelemetry
+:navtitle: Lab 5: Red Hat Build of OpenTelemetry
+:experimental:
+
+In this lab, you'll install the Red Hat Build of OpenTelemetry Operator, deploy an OpenTelemetry Collector, and verify that it is ready to receive telemetry data from applications.
+
+The Red Hat Build of OpenTelemetry provides the observability foundation for cloud-native applications. It enables applications to collect, process, and export telemetry data such as distributed traces, metrics, and logs.
+
+By the end of this lab, you will have:
+
+* Installed the Red Hat Build of OpenTelemetry Operator
+* Verified that the operator installed successfully
+* Deployed an OpenTelemetry Collector
+* Confirmed that the collector is ready to receive telemetry data
+
+== Install the Red Hat Build of OpenTelemetry Operator
+
+Install the Red Hat Build of OpenTelemetry Operator from OperatorHub. This operator manages the lifecycle of OpenTelemetry Collectors and enables automatic instrumentation for supported applications.
+
+. Open the OpenShift web console.
+. From the navigation menu, select menu:Operators[OperatorHub].
+. Search for *Red Hat build of OpenTelemetry*.
+. Select the operator and click btn:[Install].
+. Accept the default installation settings:
++
+* *Update channel:* `stable`
+* *Installation mode:* `All namespaces`
+* *Installed namespace:* `openshift-opentelemetry-operator`
++
+. Click btn:[Install].
+. Wait until the operator status changes to *Succeeded*.
++
+.Red Hat Build of OpenTelemetry Operator(_Click the image to view it in full size in a new browser tab_)
+image::opentel.png[link=opentel.png, width=500]
+
+NOTE: Installing the operator enables you to deploy and manage OpenTelemetry Collectors and application instrumentation on OpenShift.
+
+== Verify the Operator Installation
+
+Confirm that the Red Hat Build of OpenTelemetry Operator has been installed successfully.
+
+[source,bash,role=execute]
+----
+oc get csv -n openshift-opentelemetry-operator
+----
+
+Verify that the command returns the OpenTelemetry Operator ClusterServiceVersion (CSV) with a status of `Succeeded`.
+
+== Deploy an OpenTelemetry Collector
+
+An OpenTelemetry Collector receives telemetry data from instrumented applications, processes it, and exports it to one or more observability backends.
+
+For this training, you'll deploy a collector that exports traces to its own logs. This provides a simple way to verify telemetry without requiring an external tracing platform.
+
+Apply the following manifest.
+
+[source,bash,role=execute,subs="attributes"]
+----
+oc apply -f - <<'EOF'
+apiVersion: opentelemetry.io/v1beta1
+kind: OpenTelemetryCollector
+metadata:
+  name: otel-collector
+  namespace: etx-app-dev
+spec:
+  mode: deployment
+  config:
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            endpoint: 0.0.0.0:4318
+    processors:
+      batch: {}
+      probabilistic_sampler:
+        sampling_percentage: 100.0
+    exporters:
+      debug:
+        verbosity: detailed
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [probabilistic_sampler, batch]
+          exporters: [debug]
+EOF
+----
+
+NOTE: The `debug` exporter writes trace information to the collector logs, making it suitable for development and demonstration environments.
+
+TIP: In production, replace the `debug` exporter with a supported tracing backend such as Red Hat Build of Tempo, Jaeger, or another OpenTelemetry-compatible platform.
+
+== Verify the OpenTelemetry Collector
+
+Wait for the OpenTelemetry Collector deployment to become available.
+
+[source,bash,role=execute]
+----
+oc rollout status deployment/otel-collector-collector \
+  -n etx-app-dev
+----
+
+After the deployment completes, verify that the collector pod is running.
+
+[source,bash,role=execute]
+----
+oc get pods \
+  -l app.kubernetes.io/name=otel-collector-collector \
+  -n etx-app-dev
+----
+
+Verify that the collector pod is in the `Running` state.
+
+IMPORTANT: Ensure the OpenTelemetry Collector is running before proceeding. Later in this training, the application will send telemetry data to this collector for observability.

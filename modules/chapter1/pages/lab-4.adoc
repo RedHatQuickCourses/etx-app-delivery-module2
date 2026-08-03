@@ -15,7 +15,7 @@ Connecting Dev Spaces to GitLab allows automatic Git credential injection into w
 +
 image::edit.png[width=300]
 
-. Select **menu:Access > Applications** to open the User Settings applications page.
+. Select btn:[menu:Access > Applications] to open the User Settings applications page.
 +
 image::access.png[width=300]
 +

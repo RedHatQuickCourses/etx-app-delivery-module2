@@ -1,0 +1,79 @@
+= Lab 1: Initial Setup
+:navtitle: Lab1: Initial Setup
+:experimental:
+
+In this lab, you'll access the Software Factory environment and prepare the application that will be used throughout the remaining exercises.
+
+By the end of this lab, you will have:
+
+* Authenticated to GitLab using enterprise Single Sign-On
+* Cloned the workshop application repository
+* Verified access to the OpenShift cluster
+
+== Sign in to GitLab
+
+The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).
+
+. Navigate to the *GitLab URL* provided on your lab information page (for example, `https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io`).
+. On the GitLab sign-in page, click btn:[ETX Lab SSO].
++
+.Signin into GitLab(_Click the image to view it in full size in a new browser tab_)
+image::signin.png[link=signin.png, width=400]
++
+. Sign in using any one of the provided credentials in the xref:chapter1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
+
+. After successful authentication, you'll be redirected back to GitLab.
++
+.Sample GitLab Home Page(_Click the image to view it in full size in a new browser tab_)
+image::gitlab.png[link=signin.png, width=500]
++
+NOTE: The first time you sign in, GitLab automatically creates a user profile linked to your Keycloak identity.
+
+== Clone the Workshop Repository
+
+Throughout the learning path, you'll work with the **ETX App Base** application.
+
+Before cloning the repository, sign in to the OpenShift web console.
+
+. Open the *OpenShift Console URL* listed on the **RHDP Lab Environment** page.
+. Sign in using any one of the credentials listed in the xref:lab-env-overview.adoc#lab-credentials[Lab Credentials] section.
+
+
+. After signing in, open the *Developer* perspective.
+. Click the **>_** (*Web Terminal*) icon in the upper-right corner to launch a terminal session.
+
+[source,bash,role=execute]
+----
+GITLAB_URL="https://$(oc get route \
+  -n gitlab \
+  -l app=webservice \
+  -o jsonpath='{.items[0].spec.host}')"
+
+echo "${GITLAB_URL}"
+----
+
+Clone the application repository.
+
+[source,bash,role=execute]
+----
+mkdir -p ~/workshop
+cd ~/workshop
+
+git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git
+cd etx_app_base_app
+----
+
+NOTE: The Git repository is named `etx_app_base_app`. Kubernetes resources created later in the workshop use the naming convention `etx-app-base-app-*`.
+
+IMPORTANT: This repository intentionally does **not** contain a `devfile.yaml`. In the next lab, you'll create one yourself and use it to launch a Dev Spaces workspace.
+
+== Verify OpenShift Access
+
+Confirm that you're connected to the openshift cluster and have access to the development project.
+
+[source,bash,role=execute,subs="attributes+"]
+----
+oc whoami --show-server
+
+oc project etx-app-dev
+----
