@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 8: Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="configure_devspaces.html">
-    <link rel="next" href="devspace_working.html">
+    <title>📋 Summary :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-e.html">
+    <link rel="next" href="devX.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -108,7 +108,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-e.html">Lab 6: Automatic Instrumentation</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="lab-2-summary.html">📋 Lab Summary</a>
   </li>
 </ul>
@@ -132,7 +132,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -189,8 +189,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>DevEx and DevSpaces</li>
-    <li><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></li>
+    <li>Deploy Supporting Services</li>
+    <li><a href="lab-2-summary.html">📋 Lab Summary</a></li>
   </ul>
 </nav>
 </div>
@@ -199,183 +199,48 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 8: Configure Dev Spaces</h1>
-<div id="preamble">
-<div class="sectionbody">
+<h1 class="page">📋 Summary</h1>
 <div class="paragraph">
-<p>Create the namespace for Dev Spaces:</p>
+<p>You now have the following services deployed and ready:</p>
 </div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Apply the CheCluster configuration:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
-apiVersion: org.eclipse.che/v2
-kind: CheCluster
-metadata:
-  name: devspaces
-  namespace: openshift-devspaces
-spec:
-  components:
-    cheServer:
-      debug: false
-      logLevel: INFO
-    dashboard: {}
-    devWorkspace: {}
-    devfileRegistry: {}
-    imagePuller:
-      enable: false
-    metrics:
-      enable: true
-    pluginRegistry:
-      openVSXURL: "https://open-vsx.org"
-  containerRegistry: {}
-  devEnvironments:
-    startTimeoutSeconds: 600
-    secondsOfRunBeforeIdling: -1
-    secondsOfInactivityBeforeIdling: 1800
-    maxNumberOfWorkspacesPerUser: 5
-    maxNumberOfRunningWorkspacesPerUser: 2
-    defaultContainerResources:
-      limits:
-        cpu: "2"
-        memory: 6Gi
-      requests:
-        cpu: 500m
-        memory: 1Gi
-    disableContainerRunCapabilities: false
-    defaultEditor: che-incubator/che-code/latest
-    defaultNamespace:
-      autoProvision: true
-      template: &lt;username&gt;-devspaces
-    storage:
-      pvcStrategy: per-workspace
-EOF</code></pre>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Dev Spaces on OpenShift uses OpenShift OAuth for authentication by default. The Dev Spaces operator is designed to integrate with OpenShift&#8217;s built-in authentication system, not with external OIDC providers like Keycloak. Users will authenticate with their OpenShift credentials when accessing the Dev Spaces dashboard.
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Vault</strong> (pre-deployed)&#8201;&#8212;&#8201;secrets management with Kubernetes authentication for pipeline access</p>
+</li>
+<li>
+<p><strong>OpenShift Pipelines</strong>&#8201;&#8212;&#8201;Tekton CI engine ready to run pipelines</p>
+</li>
+<li>
+<p><strong>AMQ Streams Kafka Cluster</strong>&#8201;&#8212;&#8201;<code>parasol-kafka-kafka-bootstrap:9092</code> with <code>intake</code> topic</p>
+</li>
+<li>
+<p><strong>PostgreSQL Database</strong>&#8201;&#8212;&#8201;<code>parasol-db:5432</code> with database <code>parasol</code></p>
+</li>
+<li>
+<p><strong>OpenTelemetry</strong>&#8201;&#8212;&#8201;collector and auto-instrumentation configured for distributed tracing</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Wait for the deployment to complete.</p>
+<p>Your application can now connect to these services:</p>
 </div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see a resource named <code>devspaces</code>.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Wait until all pods are in <code>Running</code> state with <code>READY</code> showing the expected number of containers (e.g., <code>1/1</code>, <code>4/4</code>).</p>
-</div>
-<div class="paragraph">
-<p>Once all pods are running, check the CheCluster status:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output should be <code>Active</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_access_the_dashboard"><a class="anchor" href="#_access_the_dashboard"></a>Access the Dashboard</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once the CheCluster is <code>Active</code>, get the dashboard URL:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Open this URL in your browser.
-You will authenticate using OpenShift OAuth with your OpenShift credentials (e.g., <code>admin</code> / <code>&lt;cluster-admin-password&gt;</code>).</p>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying allow the permissions&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
-</div>
-<div class="title">Figure 1. Sample Authorize Access Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying you should see this page&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
-</div>
-<div class="title">Figure 2. Dev Spaces Homepage Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>You can also access Dev Spaces from the OpenShift Console:</p>
-</div>
-<div class="paragraph">
-<p>&lt;Optionally&gt;
-. Click the application launcher icon in the top right of the OpenShift Console.
-. Select <strong>Red Hat OpenShift Dev Spaces</strong>.
-. You will be automatically authenticated with your current OpenShift session.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_useful_configuration_commands"><a class="anchor" href="#_appendix_useful_configuration_commands"></a>Appendix: Useful Configuration Commands</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following commands are reference commands for administrators. Do not run them during the lab unless an instructor asks you to change the Dev Spaces configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
-
-# Change max workspaces per user
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
-
-# Read a specific setting
-oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
-</div>
-</div>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kafka bootstrap server:</strong> <code>parasol-kafka-kafka-bootstrap:9092</code></p>
+</li>
+<li>
+<p><strong>PostgreSQL host:</strong> <code>parasol-db:5432</code></p>
+</li>
+<li>
+<p><strong>Database credentials:</strong> Available in <code>parasol-db-secret</code> Secret</p>
+</li>
+</ul>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
-  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="prev"><a href="lab-e.html">Lab 6: Automatic Instrumentation</a></span>
+  <span class="next"><a href="devX.html">Developer Experience Matters</a></span>
 </nav>
 </article>
   </div>

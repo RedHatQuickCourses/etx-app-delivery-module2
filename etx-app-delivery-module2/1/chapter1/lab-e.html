@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 8: Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="configure_devspaces.html">
-    <link rel="next" href="devspace_working.html">
+    <title>Lab 6: Configure Automatic Instrumentation :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-d.html">
+    <link rel="next" href="lab-2-summary.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -105,7 +105,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-d.html">Lab 5: Red Hat Build of OpenTelemetry</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="lab-e.html">Lab 6: Automatic Instrumentation</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -132,7 +132,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -189,8 +189,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>DevEx and DevSpaces</li>
-    <li><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></li>
+    <li>Deploy Supporting Services</li>
+    <li><a href="lab-e.html">Lab 6: Automatic Instrumentation</a></li>
   </ul>
 </nav>
 </div>
@@ -199,183 +199,96 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 8: Configure Dev Spaces</h1>
-<div id="preamble">
+<h1 class="page">Lab 6: Configure Automatic Instrumentation</h1>
+<div class="sect1">
+<h2 id="_configure_automatic_instrumentation"><a class="anchor" href="#_configure_automatic_instrumentation"></a>Configure Automatic Instrumentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create the namespace for Dev Spaces:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
-</div>
+<p>The OpenTelemetry Operator can automatically instrument Java applications without modifying application code.</p>
 </div>
 <div class="paragraph">
-<p>Apply the CheCluster configuration:</p>
+<p>Create an <code>Instrumentation</code> resource that defines how Java applications should export telemetry.</p>
+</div>
+<div class="paragraph">
+<p>Apply the following manifest:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
-apiVersion: org.eclipse.che/v2
-kind: CheCluster
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - <<'EOF'
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
 metadata:
-  name: devspaces
-  namespace: openshift-devspaces
+  name: java-instrumentation
+  namespace: etx-app-dev
+  annotations:
+    instrumentation.opentelemetry.io/inject-java: "true"
 spec:
-  components:
-    cheServer:
-      debug: false
-      logLevel: INFO
-    dashboard: {}
-    devWorkspace: {}
-    devfileRegistry: {}
-    imagePuller:
-      enable: false
-    metrics:
-      enable: true
-    pluginRegistry:
-      openVSXURL: "https://open-vsx.org"
-  containerRegistry: {}
-  devEnvironments:
-    startTimeoutSeconds: 600
-    secondsOfRunBeforeIdling: -1
-    secondsOfInactivityBeforeIdling: 1800
-    maxNumberOfWorkspacesPerUser: 5
-    maxNumberOfRunningWorkspacesPerUser: 2
-    defaultContainerResources:
-      limits:
-        cpu: "2"
-        memory: 6Gi
-      requests:
-        cpu: 500m
-        memory: 1Gi
-    disableContainerRunCapabilities: false
-    defaultEditor: che-incubator/che-code/latest
-    defaultNamespace:
-      autoProvision: true
-      template: &lt;username&gt;-devspaces
-    storage:
-      pvcStrategy: per-workspace
+  exporter:
+    endpoint: http://otel-collector-collector:4317
+  propagators:
+    - tracecontext
+    - baggage
+  sampler:
+    type: always_on
+  java:
+    image: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-java:latest
 EOF</code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="paragraph">
+<p>The "instrumentation.opentelemetry.io/inject-java: true" enable automatic instrumentation.</p>
+</div>
+<div class="paragraph">
+<p>When the application is deployed, the OpenTelemetry Operator automatically injects the Java agent into the application container.</p>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Dev Spaces on OpenShift uses OpenShift OAuth for authentication by default. The Dev Spaces operator is designed to integrate with OpenShift&#8217;s built-in authentication system, not with external OIDC providers like Keycloak. Users will authenticate with their OpenShift credentials when accessing the Dev Spaces dashboard.
+The <code>always_on</code> sampler captures every trace generated by the application, making it ideal for workshop environments. Production environments typically use sampling strategies to reduce telemetry volume.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Wait for the deployment to complete.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see a resource named <code>devspaces</code>.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Wait until all pods are in <code>Running</code> state with <code>READY</code> showing the expected number of containers (e.g., <code>1/1</code>, <code>4/4</code>).</p>
-</div>
-<div class="paragraph">
-<p>Once all pods are running, check the CheCluster status:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output should be <code>Active</code>.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_access_the_dashboard"><a class="anchor" href="#_access_the_dashboard"></a>Access the Dashboard</h2>
+<h2 id="_verify_automatic_instrumentation"><a class="anchor" href="#_verify_automatic_instrumentation"></a>Verify Automatic Instrumentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Once the CheCluster is <code>Active</code>, get the dashboard URL:</p>
+<p>After deploying an application with the instrumentation annotation, verify that traces are being received by the collector.</p>
+</div>
+<div class="paragraph">
+<p>You can view the collector logs using:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc logs deployment/otel-collector-collector -n etx-app-dev</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Open this URL in your browser.
-You will authenticate using OpenShift OAuth with your OpenShift credentials (e.g., <code>admin</code> / <code>&lt;cluster-admin-password&gt;</code>).</p>
+<p>You should see trace data being exported by the <code>debug</code> exporter.</p>
 </div>
-<div class="paragraph">
-<p>&lt;Add instruction saying allow the permissions&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
-</div>
-<div class="title">Figure 1. Sample Authorize Access Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying you should see this page&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
-</div>
-<div class="title">Figure 2. Dev Spaces Homepage Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>You can also access Dev Spaces from the OpenShift Console:</p>
-</div>
-<div class="paragraph">
-<p>&lt;Optionally&gt;
-. Click the application launcher icon in the top right of the OpenShift Console.
-. Select <strong>Red Hat OpenShift Dev Spaces</strong>.
-. You will be automatically authenticated with your current OpenShift session.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_useful_configuration_commands"><a class="anchor" href="#_appendix_useful_configuration_commands"></a>Appendix: Useful Configuration Commands</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following commands are reference commands for administrators. Do not run them during the lab unless an instructor asks you to change the Dev Spaces configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
-
-# Change max workspaces per user
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
-
-# Read a specific setting
-oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
-</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You&#8217;ll use this configuration later in the workshop when deploying the ETX App Base application.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
-  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="prev"><a href="lab-d.html">Lab 5: Red Hat Build of OpenTelemetry</a></span>
+  <span class="next"><a href="lab-2-summary.html">📋 Lab Summary</a></span>
 </nav>
 </article>
   </div>

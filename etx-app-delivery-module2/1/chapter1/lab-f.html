@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 8: Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="configure_devspaces.html">
-    <link rel="next" href="devspace_working.html">
+    <title>Lab 11: Application Deployment :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="section12.html">
+    <link rel="next" href="lab-3-summary.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -132,7 +132,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -147,7 +147,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section12.html">Lab 10: Dev Spaces and IDE Setup</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="lab-f.html">Lab 11: Application Deployment</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -190,7 +190,7 @@
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
     <li>DevEx and DevSpaces</li>
-    <li><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></li>
+    <li><a href="lab-f.html">Lab 11: Application Deployment</a></li>
   </ul>
 </nav>
 </div>
@@ -199,183 +199,210 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 8: Configure Dev Spaces</h1>
-<div id="preamble">
+<h1 class="page">Lab 11: Application Deployment</h1>
+<div class="sect1">
+<h2 id="_run_quarkus_in_development_mode"><a class="anchor" href="#_run_quarkus_in_development_mode"></a>Run Quarkus in Development Mode</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create the namespace for Dev Spaces:</p>
+<p>When you open a terminal in the workspace, you are automatically positioned in the project directory.</p>
+</div>
+<div class="paragraph">
+<p>Verify your current location and start Quarkus development mode:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Verify you're in the project directory
+pwd
+
+# Start Quarkus in development mode
+./mvnw compile quarkus:dev</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Apply the CheCluster configuration:</p>
+<p>Expected output from <code>pwd</code>:</p>
 </div>
-<div class="listingblock execute">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
-apiVersion: org.eclipse.che/v2
-kind: CheCluster
-metadata:
-  name: devspaces
-  namespace: openshift-devspaces
-spec:
-  components:
-    cheServer:
-      debug: false
-      logLevel: INFO
-    dashboard: {}
-    devWorkspace: {}
-    devfileRegistry: {}
-    imagePuller:
-      enable: false
-    metrics:
-      enable: true
-    pluginRegistry:
-      openVSXURL: "https://open-vsx.org"
-  containerRegistry: {}
-  devEnvironments:
-    startTimeoutSeconds: 600
-    secondsOfRunBeforeIdling: -1
-    secondsOfInactivityBeforeIdling: 1800
-    maxNumberOfWorkspacesPerUser: 5
-    maxNumberOfRunningWorkspacesPerUser: 2
-    defaultContainerResources:
-      limits:
-        cpu: "2"
-        memory: 6Gi
-      requests:
-        cpu: 500m
-        memory: 1Gi
-    disableContainerRunCapabilities: false
-    defaultEditor: che-incubator/che-code/latest
-    defaultNamespace:
-      autoProvision: true
-      template: &lt;username&gt;-devspaces
-    storage:
-      pvcStrategy: per-workspace
-EOF</code></pre>
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/projects/etx_app_base_app</code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="paragraph">
+<p>Quarkus connects to the external PostgreSQL and Kafka services using the environment variables from your devfile.</p>
+</div>
+<div class="paragraph">
+<p>Wait for the application to start. You should see output similar to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Listening for transport dt_socket at address: 5005
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,&lt; / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+
+INFO  [io.sma.rea.mes.kafka] SRMSG18229: Configured topics for channel 'emails-in': [intake]
+INFO  [io.sma.rea.mes.kafka] SRMSG18258: Kafka producer kafka-producer-emails-out, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.sma.rea.mes.kafka] SRMSG18257: Kafka consumer kafka-consumer-emails-in, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
+INFO  [io.quarkus] parasol-reimagined 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.17.5) started in 7.298s. Listening on: http://0.0.0.0:8080
+INFO  [io.quarkus] Profile dev activated. Live Coding activated.
+
+--
+Tests paused
+Press [e] to edit command line args, [r] to resume testing, [h] for more options&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Key indicators of successful startup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Debug port listening</strong>: <code>Listening for transport dt_socket at address: 5005</code></p>
+</li>
+<li>
+<p><strong>Kafka connected</strong>: Messages showing connection to <code>parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092</code></p>
+</li>
+<li>
+<p><strong>Application started</strong>: <code>Listening on: <a href="http://0.0.0.0:8080" class="bare">http://0.0.0.0:8080</a></code></p>
+</li>
+<li>
+<p><strong>Live Coding activated</strong>: Hot reload is enabled</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_access_the_application"><a class="anchor" href="#_access_the_application"></a>Access the Application</h3>
+<div class="paragraph">
+<p>When Quarkus starts, a <strong>popup notification</strong> appears in the bottom-right corner with a button to open the application endpoint.</p>
+</div>
+<div class="paragraph">
+<p>Click <strong>Open in New Tab</strong> or <strong>Open in Preview</strong> to access the running application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/app.png" alt="app" width="700">
+</div>
+</div>
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Dev Spaces on OpenShift uses OpenShift OAuth for authentication by default. The Dev Spaces operator is designed to integrate with OpenShift&#8217;s built-in authentication system, not with external OIDC providers like Keycloak. Users will authenticate with their OpenShift credentials when accessing the Dev Spaces dashboard.
+If you miss the popup, press <code>Ctrl+C</code> to stop Quarkus, then run <code>./mvnw compile quarkus:dev</code> again to restart and see the notification.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Wait for the deployment to complete.</p>
+<p>The endpoint URL follows this structure:</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">https://&lt;username&gt;-&lt;project-name&gt;-quarkus-dev.apps.&lt;cluster-domain&gt;/</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see a resource named <code>devspaces</code>.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Wait until all pods are in <code>Running</code> state with <code>READY</code> showing the expected number of containers (e.g., <code>1/1</code>, <code>4/4</code>).</p>
-</div>
-<div class="paragraph">
-<p>Once all pods are running, check the CheCluster status:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output should be <code>Active</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_access_the_dashboard"><a class="anchor" href="#_access_the_dashboard"></a>Access the Dashboard</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once the CheCluster is <code>Active</code>, get the dashboard URL:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Open this URL in your browser.
-You will authenticate using OpenShift OAuth with your OpenShift credentials (e.g., <code>admin</code> / <code>&lt;cluster-admin-password&gt;</code>).</p>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying allow the permissions&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
-</div>
-<div class="title">Figure 1. Sample Authorize Access Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying you should see this page&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
-</div>
-<div class="title">Figure 2. Dev Spaces Homepage Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>You can also access Dev Spaces from the OpenShift Console:</p>
-</div>
-<div class="paragraph">
-<p>&lt;Optionally&gt;
-. Click the application launcher icon in the top right of the OpenShift Console.
-. Select <strong>Red Hat OpenShift Dev Spaces</strong>.
-. You will be automatically authenticated with your current OpenShift session.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_useful_configuration_commands"><a class="anchor" href="#_appendix_useful_configuration_commands"></a>Appendix: Useful Configuration Commands</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following commands are reference commands for administrators. Do not run them during the lab unless an instructor asks you to change the Dev Spaces configuration.</p>
+<p>For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
-
-# Change max workspaces per user
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
-
-# Read a specific setting
-oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">https://admin-etx-app-base-app-quarkus-dev.apps.cluster-grsml.dynamic2.redhatworkshops.io/</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You can also find the URL in the <strong>Endpoints</strong> panel (usually in the bottom-left sidebar).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_services_configuration"><a class="anchor" href="#_external_services_configuration"></a>External Services Configuration</h3>
+<div class="paragraph">
+<p>Your application connects to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>PostgreSQL</strong>: <code>parasol-db.etx-app-dev.svc.cluster.local:5432</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Database: <code>parasol</code></p>
+</li>
+<li>
+<p>Credentials: <code>parasol/parasol</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Kafka</strong>: <code>parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Topic: <code>intake</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are shared services across all development workspaces, deployed in <a href="#day2-lab1-supporting-services.adoc" class="xref unresolved">Deploy Supporting Services</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workspace_lifecycle"><a class="anchor" href="#_workspace_lifecycle"></a>Workspace Lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Useful operations from the Dev Spaces dashboard:</p>
+</div>
+<div class="paragraph">
+<p><strong>Stop workspace</strong> (preserves files on PVC):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click three dots (⋮) → <strong>Stop Workspace</strong></p>
+</li>
+<li>
+<p>Pod is deleted, PVC is retained</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Start workspace</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click three dots (⋮) → <strong>Start in background</strong></p>
+</li>
+<li>
+<p>Your files, Maven cache, and Git state persist</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Delete workspace</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click three dots (⋮) → <strong>Delete Workspace</strong></p>
+</li>
+<li>
+<p>Removes pod and PVC</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
-  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="prev"><a href="section12.html">Lab 10: Dev Spaces and IDE Setup</a></span>
+  <span class="next"><a href="lab-3-summary.html">📋 Lab Summary</a></span>
 </nav>
 </article>
   </div>

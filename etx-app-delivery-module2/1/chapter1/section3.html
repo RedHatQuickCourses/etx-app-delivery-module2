@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Version Control &amp; Collaborative Development :: Software Factory &amp; Developer Experience</title>
+    <title>Collaborative Development :: Software Factory &amp; Developer Experience</title>
     <link rel="prev" href="../chapter0/section2.html">
-    <link rel="next" href="lab-env-overview.html">
+    <link rel="next" href="lab-1.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
     <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
     <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
@@ -51,7 +52,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+    <a class="nav-link" href="../LABENV/lab-env-overview.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -78,16 +79,37 @@
     <span class="nav-text">Version Control</span>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section3.html">Introduction</a>
+    <a class="nav-link" href="section3.html">Collaborative Development</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
+    <a class="nav-link" href="lab-1.html">Lab1: Initial Setup</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-1.html">Lab1</a>
+</ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-2.html">Lab 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-a.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-b.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-c.html">Lab 4: Deploy PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-d.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-e.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2-summary.html">📋 Lab Summary</a>
   </li>
 </ul>
   </li>
@@ -105,30 +127,36 @@
     <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 7: Install Red Hat DevSpaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section5.html">Devfiles</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section12.html">Lab 10: Dev Spaces and IDE Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-f.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3-summary.html">📋 Lab Summary</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Hands-on Lab</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-3.html">Lab 3</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-5.html">Lab 4</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-4.html">Lab 5</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section12.html">Lab 6</a>
-  </li>
-</ul>
+    <a class="nav-link" href="devX.html">What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -162,7 +190,7 @@
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
     <li>Version Control</li>
-    <li><a href="section3.html">Introduction</a></li>
+    <li><a href="section3.html">Collaborative Development</a></li>
   </ul>
 </nav>
 </div>
@@ -171,7 +199,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Version Control &amp; Collaborative Development</h1>
+<h1 class="page">Collaborative Development</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -202,8 +230,9 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png" alt="GitHub Flow" width="400">
+<a class="image" href="https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png"><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png" alt="1*S4VJPf8Mrg3Gn5cR7JK62w" width="500"></a>
 </div>
+<div class="title">Figure 1. Git Workflow for Software Delivery(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -265,7 +294,6 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Key Takeaway</div>
 <div class="paragraph">
 <p>Git is much more than a code repository. It provides the collaboration and version history that modern Application Platforms rely on to automate software delivery.</p>
 </div>
@@ -289,8 +317,9 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://nvie.com/img/git-model@2x.png" alt="GitFlow" width="400">
+<a class="image" href="https://nvie.com/img/git-model@2x.png"><img src="https://nvie.com/img/git-model@2x.png" alt="git model@2x" width="400"></a>
 </div>
+<div class="title">Figure 2. Git branching strategy(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -355,8 +384,9 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://trunkbaseddevelopment.com/trunk1b.png" alt="Trunk-Based Development" width="400">
+<a class="image" href="https://trunkbaseddevelopment.com/trunk1b.png"><img src="https://trunkbaseddevelopment.com/trunk1b.png" alt="trunk1b" width="500"></a>
 </div>
+<div class="title">Figure 3. Trunk-Based Development(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="paragraph">
 <p>This approach keeps the focus on learning Application Platform concepts rather than Git administration.</p>
@@ -400,27 +430,15 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">Key Takeaway</div>
-<div class="paragraph">
-<p>In a modern Software Factory, <strong>Git is often the event that starts the entire software delivery process</strong>. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reflection"><a class="anchor" href="#_reflection"></a>Reflection</h2>
+<h2 id="_reflection"><a class="anchor" href="#_reflection"></a>🤔 Reflection</h2>
 <div class="sectionbody">
-<details>
+<div class="paragraph">
+<p></p>
+</div>
+<details class="reflection-box">
 <summary class="title">Think about your own organization (Click to expand)</summary>
 <div class="content">
 <div class="ulist">
@@ -444,9 +462,12 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 </div>
 <div class="sect1">
-<h2 id="_check_your_understanding"><a class="anchor" href="#_check_your_understanding"></a>Check Your Understanding</h2>
+<h2 id="_check_your_understanding"><a class="anchor" href="#_check_your_understanding"></a>🏁 Check Your Understanding</h2>
 <div class="sectionbody">
-<details>
+<div class="paragraph">
+<p></p>
+</div>
+<details class="quiz-box">
 <summary class="title">Quiz Time! (Click to expand)</summary>
 <div class="content">
 <div class="ulist">
@@ -552,11 +573,21 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </table>
 </div>
 </details>
+<div class="exampleblock key-takeaway">
+<div class="content">
+<div class="paragraph">
+<p>💡 <strong>Key Takeaway</strong></p>
+</div>
+<div class="paragraph">
+<p>In a modern Software Factory, <strong>Git is often the event that starts the entire software delivery process</strong>. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../chapter0/section2.html">A Day in the Software Factory</a></span>
-  <span class="next"><a href="lab-env-overview.html">Lab: Environment Overview</a></span>
+  <span class="next"><a href="lab-1.html">Lab1: Initial Setup</a></span>
 </nav>
 </article>
   </div>

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 8: Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="configure_devspaces.html">
-    <link rel="next" href="devspace_working.html">
+    <title>Lab 2: Install and Verify Red Hat OpenShift Pipelines :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-2.html">
+    <link rel="next" href="lab-b.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -93,7 +93,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-2.html">Lab 2</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="lab-a.html">Lab 2: Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -132,7 +132,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -189,8 +189,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>DevEx and DevSpaces</li>
-    <li><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></li>
+    <li>Deploy Supporting Services</li>
+    <li><a href="lab-a.html">Lab 2: Red Hat OpenShift Pipelines</a></li>
   </ul>
 </nav>
 </div>
@@ -199,183 +199,118 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 8: Configure Dev Spaces</h1>
-<div id="preamble">
+<h1 class="page">Lab 2: Install and Verify Red Hat OpenShift Pipelines</h1>
+<div class="sect1">
+<h2 id="_install_the_operator"><a class="anchor" href="#_install_the_operator"></a>Install the Operator</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create the namespace for Dev Spaces:</p>
+<p>Install the Red Hat OpenShift Pipelines Operator from OperatorHub.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the OpenShift Web Console.</p>
+</li>
+<li>
+<p>Log in using the <code>admin</code> credentials provided on the RHDP lab information page.</p>
+</li>
+<li>
+<p>From the navigation menu, select menu:Ecosystem[OperatorHub].</p>
+</li>
+<li>
+<p>Search for <strong>Red Hat OpenShift Pipelines</strong>. &lt;it might take sometime to load the operator, please wait&gt;</p>
+</li>
+<li>
+<p>Select the operator and click btn:[Install].</p>
+</li>
+<li>
+<p>Accept the default installation settings:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Update channel:</strong> <code>latest</code></p>
+</li>
+<li>
+<p><strong>Installation mode:</strong> <code>All namespaces on the cluster</code></p>
+</li>
+<li>
+<p><strong>Installed namespace:</strong> <code>openshift-operators</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click btn:[Install].</p>
+</li>
+<li>
+<p>Wait until the operator status changes to <strong>Succeeded</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="_images/pipeline_installed.png"><img src="_images/pipeline_installed.png" alt="pipeline installed" width="500"></a>
+</div>
+<div class="title">Figure 1. Red Hat OpenShift Pipelines Operator(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_verify_the_installation"><a class="anchor" href="#_verify_the_installation"></a>Verify the Installation</h3>
+<div class="paragraph">
+<p>Verify that the operator has been installed successfully.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get csv -n openshift-operators | grep pipelines</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Apply the CheCluster configuration:</p>
+<p>The command should return the OpenShift Pipelines ClusterServiceVersion (CSV) with a status of <code>Succeeded</code>.</p>
+</div>
+<div class="paragraph">
+<p>Next, verify that the Tekton platform components are running.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
-apiVersion: org.eclipse.che/v2
-kind: CheCluster
-metadata:
-  name: devspaces
-  namespace: openshift-devspaces
-spec:
-  components:
-    cheServer:
-      debug: false
-      logLevel: INFO
-    dashboard: {}
-    devWorkspace: {}
-    devfileRegistry: {}
-    imagePuller:
-      enable: false
-    metrics:
-      enable: true
-    pluginRegistry:
-      openVSXURL: "https://open-vsx.org"
-  containerRegistry: {}
-  devEnvironments:
-    startTimeoutSeconds: 600
-    secondsOfRunBeforeIdling: -1
-    secondsOfInactivityBeforeIdling: 1800
-    maxNumberOfWorkspacesPerUser: 5
-    maxNumberOfRunningWorkspacesPerUser: 2
-    defaultContainerResources:
-      limits:
-        cpu: "2"
-        memory: 6Gi
-      requests:
-        cpu: 500m
-        memory: 1Gi
-    disableContainerRunCapabilities: false
-    defaultEditor: che-incubator/che-code/latest
-    defaultNamespace:
-      autoProvision: true
-      template: &lt;username&gt;-devspaces
-    storage:
-      pvcStrategy: per-workspace
-EOF</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-pipelines</code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="paragraph">
+<p>You should see the Tekton controller pods in the <code>Running</code> state, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tekton-pipelines-controller</code></p>
+</li>
+<li>
+<p><code>tekton-triggers-controller</code></p>
+</li>
+<li>
+<p><code>tekton-events-controller</code></p>
+</li>
+<li>
+<p><code>tekton-webhook</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Dev Spaces on OpenShift uses OpenShift OAuth for authentication by default. The Dev Spaces operator is designed to integrate with OpenShift&#8217;s built-in authentication system, not with external OIDC providers like Keycloak. Users will authenticate with their OpenShift credentials when accessing the Dev Spaces dashboard.
+Installing the operator automatically deploys the Tekton controllers and supporting components into the <code>openshift-pipelines</code> namespace. These components will execute the CI/CD pipelines you create later in this lab.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Wait for the deployment to complete.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see a resource named <code>devspaces</code>.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Wait until all pods are in <code>Running</code> state with <code>READY</code> showing the expected number of containers (e.g., <code>1/1</code>, <code>4/4</code>).</p>
-</div>
-<div class="paragraph">
-<p>Once all pods are running, check the CheCluster status:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output should be <code>Active</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_access_the_dashboard"><a class="anchor" href="#_access_the_dashboard"></a>Access the Dashboard</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once the CheCluster is <code>Active</code>, get the dashboard URL:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Open this URL in your browser.
-You will authenticate using OpenShift OAuth with your OpenShift credentials (e.g., <code>admin</code> / <code>&lt;cluster-admin-password&gt;</code>).</p>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying allow the permissions&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
-</div>
-<div class="title">Figure 1. Sample Authorize Access Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying you should see this page&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
-</div>
-<div class="title">Figure 2. Dev Spaces Homepage Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>You can also access Dev Spaces from the OpenShift Console:</p>
-</div>
-<div class="paragraph">
-<p>&lt;Optionally&gt;
-. Click the application launcher icon in the top right of the OpenShift Console.
-. Select <strong>Red Hat OpenShift Dev Spaces</strong>.
-. You will be automatically authenticated with your current OpenShift session.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_useful_configuration_commands"><a class="anchor" href="#_appendix_useful_configuration_commands"></a>Appendix: Useful Configuration Commands</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following commands are reference commands for administrators. Do not run them during the lab unless an instructor asks you to change the Dev Spaces configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
-
-# Change max workspaces per user
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
-
-# Read a specific setting
-oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
-  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="prev"><a href="lab-2.html">Lab 2</a></span>
+  <span class="next"><a href="lab-b.html">Lab 3: Red Hat AMQ Streams</a></span>
 </nav>
 </article>
   </div>

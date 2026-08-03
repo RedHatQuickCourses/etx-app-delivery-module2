@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 8: Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="configure_devspaces.html">
-    <link rel="next" href="devspace_working.html">
+    <title>Configure Dev Spaces :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-3.html">
+    <link rel="next" href="lab-5.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -129,10 +129,10 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-3.html">Lab 7: Install Red Hat DevSpaces</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -190,7 +190,7 @@
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
     <li>DevEx and DevSpaces</li>
-    <li><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></li>
+    <li><a href="configure_devspaces.html">Configure Dev Spaces</a></li>
   </ul>
 </nav>
 </div>
@@ -199,24 +199,17 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 8: Configure Dev Spaces</h1>
-<div id="preamble">
+<h1 class="page">Configure Dev Spaces</h1>
+<div class="sect1">
+<h2 id="_create_the_checluster"><a class="anchor" href="#_create_the_checluster"></a>Create the CheCluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create the namespace for Dev Spaces:</p>
+<p>The <code>CheCluster</code> custom resource is the single configuration object for your Dev Spaces deployment.
+This is the sample configuration to create an instance with sensible defaults for this workshop environment:</p>
 </div>
-<div class="listingblock execute">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Apply the CheCluster configuration:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
-apiVersion: org.eclipse.che/v2
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: org.eclipse.che/v2
 kind: CheCluster
 metadata:
   name: devspaces
@@ -230,15 +223,15 @@ spec:
     devWorkspace: {}
     devfileRegistry: {}
     imagePuller:
-      enable: false
+      enable: false # <i class="conum" data-value="1"></i><b>(1)</b>
     metrics:
       enable: true
     pluginRegistry:
-      openVSXURL: "https://open-vsx.org"
+      openVSXURL: "https://open-vsx.org" # <i class="conum" data-value="2"></i><b>(2)</b>
   containerRegistry: {}
   devEnvironments:
     startTimeoutSeconds: 600
-    secondsOfRunBeforeIdling: -1
+    secondsOfRunBeforeIdling: -1 # <i class="conum" data-value="3"></i><b>(3)</b>
     secondsOfInactivityBeforeIdling: 1800
     maxNumberOfWorkspacesPerUser: 5
     maxNumberOfRunningWorkspacesPerUser: 2
@@ -249,133 +242,44 @@ spec:
       requests:
         cpu: 500m
         memory: 1Gi
-    disableContainerRunCapabilities: false
+    disableContainerRunCapabilities: false # <i class="conum" data-value="4"></i><b>(4)</b>
     defaultEditor: che-incubator/che-code/latest
     defaultNamespace:
       autoProvision: true
       template: &lt;username&gt;-devspaces
     storage:
-      pvcStrategy: per-workspace
-EOF</code></pre>
+      pvcStrategy: per-workspace # <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Dev Spaces on OpenShift uses OpenShift OAuth for authentication by default. The Dev Spaces operator is designed to integrate with OpenShift&#8217;s built-in authentication system, not with external OIDC providers like Keycloak. Users will authenticate with their OpenShift credentials when accessing the Dev Spaces dashboard.
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Image puller pre-caches images on nodes to speed up workspace startup. Disable for small clusters; enable if startup time matters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Points at the public Open VSX registry so developers can install any extension. The default embedded registry has a very limited set.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Set to <code>-1</code> to disable run-time idling (useful during workshops). In production, set a reasonable value.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Required for nested containers (Podman-in-workspace). Must be <code>false</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>per-workspace</code> gives each workspace its own PVC. This supports multiple workspaces per user without conflicts and provides clean isolation. Alternative: <code>per-user</code> shares a single PVC across all workspaces.</td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Wait for the deployment to complete.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You should see a resource named <code>devspaces</code>.</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Wait until all pods are in <code>Running</code> state with <code>READY</code> showing the expected number of containers (e.g., <code>1/1</code>, <code>4/4</code>).</p>
-</div>
-<div class="paragraph">
-<p>Once all pods are running, check the CheCluster status:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The output should be <code>Active</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_access_the_dashboard"><a class="anchor" href="#_access_the_dashboard"></a>Access the Dashboard</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once the CheCluster is <code>Active</code>, get the dashboard URL:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Open this URL in your browser.
-You will authenticate using OpenShift OAuth with your OpenShift credentials (e.g., <code>admin</code> / <code>&lt;cluster-admin-password&gt;</code>).</p>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying allow the permissions&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
-</div>
-<div class="title">Figure 1. Sample Authorize Access Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>&lt;Add instruction saying you should see this page&gt;</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
-</div>
-<div class="title">Figure 2. Dev Spaces Homepage Screenshot(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-<div class="paragraph">
-<p>You can also access Dev Spaces from the OpenShift Console:</p>
-</div>
-<div class="paragraph">
-<p>&lt;Optionally&gt;
-. Click the application launcher icon in the top right of the OpenShift Console.
-. Select <strong>Red Hat OpenShift Dev Spaces</strong>.
-. You will be automatically authenticated with your current OpenShift session.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_appendix_useful_configuration_commands"><a class="anchor" href="#_appendix_useful_configuration_commands"></a>Appendix: Useful Configuration Commands</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following commands are reference commands for administrators. Do not run them during the lab unless an instructor asks you to change the Dev Spaces configuration.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
-
-# Change max workspaces per user
-oc patch checluster devspaces -n openshift-devspaces \
-  --type='merge' \
-  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
-
-# Read a specific setting
-oc get checluster devspaces -n openshift-devspaces \
-  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
-</div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
-  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+  <span class="prev"><a href="lab-3.html">Lab 7: Install Red Hat DevSpaces</a></span>
+  <span class="next"><a href="lab-5.html">Lab 8: Configure Dev Spaces</a></span>
 </nav>
 </article>
   </div>

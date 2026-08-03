@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 6: Dev Spaces and IDE Setup :: Software Factory &amp; Developer Experience</title>
+    <title>Lab 10: Dev Spaces and IDE Setup :: Software Factory &amp; Developer Experience</title>
     <link rel="prev" href="lab-4.html">
+    <link rel="next" href="lab-f.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
     <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
     <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
     <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
@@ -50,7 +52,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+    <a class="nav-link" href="../LABENV/lab-env-overview.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -77,16 +79,37 @@
     <span class="nav-text">Version Control</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section3.html">Introduction</a>
+    <a class="nav-link" href="section3.html">Collaborative Development</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-env-overview.html">Lab: Environment Overview</a>
+    <a class="nav-link" href="lab-1.html">Lab1: Initial Setup</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-1.html">Lab1</a>
+</ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-2.html">Lab 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-a.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-b.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-c.html">Lab 4: Deploy PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-d.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-e.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2-summary.html">📋 Lab Summary</a>
   </li>
 </ul>
   </li>
@@ -104,30 +127,36 @@
     <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 7: Install Red Hat DevSpaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 8: Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section5.html">Devfiles</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section12.html">Lab 10: Dev Spaces and IDE Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-f.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3-summary.html">📋 Lab Summary</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <span class="nav-text">Hands-on Lab</span>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-3.html">Lab 3</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-5.html">Lab 4</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab-4.html">Lab 5</a>
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section12.html">Lab 6</a>
-  </li>
-</ul>
+    <a class="nav-link" href="devX.html">What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -160,8 +189,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>Hands-on Lab</li>
-    <li><a href="section12.html">Lab 6</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="section12.html">Lab 10: Dev Spaces and IDE Setup</a></li>
   </ul>
 </nav>
 </div>
@@ -170,7 +199,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 6: Dev Spaces and IDE Setup</h1>
+<h1 class="page">Lab 10: Dev Spaces and IDE Setup</h1>
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
@@ -220,25 +249,25 @@ Dev Spaces on OpenShift uses OpenShift OAuth for authentication by design.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click btn:[Create Workspace]</p>
+<p>Click <b class="button">Create Workspace</b></p>
 </li>
 <li>
 <p>Select <strong>Import from Git</strong></p>
 </li>
 <li>
 <p>Get the gitlab url from below command:</p>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
 echo $GITLAB_URL</code></pre>
 </div>
 </div>
 </li>
 <li>
 <p>Paste the repository URL:</p>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">{GITLAB_URL}/software-factory/etx_app_base_app.git</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{GITLAB_URL}/software-factory/etx_app_base_app.git</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -248,7 +277,7 @@ echo $GITLAB_URL</code></pre>
 </div>
 </li>
 <li>
-<p>Click btn:[Create &amp; Open]</p>
+<p>Click <b class="button">Create &amp; Open</b></p>
 </li>
 <li>
 <p>If prompted to authorize with GitLab, follow the OAuth flow and approve access</p>
@@ -272,7 +301,7 @@ echo $GITLAB_URL</code></pre>
 <p>Once the workspace opens, configure Git identity.</p>
 </div>
 <div class="paragraph">
-<p>Open a terminal from the main menu (hamburger icon in the top-left corner: menu:Terminal[New Terminal]).</p>
+<p>Open a terminal from the main menu (hamburger icon in the top-left corner: <span class="menuseq"><b class="menu">Terminal</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">New Terminal</b></span>).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -515,7 +544,7 @@ echo "${DEVSPACES_URL}#${GITLAB_URL}/software-factory/etx_app_base_app/-/tree/fe
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click btn:[Create Workspace]</p>
+<p>Click <b class="button">Create Workspace</b></p>
 </li>
 <li>
 <p>Select <strong>Import from Git</strong></p>
@@ -529,7 +558,7 @@ echo "${DEVSPACES_URL}#${GITLAB_URL}/software-factory/etx_app_base_app/-/tree/fe
 </div>
 </li>
 <li>
-<p>Click btn:[Create &amp; Open]</p>
+<p>Click <b class="button">Create &amp; Open</b></p>
 </li>
 </ol>
 </div>
@@ -598,7 +627,7 @@ Dev Spaces automatically clones the repository when you create a workspace from 
 </div>
 <div class="paragraph">
 <p>Or, you can also verify from a workspace terminal, opening from the burger menu on the top right of the IDE,
-then selecting menu:Terminal[New Terminal]:</p>
+then selecting <span class="menuseq"><b class="menu">Terminal</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">New Terminal</b></span>:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -695,208 +724,9 @@ KAFKA_BOOTSTRAP_SERVERS: parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.l
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_run_quarkus_in_development_mode"><a class="anchor" href="#_run_quarkus_in_development_mode"></a>Run Quarkus in Development Mode</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When you open a terminal in the workspace, you are automatically positioned in the project directory.</p>
-</div>
-<div class="paragraph">
-<p>Verify your current location and start Quarkus development mode:</p>
-</div>
-<div class="listingblock execute">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Verify you're in the project directory
-pwd
-
-# Start Quarkus in development mode
-./mvnw compile quarkus:dev</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Expected output from <code>pwd</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">/projects/etx_app_base_app</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Quarkus connects to the external PostgreSQL and Kafka services using the environment variables from your devfile.</p>
-</div>
-<div class="paragraph">
-<p>Wait for the application to start. You should see output similar to:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">Listening for transport dt_socket at address: 5005
-__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,&lt; / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-
-INFO  [io.sma.rea.mes.kafka] SRMSG18229: Configured topics for channel 'emails-in': [intake]
-INFO  [io.sma.rea.mes.kafka] SRMSG18258: Kafka producer kafka-producer-emails-out, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
-INFO  [io.sma.rea.mes.kafka] SRMSG18257: Kafka consumer kafka-consumer-emails-in, connected to Kafka brokers 'parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092'
-INFO  [io.quarkus] parasol-reimagined 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.17.5) started in 7.298s. Listening on: http://0.0.0.0:8080
-INFO  [io.quarkus] Profile dev activated. Live Coding activated.
-
---
-Tests paused
-Press [e] to edit command line args, [r] to resume testing, [h] for more options&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Key indicators of successful startup:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Debug port listening</strong>: <code>Listening for transport dt_socket at address: 5005</code></p>
-</li>
-<li>
-<p><strong>Kafka connected</strong>: Messages showing connection to <code>parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092</code></p>
-</li>
-<li>
-<p><strong>Application started</strong>: <code>Listening on: <a href="http://0.0.0.0:8080" class="bare">http://0.0.0.0:8080</a></code></p>
-</li>
-<li>
-<p><strong>Live Coding activated</strong>: Hot reload is enabled</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_access_the_application"><a class="anchor" href="#_access_the_application"></a>Access the Application</h3>
-<div class="paragraph">
-<p>When Quarkus starts, a <strong>popup notification</strong> appears in the bottom-right corner with a button to open the application endpoint.</p>
-</div>
-<div class="paragraph">
-<p>Click <strong>Open in New Tab</strong> or <strong>Open in Preview</strong> to access the running application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/app.png" alt="app" width="700">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you miss the popup, press <code>Ctrl+C</code> to stop Quarkus, then run <code>./mvnw compile quarkus:dev</code> again to restart and see the notification.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The endpoint URL follows this structure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">https://&lt;username&gt;-&lt;project-name&gt;-quarkus-dev.apps.&lt;cluster-domain&gt;/</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">https://admin-etx-app-base-app-quarkus-dev.apps.cluster-grsml.dynamic2.redhatworkshops.io/</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can also find the URL in the <strong>Endpoints</strong> panel (usually in the bottom-left sidebar).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_external_services_configuration"><a class="anchor" href="#_external_services_configuration"></a>External Services Configuration</h3>
-<div class="paragraph">
-<p>Your application connects to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>PostgreSQL</strong>: <code>parasol-db.etx-app-dev.svc.cluster.local:5432</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Database: <code>parasol</code></p>
-</li>
-<li>
-<p>Credentials: <code>parasol/parasol</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Kafka</strong>: <code>parasol-kafka-kafka-bootstrap.etx-app-dev.svc.cluster.local:9092</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Topic: <code>intake</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These are shared services across all development workspaces, deployed in <a href="#day2-lab1-supporting-services.adoc" class="xref unresolved">Deploy Supporting Services</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_workspace_lifecycle"><a class="anchor" href="#_workspace_lifecycle"></a>Workspace Lifecycle</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Useful operations from the Dev Spaces dashboard:</p>
-</div>
-<div class="paragraph">
-<p><strong>Stop workspace</strong> (preserves files on PVC):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click three dots (⋮) → <strong>Stop Workspace</strong></p>
-</li>
-<li>
-<p>Pod is deleted, PVC is retained</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Start workspace</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click three dots (⋮) → <strong>Start in background</strong></p>
-</li>
-<li>
-<p>Your files, Maven cache, and Git state persist</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Delete workspace</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click three dots (⋮) → <strong>Delete Workspace</strong></p>
-</li>
-<li>
-<p>Removes pod and PVC</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <nav class="pagination">
-  <span class="prev"><a href="lab-4.html">Lab 5</a></span>
+  <span class="prev"><a href="lab-4.html">Lab 9: GitLab Integration and Shared Secrets</a></span>
+  <span class="next"><a href="lab-f.html">Lab 11: Application Deployment</a></span>
 </nav>
 </article>
   </div>
