@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenShift Dev Spaces Architecture :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="overview.html">
+    <link rel="next" href="lab-7.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="devspace_arch.html">Dev Spaces Architecture</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">OpenShift Dev Spaces Architecture</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the previous lesson, you learned how OpenShift Dev Spaces provides standardized Cloud Development Environments for developers.</p>
+</div>
+<div class="paragraph">
+<p>In this lesson, you&#8217;ll look behind the scenes to understand how Dev Spaces creates and manages developer workspaces on OpenShift.</p>
+</div>
+<div class="paragraph">
+<p>You don&#8217;t need to manage these components directly, but understanding their roles will help you see how Dev Spaces delivers secure, repeatable development environments.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="_images/arch.png"><img src="_images/arch.png" alt="arch" width="600"></a>
+</div>
+<div class="title">Figure 1. DevSpaces Architecture(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_a_workspace_is_created"><a class="anchor" href="#_how_a_workspace_is_created"></a>How a Workspace is Created</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a developer creates a new workspace, Dev Spaces follows a simple workflow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The developer selects or imports a project that contains a <strong>Devfile</strong>.</p>
+</li>
+<li>
+<p>The Dev Spaces Dashboard sends the workspace request.</p>
+</li>
+<li>
+<p>The Dev Spaces Server reads the Devfile definition.</p>
+</li>
+<li>
+<p>A <strong>DevWorkspace</strong> resource is created on OpenShift.</p>
+</li>
+<li>
+<p>OpenShift provisions the required workspace containers.</p>
+</li>
+<li>
+<p>The developer connects to the running workspace through the browser.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This process ensures every workspace is created from the same version-controlled configuration, providing a consistent development environment for every developer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_components"><a class="anchor" href="#_core_components"></a>Core Components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The architecture consists of several services that work together to provision and manage developer workspaces.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Devfile Registry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores reusable Devfile templates that define workspace configurations and sample development environments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plugin Registry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides IDE extensions and plugins that are installed into developer workspaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dev Spaces Dashboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The browser-based interface where developers create, start, stop, and manage their workspaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dev Spaces Server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The core service that processes workspace requests, interprets Devfiles, and coordinates workspace creation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Routes user requests to the appropriate Dev Spaces services and workspace pods. It also handles authentication and authorization using OpenShift OAuth and Role-Based Access Control (RBAC).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PostgreSQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores configuration data and workspace metadata used by the Dev Spaces platform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates and manages the Kubernetes resources required for each developer workspace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DevWorkspace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Kubernetes custom resource that represents an individual development workspace running on OpenShift.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_dev_spaces_fits_the_software_factory"><a class="anchor" href="#_how_dev_spaces_fits_the_software_factory"></a>How Dev Spaces Fits the Software Factory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the Software Factory, Dev Spaces provides the standardized development environment where application development begins.</p>
+</div>
+<div class="paragraph">
+<p>Platform Engineers maintain the Dev Spaces platform, while developers simply launch a workspace and begin writing code.</p>
+</div>
+<div class="paragraph">
+<p>Because workspaces are defined as code and provisioned automatically, organizations gain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Consistent development environments</p>
+</li>
+<li>
+<p>Faster developer onboarding</p>
+</li>
+<li>
+<p>Simplified platform management</p>
+</li>
+<li>
+<p>Improved security and governance</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Most developers interact only with the Dev Spaces Dashboard. The remaining components operate behind the scenes to automatically provision, secure, and manage development workspaces on OpenShift.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock key-takeaway">
+<div class="content">
+<div class="paragraph">
+<p>💡 <strong>Key Takeaway</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>OpenShift Dev Spaces</strong> combines Devfiles, platform services, and OpenShift to automatically provision standardized development workspaces, allowing developers to focus on building applications instead of configuring their development environment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="overview.html">Dev Spaces Overview</a></span>
+  <span class="next"><a href="lab-7.html">Lab 7: Install Red Hat Dev Spaces</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

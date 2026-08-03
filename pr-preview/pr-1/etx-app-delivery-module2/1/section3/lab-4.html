@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 4: Deploy PostgreSQL Database :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="lab-3.html">
+    <link rel="next" href="lab-5.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../section4/next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>Deploy Supporting Services</li>
+    <li><a href="lab-4.html">Lab 4: PostgreSQL Database</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 4: Deploy PostgreSQL Database</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll deploy a PostgreSQL database that provides persistent storage for the training application.</p>
+</div>
+<div class="paragraph">
+<p>The application uses PostgreSQL to store and retrieve application data. You&#8217;ll deploy the database using the Red Hat certified PostgreSQL container image and verify that it is ready to accept client connections.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deployed a PostgreSQL database on OpenShift</p>
+</li>
+<li>
+<p>Verified that the database deployment is running</p>
+</li>
+<li>
+<p>Confirmed that applications can connect to the database</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploy_the_postgresql_database"><a class="anchor" href="#_deploy_the_postgresql_database"></a>Deploy the PostgreSQL Database</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Deploy PostgreSQL along with the Kubernetes resources required by the application, including a Secret for the database credentials and a Service for internal connectivity.</p>
+</div>
+<div class="paragraph">
+<p>Apply the following manifest.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - <<'EOF'
+apiVersion: v1
+kind: Secret
+metadata:
+  name: parasol-db-secret
+  namespace: etx-app-dev
+type: Opaque
+stringData:
+  database-name: parasol
+  database-user: parasol
+  database-password: parasol
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: parasol-db
+  namespace: etx-app-dev
+spec:
+  ports:
+    - name: postgresql
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: parasol-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parasol-db
+  namespace: etx-app-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: parasol-db
+  template:
+    metadata:
+      labels:
+        app: parasol-db
+    spec:
+      containers:
+        - name: postgresql
+          image: registry.redhat.io/rhel9/postgresql-16:latest
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: parasol-db-secret
+                  key: database-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: parasol-db-secret
+                  key: database-password
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: parasol-db-secret
+                  key: database-name
+          volumeMounts:
+            - name: postgresql-data
+              mountPath: /var/lib/pgsql/data
+          livenessProbe:
+            exec:
+              command:
+                - /usr/libexec/check-container
+                - --live
+            initialDelaySeconds: 120
+            timeoutSeconds: 10
+          readinessProbe:
+            exec:
+              command:
+                - /usr/libexec/check-container
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 500m
+            requests:
+              memory: 256Mi
+              cpu: 100m
+      volumes:
+        - name: postgresql-data
+          emptyDir: {}
+EOF</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This deployment uses <code>emptyDir</code> for storage, which means all database data is lost if the pod is restarted. In production environments, use a <code>PersistentVolumeClaim</code> backed by persistent storage.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_the_postgresql_deployment"><a class="anchor" href="#_verify_the_postgresql_deployment"></a>Verify the PostgreSQL Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wait for the PostgreSQL deployment to complete successfully.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc rollout status deployment/parasol-db -n etx-app-dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After the rollout completes, verify that the PostgreSQL pod is running.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods \
+  -l app=parasol-db \
+  -n etx-app-dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that the PostgreSQL pod is in the <code>Running</code> state before continuing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_database_connectivity"><a class="anchor" href="#_verify_database_connectivity"></a>Verify Database Connectivity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Confirm that applications can connect to the PostgreSQL database.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc run postgresql-test --rm -it --restart=Never \
+  --image=registry.redhat.io/rhel9/postgresql-16:latest \
+  --env PGPASSWORD=$(oc get secret -n etx-app-dev parasol-db-secret -o jsonpath='{.data.database-password}' | base64 -d) \
+  -n etx-app-dev -- \
+  psql -h parasol-db \
+  -U $(oc get secret -n etx-app-dev parasol-db-secret -o jsonpath='{.data.database-user}' | base64 -d) \
+  -d $(oc get secret -n etx-app-dev parasol-db-secret -o jsonpath='{.data.database-name}' | base64 -d) \
+  -c '\conninfo'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the connection is successful, you&#8217;ll see information similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>You are connected to database "parasol" as user "parasol" on host "parasol-db" at port "5432".</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The database credentials are stored in the <code>parasol-db-secret</code> Secret. Later in this training, the application will use these same credentials to establish its database connection.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="lab-3.html">Lab 3: Red Hat AMQ Streams</a></span>
+  <span class="next"><a href="lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+{
+  "totalSeconds": 1949,
+  "pageCount": 24,
+  "pages": [
+    {
+      "module": "ROOT",
+      "page": "index.adoc",
+      "seconds": 94
+    },
+    {
+      "module": "section1",
+      "page": "intro.adoc",
+      "seconds": 80
+    },
+    {
+      "module": "section1",
+      "page": "day.adoc",
+      "seconds": 77
+    },
+    {
+      "module": "section2",
+      "page": "git.adoc",
+      "seconds": 145
+    },
+    {
+      "module": "section2",
+      "page": "lab-1.adoc",
+      "seconds": 59
+    },
+    {
+      "module": "section3",
+      "page": "lab-2.adoc",
+      "seconds": 55
+    },
+    {
+      "module": "section3",
+      "page": "lab-3.adoc",
+      "seconds": 79
+    },
+    {
+      "module": "section3",
+      "page": "lab-4.adoc",
+      "seconds": 94
+    },
+    {
+      "module": "section3",
+      "page": "lab-5.adoc",
+      "seconds": 77
+    },
+    {
+      "module": "section3",
+      "page": "lab-6.adoc",
+      "seconds": 65
+    },
+    {
+      "module": "section3",
+      "page": "lab-summary.adoc",
+      "seconds": 40
+    },
+    {
+      "module": "section4",
+      "page": "devX.adoc",
+      "seconds": 107
+    },
+    {
+      "module": "section4",
+      "page": "overview.adoc",
+      "seconds": 85
+    },
+    {
+      "module": "section4",
+      "page": "devspace_arch.adoc",
+      "seconds": 35
+    },
+    {
+      "module": "section4",
+      "page": "lab-7.adoc",
+      "seconds": 46
+    },
+    {
+      "module": "section4",
+      "page": "configure_devspaces.adoc",
+      "seconds": 61
+    },
+    {
+      "module": "section4",
+      "page": "lab-8.adoc",
+      "seconds": 101
+    },
+    {
+      "module": "section4",
+      "page": "devspace_working.adoc",
+      "seconds": 20
+    },
+    {
+      "module": "section4",
+      "page": "devfiles.adoc",
+      "seconds": 141
+    },
+    {
+      "module": "section4",
+      "page": "lab-9.adoc",
+      "seconds": 150
+    },
+    {
+      "module": "section4",
+      "page": "lab10.adoc",
+      "seconds": 152
+    },
+    {
+      "module": "section4",
+      "page": "lab-11.adoc",
+      "seconds": 119
+    },
+    {
+      "module": "section4",
+      "page": "lab-summary.adoc",
+      "seconds": 66
+    },
+    {
+      "module": "section4",
+      "page": "next.adoc",
+      "seconds": 1
+    }
+  ]
+}

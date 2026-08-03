@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 8: Configure Red Hat Dev Spaces :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="configure_devspaces.html">
+    <link rel="next" href="devspace_working.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section2/lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>DevEx and DevSpaces</li>
+    <li><a href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 8: Configure Red Hat Dev Spaces</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll configure Red Hat Dev Spaces by deploying a <code>CheCluster</code> instance and verifying that the Dev Spaces dashboard is available.</p>
+</div>
+<div class="paragraph">
+<p>A <code>CheCluster</code> defines the Dev Spaces server components, workspace configuration, authentication, and resource limits. Once deployed, it provides browser-based development environments for users.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deployed a <code>CheCluster</code> instance</p>
+</li>
+<li>
+<p>Verified that the Dev Spaces platform is running</p>
+</li>
+<li>
+<p>Accessed the Dev Spaces dashboard</p>
+</li>
+<li>
+<p>Confirmed that OpenShift authentication is working</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploy_the_dev_spaces_instance"><a class="anchor" href="#_deploy_the_dev_spaces_instance"></a>Deploy the Dev Spaces Instance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Begin by creating the namespace that will host the Dev Spaces components.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc create namespace openshift-devspaces</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, deploy the <code>CheCluster</code> resource.</p>
+</div>
+<div class="paragraph">
+<p>Apply the following manifest.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;'EOF'
+apiVersion: org.eclipse.che/v2
+kind: CheCluster
+metadata:
+  name: devspaces
+  namespace: openshift-devspaces
+spec:
+  components:
+    cheServer:
+      debug: false
+      logLevel: INFO
+    dashboard: {}
+    devWorkspace: {}
+    devfileRegistry: {}
+    imagePuller:
+      enable: false
+    metrics:
+      enable: true
+    pluginRegistry:
+      openVSXURL: "https://open-vsx.org"
+  containerRegistry: {}
+  devEnvironments:
+    startTimeoutSeconds: 600
+    secondsOfRunBeforeIdling: -1
+    secondsOfInactivityBeforeIdling: 1800
+    maxNumberOfWorkspacesPerUser: 5
+    maxNumberOfRunningWorkspacesPerUser: 2
+    defaultContainerResources:
+      limits:
+        cpu: "2"
+        memory: 6Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    disableContainerRunCapabilities: false
+    defaultEditor: che-incubator/che-code/latest
+    defaultNamespace:
+      autoProvision: true
+      template: &lt;username&gt;-devspaces
+    storage:
+      pvcStrategy: per-workspace
+EOF</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Red Hat Dev Spaces uses OpenShift OAuth for authentication by default. Users sign in with their OpenShift credentials, and no external identity provider configuration is required.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_the_dev_spaces_deployment"><a class="anchor" href="#_verify_the_dev_spaces_deployment"></a>Verify the Dev Spaces Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wait for the <code>CheCluster</code> resource to be created.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster -n openshift-devspaces</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that a <code>CheCluster</code> named <code>devspaces</code> has been created.</p>
+</div>
+<div class="paragraph">
+<p>Next, monitor the Dev Spaces pods until they are fully started.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n openshift-devspaces -w</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait until all pods are in the <code>Running</code> state and each pod reports the expected number of ready containers (for example, <code>1/1</code> or <code>4/4</code>).</p>
+</div>
+<div class="paragraph">
+<p>Finally, verify that the <code>CheCluster</code> is active.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces \
+  -n openshift-devspaces \
+  -o jsonpath='{.status.chePhase}{"\n"}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that the command returns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Active</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Do not proceed until the <code>CheCluster</code> status is <code>Active</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_access_the_dev_spaces_dashboard"><a class="anchor" href="#_access_the_dev_spaces_dashboard"></a>Access the Dev Spaces Dashboard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once the <code>CheCluster</code> is active, retrieve the Dev Spaces dashboard URL.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get checluster devspaces \
+  -n openshift-devspaces \
+  -o jsonpath='{.status.cheURL}{"\n"}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open the URL in your web browser.</p>
+</div>
+<div class="paragraph">
+<p>When prompted, sign in using your OpenShift credentials (for example, <code>admin</code> and the cluster administrator password).</p>
+</div>
+<div class="paragraph">
+<p>If prompted to authorize access, click <b class="button">Allow selected permissions</b>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="allow.png"><img src="_images/allow.png" alt="allow" width="500"></a>
+</div>
+<div class="title">Figure 1. Authorize Dev Spaces Access(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+<div class="paragraph">
+<p>After authentication completes, the Dev Spaces home page is displayed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="devspaceimage.png"><img src="_images/devspaceimage.png" alt="devspaceimage" width="500"></a>
+</div>
+<div class="title">Figure 2. Dev Spaces Home Page(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also access Red Hat Dev Spaces directly from the OpenShift web console by clicking the Application Launcher in the upper-right corner and selecting <strong>Red Hat OpenShift Dev Spaces</strong>. You&#8217;ll be automatically authenticated using your existing OpenShift session.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_appendix_administrator_reference_commands"><a class="anchor" href="#_appendix_administrator_reference_commands"></a>Appendix: Administrator Reference Commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following commands are provided for reference and are commonly used by cluster administrators to modify Dev Spaces configuration.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not run these commands during the training unless you&#8217;re instructed to change the Dev Spaces configuration.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Change storage strategy
+oc patch checluster devspaces -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"storage":{"pvcStrategy":"per-workspace"}}}}'
+
+# Change maximum workspaces per user
+oc patch checluster devspaces -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"maxNumberOfWorkspacesPerUser":10}}}'
+
+# View the current storage strategy
+oc get checluster devspaces -n openshift-devspaces \
+  -o jsonpath='{.spec.devEnvironments.storage.pvcStrategy}{"\n"}'</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="configure_devspaces.html">Configure Dev Spaces</a></span>
+  <span class="next"><a href="devspace_working.html">Creating a Workspace</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>

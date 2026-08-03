@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 1: Initial Setup :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="git.html">
+    <link rel="next" href="../section3/lab-2.html">
+    <meta name="generator" content="Antora 3.2.0-alpha.12">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/tabs.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/collapsible.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/reading-time.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/audio-transcript.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="etx-app-delivery-module2" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Software Factory &amp; Developer Experience</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Factory Overview</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/intro.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section1/day.html">A Day in the Software Factory</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Version Control</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="git.html">Collaborative Development</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="lab-1.html">Lab1: Initial Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Deploy Supporting Services</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">DevEx and DevSpaces</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devX.html">Developer Experience Matters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/overview.html">Dev Spaces Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devspace_arch.html">Dev Spaces Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-7.html">Lab 7: Install Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/configure_devspaces.html">Configure Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devspace_working.html">Creating a Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/devfiles.html">Devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab10.html">Lab 10: Dev Spaces Workspace</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-11.html">Lab 11: Application Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../section4/lab-summary.html">📋 Lab Summary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../section4/next.html">What&#8217;s next?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li>Version Control</li>
+    <li><a href="lab-1.html">Lab1: Initial Setup</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 1: Initial Setup</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab, you&#8217;ll access the Software Factory environment and prepare the application that will be used throughout the remaining exercises.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this lab, you will have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Authenticated to GitLab using enterprise Single Sign-On</p>
+</li>
+<li>
+<p>Cloned the workshop application repository</p>
+</li>
+<li>
+<p>Verified access to the OpenShift cluster</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sign_in_to_gitlab"><a class="anchor" href="#_sign_in_to_gitlab"></a>Sign in to GitLab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the <strong>GitLab URL</strong> provided on your lab information page (for example, <code><a href="https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io" class="bare">https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io</a></code>).</p>
+</li>
+<li>
+<p>On the GitLab sign-in page, click <b class="button">ETX Lab SSO</b>.</p>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="signin.png"><img src="_images/signin.png" alt="signin" width="400"></a>
+</div>
+<div class="title">Figure 1. Signin into GitLab(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+</li>
+<li>
+<p>Sign in using any one of the provided credentials in the <a href="../chapter1/lab-env-overview.html#_lab_credentials" class="xref page">Lab Credentials</a> section (for example, <code>username: platform-developer</code> / <code>password: openshift</code>).</p>
+</li>
+<li>
+<p>After successful authentication, you&#8217;ll be redirected back to GitLab.</p>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="signin.png"><img src="_images/gitlab.png" alt="gitlab" width="500"></a>
+</div>
+<div class="title">Figure 2. Sample GitLab Home Page(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The first time you sign in, GitLab automatically creates a user profile linked to your Keycloak identity.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clone_the_workshop_repository"><a class="anchor" href="#_clone_the_workshop_repository"></a>Clone the Workshop Repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Throughout the learning path, you&#8217;ll work with the <strong>ETX App Base</strong> application.</p>
+</div>
+<div class="paragraph">
+<p>Before cloning the repository, sign in to the OpenShift web console.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <strong>OpenShift Console URL</strong> listed on the <strong>RHDP Lab Environment</strong> page.</p>
+</li>
+<li>
+<p>Sign in using any one of the credentials listed in the <a href="#lab-env-overview.adoc#lab-credentials" class="xref unresolved">Lab Credentials</a> section.</p>
+</li>
+<li>
+<p>After signing in, open the <strong>Developer</strong> perspective.</p>
+</li>
+<li>
+<p>Click the <strong>&gt;_</strong> (<strong>Web Terminal</strong>) icon in the upper-right corner to launch a terminal session.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">GITLAB_URL="https://$(oc get route \
+  -n gitlab \
+  -l app=webservice \
+  -o jsonpath='{.items[0].spec.host}')"
+
+echo "${GITLAB_URL}"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Clone the application repository.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mkdir -p ~/workshop
+cd ~/workshop
+
+git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git
+cd etx_app_base_app</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Git repository is named <code>etx_app_base_app</code>. Kubernetes resources created later in the workshop use the naming convention <code>etx-app-base-app-*</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This repository intentionally does <strong>not</strong> contain a <code>devfile.yaml</code>. In the next lab, you&#8217;ll create one yourself and use it to launch a Dev Spaces workspace.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verify_openshift_access"><a class="anchor" href="#_verify_openshift_access"></a>Verify OpenShift Access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Confirm that you&#8217;re connected to the openshift cluster and have access to the development project.</p>
+</div>
+<div class="listingblock execute">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc whoami --show-server
+
+oc project etx-app-dev</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="git.html">Collaborative Development</a></span>
+  <span class="next"><a href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script defer src="../../../_/js/vendor/tabs.js"></script>
+<script defer src="../../../_/js/vendor/reading-time.js"></script>
+  </body>
+</html>
