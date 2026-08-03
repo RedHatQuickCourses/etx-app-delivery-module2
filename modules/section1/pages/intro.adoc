@@ -108,22 +108,9 @@ It is a standardized software delivery approach built on an Application Platform
 
 {empty}
 
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-Which statement best describes a Software Factory?
-
-A. Every development team builds and maintains its own toolchain.
-
-B. A standardized platform that automates how software is built, secured, deployed, and operated.
-
-C. A collection of independent tools managed separately by each team.
-
-*Answer*
-
-**B** — A Software Factory provides standardized workflows, automation, reusable services, and organizational guardrails for software delivery.
-====
+++++
+<iframe type="text/javascript" src="_attachments/intro-quiz.html" style="width: 100%; max-width: 1024px; height: 800px" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+++++
 
 [.key-takeaway]
 ====
