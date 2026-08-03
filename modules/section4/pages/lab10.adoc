@@ -223,13 +223,45 @@ You can create a workspace using either a direct URL or the Dev Spaces web inter
 Direct URL (Recommended)::
 +
 --
-...
+Use a direct URL to create a workspace from a specific branch.
+
+Get the required URLs:
+
+[source,bash,role=execute]
+----
+# Get Dev Spaces URL
+DEVSPACES_URL="https://$(oc get checluster devspaces -n openshift-devspaces -o jsonpath='{.status.cheURL}' | sed 's|https://||')"
+
+# Get GitLab URL
+GITLAB_URL="https://$(oc get route -n gitlab -l app=webservice -o jsonpath='{.items[0].spec.host}')"
+
+# Construct the direct workspace URL
+echo "${DEVSPACES_URL}#${GITLAB_URL}/software-factory/etx_app_base_app/-/tree/feature/add-devfile"
+----
+
+Open the generated URL in your browser. Dev Spaces will:
+
+. Automatically import the repository from the feature/add-devfile branch
+. Detect and use the devfile.yaml
+. Configure the workspace with all environment variables and settings
+
+This skips the manual "Create Workspace → Import from Git" flow.
 --
 
 Manual UI::
 +
 --
-...
+Create a workspace through the Dev Spaces dashboard.
+
+. Click btn:[Create Workspace]
+. Select *Import from Git*
+. Paste the repository URL (use the actual GitLab URL from your cluster):
++
+[source,text,subs="attributes+"]
+----
+{gitlab_url}/software-factory/etx_app_base_app/-/tree/feature/add-devfile
+----
+. Click btn:[Create & Open]
 --
 ====
 
