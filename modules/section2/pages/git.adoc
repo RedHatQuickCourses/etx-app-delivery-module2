@@ -128,58 +128,9 @@ You'll practice this workflow during the upcoming hands-on lab, where each Git c
 
 {empty}
 
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-* Why do developers create feature branches?
-
-A. To replace the main branch +
-B. To isolate changes before merging them into the shared codebase +
-C. To improve Kubernetes performance +
-D. To avoid using version control
-
-*Answer*
-
-**B** — Feature branches allow developers to work independently without affecting the shared codebase until their changes are reviewed and merged.
-
-'''
-
-* Which branching strategy is primarily used throughout this learning path?
-
-A. GitFlow +
-B. GitHub Flow +
-C. Trunk-Based Development +
-D. No branching
-
-*Answer*
-
-**C** — This course follows a simplified Trunk-Based Development approach with short-lived feature branches and frequent integration.
-
-'''
-
-* Which Application Platform capabilities commonly begin with a Git commit?
-
-|===
-|Capability |Starts from Git?
-
-|CI/CD Pipeline
-|Yes
-
-|GitOps Deployment
-|Yes
-
-|Security Scanning
-|Yes
-
-|Application Build
-|Yes
-
-|Monitoring Existing Applications
-|No
-|===
-
-====
+++++
+<iframe type="text/javascript" src="_attachments/git-quiz.html" style="width: 100%; max-width: 1024px; height: 800px" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+++++
 
 [.key-takeaway]
 ====

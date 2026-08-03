@@ -122,38 +122,7 @@ When a new developer joins your team:
 
 {empty}
 
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-Match Emma's activity with the platform capability that supports it.
-
-[cols="1,1",options="header"]
-|===
-|Activity |Capability
-
-|Find project templates
-|?
-
-|Start coding immediately
-|?
-
-|Automatically build applications
-|?
-
-|Deploy consistently
-|?
-
-|Store trusted container images
-|?
-|===
-
-*Answers*
-
-* Find project templates → Developer Hub
-* Start coding immediately → Dev Spaces
-* Automatically build applications → OpenShift Pipelines
-* Deploy consistently → GitOps
-* Store trusted container images → Quay
-====
+++++
+<iframe type="text/javascript" src="_attachments/day-quiz.html" style="width: 100%; max-width: 1024px; height: 800px" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0"></iframe>
+++++
 
