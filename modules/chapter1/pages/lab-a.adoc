@@ -1,0 +1,50 @@
+= Lab 2: Install and Verify Red Hat OpenShift Pipelines
+:navtitle: Lab 2: Red Hat OpenShift Pipelines
+
+== Install the Operator
+
+Install the Red Hat OpenShift Pipelines Operator from OperatorHub.
+
+. Open the OpenShift Web Console.
+. Log in using the `admin` credentials provided on the RHDP lab information page.
+. From the navigation menu, select menu:Ecosystem[OperatorHub].
+. Search for *Red Hat OpenShift Pipelines*. <it might take sometime to load the operator, please wait>
+. Select the operator and click btn:[Install].
+. Accept the default installation settings:
++
+* *Update channel:* `latest`
+* *Installation mode:* `All namespaces on the cluster`
+* *Installed namespace:* `openshift-operators`
++
+. Click btn:[Install].
+. Wait until the operator status changes to *Succeeded*.
++
+.Red Hat OpenShift Pipelines Operator(_Click the image to view it in full size in a new browser tab_)
+image::pipeline_installed.png[link={imagesdir}/pipeline_installed.png, width=500]
+
+=== Verify the Installation
+
+Verify that the operator has been installed successfully.
+
+[source,bash,role=execute]
+----
+oc get csv -n openshift-operators | grep pipelines
+----
+
+The command should return the OpenShift Pipelines ClusterServiceVersion (CSV) with a status of `Succeeded`.
+
+Next, verify that the Tekton platform components are running.
+
+[source,bash,role=execute]
+----
+oc get pods -n openshift-pipelines
+----
+
+You should see the Tekton controller pods in the `Running` state, including:
+
+* `tekton-pipelines-controller`
+* `tekton-triggers-controller`
+* `tekton-events-controller`
+* `tekton-webhook`
+
+NOTE: Installing the operator automatically deploys the Tekton controllers and supporting components into the `openshift-pipelines` namespace. These components will execute the CI/CD pipelines you create later in this lab.

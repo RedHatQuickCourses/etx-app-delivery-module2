@@ -1,0 +1,148 @@
+= Lab 3: Install, Deploy and Verify Red Hat AMQ Streams
+:navtitle: Lab 3: Red Hat AMQ Streams
+
+Red Hat AMQ Streams provides Apache Kafka as a managed service on OpenShift. Kafka enables applications to exchange messages asynchronously, making it easier to build scalable, event-driven applications.
+
+In this section, the ETX App Base application uses Kafka to exchange messages between application services.
+
+== Install the Operator
+
+. Open the OpenShift Web Console.
+. From the navigation menu, select menu:Operators[OperatorHub].
+. Search for *Streams for Apache Kafka*.
++
+WARNING: Install *Streams for Apache Kafka* only. Do *not* install *Streams for Apache Kafka Proxy*.
++
+. Click btn:[Install].
+. Accept the default installation settings:
++
+* *Update channel:* `stable`
+* *Installation mode:* `All namespaces`
+* *Installed namespace:* `openshift-operators`
++
+. Click btn:[Install].
+. Wait until the operator status changes to *Succeeded*.
++
+.Red Hat AMQ Streams Operator(_Click the image to view it in full size in a new browser tab_)
+image::kafka.png[link={imagesdir}/kafka.png, width=500]
+
+== Verify the Installation
+
+Verify that the operator has been installed successfully.
+
+[source,bash,role=execute]
+----
+oc get csv -n openshift-operators | grep amqstreams
+----
+
+The output should show the AMQ Streams ClusterServiceVersion (CSV) in the `Succeeded` state.
+
+== Deploy a Kafka Cluster
+
+With the operator installed, you can now deploy a Kafka cluster in your application namespace.
+
+Starting with AMQ Streams 3.x, Kafka clusters use *KafkaNodePools* to manage broker nodes.
+
+A KafkaNodePool defines a group of Kafka nodes, their roles, and storage configuration. In this workshop, you'll deploy a single-node Kafka cluster running in *KRaft mode*, where the same node acts as both the controller and broker. This removes the need for ZooKeeper and simplifies the deployment for development environments.
+
+Apply the following manifest:
+
+[source,bash,role=execute,subs="attributes"]
+----
+oc apply -f - <<'EOF'
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaNodePool
+metadata:
+  name: kafka
+  namespace: etx-app-dev
+  labels:
+    strimzi.io/cluster: parasol-kafka
+spec:
+  replicas: 1
+  roles:
+    - controller
+    - broker
+  storage:
+    type: ephemeral
+---
+apiVersion: kafka.strimzi.io/v1
+kind: Kafka
+metadata:
+  name: parasol-kafka
+  namespace: etx-app-dev
+  annotations:
+    strimzi.io/node-pools: enabled
+    strimzi.io/kraft: enabled
+spec:
+  kafka:
+    version: 4.2.0
+    metadataVersion: 4.2-IV0
+    listeners:
+      - name: plain
+        port: 9092
+        type: internal
+        tls: false
+      - name: tls
+        port: 9093
+        type: internal
+        tls: true
+    config:
+      offsets.topic.replication.factor: 1
+      transaction.state.log.replication.factor: 1
+      transaction.state.log.min.isr: 1
+      default.replication.factor: 1
+      min.insync.replicas: 1
+  entityOperator:
+    topicOperator: {}
+    userOperator: {}
+EOF
+----
+
+=== Verify the Kafka Cluster
+
+Wait for the Kafka cluster to become ready.
+
+[source,bash,role=execute]
+----
+oc wait kafka/parasol-kafka \
+  --for=condition=Ready \
+  --timeout=300s \
+  -n etx-app-dev
+----
+
+Verify that the Kafka pods are running.
+
+[source,bash,role=execute]
+----
+oc get pods \
+  -l strimzi.io/cluster=parasol-kafka \
+  -n etx-app-dev
+----
+
+The output should include:
+
+* `parasol-kafka-kafka-0`
+* `parasol-kafka-entity-operator-*`
+
+IMPORTANT: Ensure all Kafka pods are in the `Running` state before proceeding.
+
+=== Verify the Bootstrap Service
+
+Applications connect to Kafka through the bootstrap service.
+
+Retrieve the service endpoint.
+
+[source,bash,role=execute]
+----
+oc get service parasol-kafka-kafka-bootstrap \
+  -n etx-app-dev \
+  -o jsonpath='{.metadata.name}:{.spec.ports[0].port}{"\n"}'
+----
+
+The command should return:
+
+----
+parasol-kafka-kafka-bootstrap:9092
+----
+
+This bootstrap endpoint will be used later when configuring the application.

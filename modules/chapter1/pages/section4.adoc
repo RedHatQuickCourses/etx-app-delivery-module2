@@ -42,8 +42,25 @@ When every developer maintains a different workstation configuration, developmen
 == What is OpenShift Dev Spaces?
 
 OpenShift Dev Spaces provides **Cloud Development Environments (CDEs)** that run directly on OpenShift.
+Dev Spaces provides several capabilities that improve the developer experience by delivering consistent, cloud-based development environments.
 
-image::devspace.png[align="center",width="300"]
+[.concept-box]
+.Browser-Based IDE
+****
+Provides browser-based development workspaces that run in containers on OpenShift, allowing developers to code without installing local development tools.
+****
+
+[.concept-box]
+.Configuration as Code
+****
+Workspace configurations are defined as code, making development environments consistent, shareable, and easy to reproduce while reducing onboarding time.
+****
+
+[.concept-box]
+.Multiple Workspaces
+****
+Developers can create and manage multiple workspaces tailored to different applications, reducing context switching and improving productivity.
+****
 
 Instead of developing on a local workstation, developers use browser-based workspaces that are already configured with the required IDE, programming language runtimes, tools, dependencies, and cluster access.
 
@@ -112,10 +129,12 @@ For Platform Engineers:
 OpenShift Dev Spaces standardizes where developers build software, allowing Platform Engineers to centrally manage development environments while developers focus on delivering application features.
 ====
 
-== Reflection
+== 🤔 Reflection
 
+{empty}
+
+[.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
-[%collapsible]
 ====
 * How long does it take to prepare a new developer workstation?
 * Which tools must developers install manually?
@@ -123,10 +142,12 @@ OpenShift Dev Spaces standardizes where developers build software, allowing Plat
 * How could centralized development environments improve developer productivity?
 ====
 
-== Check Your Understanding
+== 🏁 Check Your Understanding
 
+{empty}
+
+[.quiz-box%collapsible]
 .Quiz Time! (Click to expand)
-[%collapsible]
 ====
 
 Which statement best describes OpenShift Dev Spaces?
@@ -144,9 +165,9 @@ D. A Git repository hosting service.
 **B** — OpenShift Dev Spaces provides standardized, browser-based development environments running on OpenShift.
 ====
 
-== Key Takeaway
-
-[NOTE]
+[.key-takeaway]
 ====
-OpenShift Dev Spaces provides standardized Cloud Development Environments that eliminate workstation setup, improve consistency, and enable developers to start building applications quickly within the Software Factory.
+💡 **Key Takeaway**
+
+**OpenShift DevSpaces** provides standardized Cloud Development Environments that eliminate workstation setup, improve consistency, and enable developers to start building applications quickly within the Software Factory.
 ====

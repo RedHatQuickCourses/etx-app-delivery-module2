@@ -13,9 +13,7 @@
 ** Documentation portals
 ** Security scanners
 ** Monitoring and observability platforms
-+
-image::developer.png[align="center",width=300]
-+
+
 * Each tool solves a specific problem. However, switching between multiple tools increases the amount of information developers must understand before they can deliver software.
 * This additional mental effort is commonly referred to as *developer cognitive load*.
 
@@ -67,21 +65,25 @@ NOTE: Organizations that invest in Developer Experience often observe improvemen
 
 Developer Experience is closely related to several Platform Engineering concepts.
 
+[.concept-box]
 .Platform Engineering
 ****
 Builds, operates, and maintains the internal platform that enables developers to build and deliver software efficiently.
 ****
 
+[.concept-box]
 .Internal Developer Platform (IDP)
 ****
 A collection of standardized tools, automation, services, and workflows that developers use throughout the Software Development Lifecycle.
 ****
 
+[.concept-box]
 .Developer Experience (DevEx)
 ****
 Measures how effectively developers can use the Internal Developer Platform to deliver software.
 ****
 
+[.concept-box]
 .Internal Developer Portal
 ****
 A centralized, self-service interface where developers discover services, documentation, templates, and workflows required to build and operate applications.

@@ -1,5 +1,7 @@
-= Lab 5: GitLab Integration and Shared Secrets
-:navtitle: Lab 5
+:experimental:
+
+= Lab 9: GitLab Integration and Shared Secrets
+:navtitle: Lab 9: GitLab Integration and Shared Secrets
 
 == GitLab OAuth for SCM Integration
 

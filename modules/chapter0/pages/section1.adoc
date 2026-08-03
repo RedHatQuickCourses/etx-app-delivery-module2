@@ -13,14 +13,21 @@ Every development team wants to deliver software quickly.
 
 Unfortunately, many organizations evolve over time, resulting in different teams using different tools, different processes, and different engineering practices.
 
+.The Developer's (Consumers) Struggle(_Click the image to view it in full size in a new browser tab_)
+image::tools.png[link={imagesdir}/tools.png, width=300]
+
 A new developer joining the organization often needs to answer questions such as:
 
 * Which Git repository should I use?
 * Which build pipeline does this team use?
-* How do I deploy my application?
+* How do I get my code deployed quickly?
 * Where is the documentation?
 * Which security requirements must I follow?
-* Who do I contact if something goes wrong?
+* What tools and processes do I use to validate my code?
+* How do I get rapid feedback about my application?
+* How do I know what software libraries are safe to use?
+* How do I request new features for the platform?
+* What needs to be changed to modernize my application?
 
 Instead of writing code, developers spend valuable time learning processes and integrating tools.
 
@@ -37,7 +44,8 @@ Rather than every development team assembling its own toolchain, Platform Engine
 
 Developers simply consume these capabilities through a consistent self-service experience.
 
-image::softwarefactory.png[align="center",width="900"]
+.Trusted Software Factory(_Click the image to view it in full size in a new browser tab_)
+image::softwarefactory.png[link={imagesdir}/softwarefactory.png, width=700]
 
 == Software Delivery Lifecycle
 
@@ -82,10 +90,12 @@ A *Software Factory* is not a single product.
 It is a standardized software delivery approach built on an Application Platform that combines automation, reusable services, and organizational best practices into a consistent developer experience.
 ====
 
-== Reflection
+== 🤔 Reflection
 
+{empty}
+
+[.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
-[%collapsible]
 ====
 * Does every development team follow the same software delivery process?
 * Which activities are already automated?
@@ -93,10 +103,13 @@ It is a standardized software delivery approach built on an Application Platform
 * How could a standardized Software Factory improve developer productivity?
 ====
 
-== Check Your Understanding
 
+== 🏁 Check Your Understanding
+
+{empty}
+
+[.quiz-box%collapsible]
 .Quiz Time! (Click to expand)
-[%collapsible]
 ====
 
 Which statement best describes a Software Factory?
@@ -112,9 +125,9 @@ C. A collection of independent tools managed separately by each team.
 **B** — A Software Factory provides standardized workflows, automation, reusable services, and organizational guardrails for software delivery.
 ====
 
-== Key Takeaway
-
-[NOTE]
+[.key-takeaway]
 ====
+💡 **Key Takeaway**
+
 A *Software Factory* standardizes software delivery by providing reusable workflows, automation, and built-in engineering practices, allowing developers to focus on building applications instead of integrating tools.
 ====

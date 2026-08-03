@@ -1,18 +1,26 @@
 * Version Control
 //** xref:index.adoc[]
 ** xref:section3.adoc[]
-** xref:lab-env-overview.adoc[]
 ** xref:lab-1.adoc[]
+* Deploy Supporting Services
 ** xref:lab-2.adoc[]
+** xref:lab-a.adoc[]
+** xref:lab-b.adoc[]
+** xref:lab-c.adoc[]
+** xref:lab-d.adoc[]
+** xref:lab-e.adoc[]
+** xref:lab-2-summary.adoc[]
 * DevEx and DevSpaces
 ** xref:devX.adoc[Developer Experience Matters]
 ** xref:section4.adoc[]
 ** xref:devspace_arch.adoc[]
+** xref:lab-3.adoc[]
+** xref:configure_devspaces.adoc[]
+** xref:lab-5.adoc[]
 ** xref:devspace_working.adoc[]
 ** xref:section5.adoc[]
-* Hands-on Lab
-** xref:lab-3.adoc[]
-** xref:lab-5.adoc[]
 ** xref:lab-4.adoc[]
 ** xref:section12.adoc[]
-
+** xref:lab-f.adoc[]
+** xref:lab-3-summary.adoc[]
+* xref:devX.adoc[What's next?]

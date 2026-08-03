@@ -1,5 +1,5 @@
-= Version Control & Collaborative Development
-:navtitle: Introduction
+= Collaborative Development
+:navtitle: Collaborative Development
 
 In this lesson, you'll learn why version control is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD, and GitOps.
 
@@ -11,7 +11,8 @@ Once developers write code, they need a reliable way to share changes, review co
 
 This is where *Git* becomes an essential part of the Software Factory.
 
-image::https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png[GitHub Flow,400]
+.Git Workflow for Software Delivery(_Click the image to view it in full size in a new browser tab_)
+image::https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png[link=https://miro.medium.com/v2/resize:fit:720/format:webp/1*S4VJPf8Mrg3Gn5cR7JK62w.png, width=500]
 
 
 [NOTE]
@@ -36,7 +37,6 @@ Instead of storing only the latest version of an application, Git maintains a co
 * Develop features independently
 * Trigger automated software delivery pipelines
 
-.Key Takeaway
 [NOTE]
 ====
 Git is much more than a code repository. It provides the collaboration and version history that modern Application Platforms rely on to automate software delivery.
@@ -50,7 +50,8 @@ Rather than making changes directly to the main codebase, developers create a se
 
 Once the work has been reviewed and validated, the branch is merged back into the main branch.
 
-image::https://nvie.com/img/git-model@2x.png[GitFlow,400]
+.Git branching strategy(_Click the image to view it in full size in a new browser tab_)
+image::https://nvie.com/img/git-model@2x.png[link=https://nvie.com/img/git-model@2x.png, width=400]
 
 [TIP]
 ====
@@ -90,7 +91,8 @@ Different organizations adopt different branching models depending on their rele
 
 Throughout this learning path, you'll use a simplified https://trunkbaseddevelopment.com/[Trunk-Based Development^] workflow.
 
-image::https://trunkbaseddevelopment.com/trunk1b.png[Trunk-Based Development,400]
+.Trunk-Based Development(_Click the image to view it in full size in a new browser tab_)
+image::https://trunkbaseddevelopment.com/trunk1b.png[link=https://trunkbaseddevelopment.com/trunk1b.png, width=500]
 
 This approach keeps the focus on learning Application Platform concepts rather than Git administration.
 
@@ -108,16 +110,13 @@ The workflow you'll follow is:
 You'll practice this workflow during the upcoming hands-on lab, where each Git commit becomes the starting point for automated build and deployment pipelines.
 ====
 
-.Key Takeaway
-[NOTE]
-====
-In a modern Software Factory, **Git is often the event that starts the entire software delivery process**. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.
-====
 
-== Reflection
+== 🤔 Reflection
 
+{empty}
+
+[.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
-[%collapsible]
 ====
 * Which version control system does your organization use?
 * Which branching strategy is followed by your team?
@@ -125,10 +124,12 @@ In a modern Software Factory, **Git is often the event that starts the entire so
 * How frequently are changes merged into the main branch?
 ====
 
-== Check Your Understanding
+== 🏁 Check Your Understanding
 
+{empty}
+
+[.quiz-box%collapsible]
 .Quiz Time! (Click to expand)
-[%collapsible]
 ====
 
 * Why do developers create feature branches?
@@ -178,4 +179,11 @@ D. No branching
 |No
 |===
 
+====
+
+[.key-takeaway]
+====
+💡 **Key Takeaway**
+
+In a modern Software Factory, **Git is often the event that starts the entire software delivery process**. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.
 ====

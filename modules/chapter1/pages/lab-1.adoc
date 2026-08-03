@@ -1,5 +1,6 @@
-= Lab 1: Getting Started
-:navtitle: Lab1
+= Lab 1: Initial Setup
+:navtitle: Lab1: Initial Setup
+:experimental:
 
 In this lab, you'll access the Software Factory environment and prepare the application that will be used throughout the remaining exercises.
 
@@ -14,31 +15,32 @@ By the end of this lab, you will have:
 The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).
 
 . Navigate to the *GitLab URL* provided on your lab information page (for example, `https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io`).
-. Click btn:[ETX Lab SSO] as shown in the screenshot:
+. On the GitLab sign-in page, click btn:[ETX Lab SSO].
 +
-image::signin.png[width=500]
+.Signin into GitLab(_Click the image to view it in full size in a new browser tab_)
+image::signin.png[link=signin.png, width=400]
 +
-. Sign in using the provided credentials:
-+
-`platform-developer` / `openshift`
+. Sign in using any one of the provided credentials in the xref:chapter1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
 
 . After successful authentication, you'll be redirected back to GitLab.
 +
-image::gitlab.png[width=500]
+.Sample GitLab Home Page(_Click the image to view it in full size in a new browser tab_)
+image::gitlab.png[link=signin.png, width=500]
 +
 NOTE: The first time you sign in, GitLab automatically creates a user profile linked to your Keycloak identity.
 
 == Clone the Workshop Repository
 
-Throughout the training you'll work with the **ETX App Base** application.
+Throughout the learning path, you'll work with the **ETX App Base** application.
 
-Use the **OpenShift Web Terminal** to clone the repository.
+Before cloning the repository, sign in to the OpenShift web console.
 
-<Add step around login into openshift console by taking it's access from lab environment page>
+. Open the *OpenShift Console URL* listed on the **RHDP Lab Environment** page.
+. Sign in using any one of the credentials listed in the xref:lab-env-overview.adoc#lab-credentials[Lab Credentials] section.
 
-TIP: Open the Web Terminal by clicking the **>_** icon in the upper-right corner of the OpenShift Console.
 
-First, determine the GitLab URL.
+. After signing in, open the *Developer* perspective.
+. Click the **>_** (*Web Terminal*) icon in the upper-right corner to launch a terminal session.
 
 [source,bash,role=execute]
 ----

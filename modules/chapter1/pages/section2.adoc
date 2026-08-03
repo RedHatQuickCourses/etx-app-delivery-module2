@@ -1,9 +1,6 @@
 = Lab Setup and Requirements
 :navtitle: Requirements & Environment Setup
 
-
-
-
 == Overview
 
 This initial setup session establishes the foundational environment used throughout the remaining 5 modules in this series of course.

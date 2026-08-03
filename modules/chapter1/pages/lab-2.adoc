@@ -9,33 +9,6 @@ These services provide the database, messaging, CI/CD, and observability capabil
 
 By the end of this lab, you'll have a working development platform that can be used by Dev Spaces, OpenShift Pipelines, and GitOps deployments.
 
-== HashiCorp Vault (Pre-Deployed)
-
-HashiCorp Vault provides centralized secrets management for the Application Platform Software Factory. It securely stores sensitive information such as passwords, API keys, tokens, and registry credentials, allowing applications and CI/CD pipelines to retrieve secrets at runtime instead of storing them in source code or configuration files.
-
-The Vault instance has already been deployed and configured as part of the workshop infrastructure.
-
-[cols="1,2",options="header"]
-|===
-|Property |Value
-
-|URL
-|Refer to the *RHDP Lab Information* page.
-
-|Authentication
-|OIDC (Sign in using your workshop credentials)
-
-|Supported Users
-|`platform-admin`, `platform-developer`
-
-|Purpose
-|Secure storage of application secrets and CI/CD credentials
-|===
-
-Throughout this workshop, OpenShift Pipelines will securely retrieve credentials from Vault whenever they are required to access external services such as container registries.
-
-TIP: Open the Vault UI using the URL provided in the *RHDP Lab Information* page and sign in using your workshop credentials. If prompted for a role during login, leave the field blank unless instructed otherwise.
-
 
 == Install Red Hat OpenShift Pipelines
 
@@ -524,7 +497,9 @@ TIP: You'll use this configuration later in the workshop when deploying the ETX 
 
 // This will be used when deploying the application in xref:day2-lab1-app-deployment.adoc[Application Deployment].
 
-== Summary
+[.key-takeaway]
+====
+📋 **Summary**
 
 You now have the following services deployed and ready:
 
@@ -539,3 +514,4 @@ Your application can now connect to these services:
 * **Kafka bootstrap server:** `parasol-kafka-kafka-bootstrap:9092`
 * **PostgreSQL host:** `parasol-db:5432`
 * **Database credentials:** Available in `parasol-db-secret` Secret
+====

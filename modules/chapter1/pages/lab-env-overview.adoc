@@ -1,9 +1,50 @@
-= Lab: Environment Overview
-:navtitle: Lab: Environment Overview
+= Lab Environment Overview
+:navtitle: Lab Environment Overview
 
 Before starting the hands-on exercises, familiarize yourself with the lab environment and the services available throughout this learning path.
 
 The core infrastructure has already been deployed and configured. During the remaining labs, you'll build upon this foundation by deploying additional platform capabilities and integrating them into a complete *Application Platform Software Factory*.
+
+== OpenShift Clusters
+
+The lab environment consists of two OpenShift clusters.
+
+[cols="1,2",options="header"]
+|===
+|Cluster |Purpose
+
+|https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/openshift-cnv.app-platform-factory-cnv.prod&utm_source=webapp&utm_medium=share-link[**Service Enablement: App Platform Software Factory**](_Primary Cluster_)
+|Development environment where you'll build, test, and deploy applications. This cluster shall be used in http://url[Module 2], http://url[Module 3], http://url[Module 4], http://url[Module 5].
+
+|https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/openshift-cnv.app-platform-runtime-cnv.prod&utm_source=webapp&utm_medium=share-link[**Service Enablement: App Platform Runtime**](_Secondary Cluster_)
+|Staging and Production environment used to demonstrate multi-cluster application promotion. This cluster shall be used in http://url[Module 3].
+|===
+
+The required namespaces have already been created and are ready for use.
+
+[#lab-credentials]
+== Lab Credentials
+
+Use the following user accounts throughout the lab.
+
+[cols="1,1,2",options="header"]
+|===
+|Username |Password |Purpose
+
+|`platform-admin`
+|`openshift`
+|Platform administrator
+
+|`platform-developer`
+|`openshift`
+|Application developer
+
+|`platform-user`
+|`openshift`
+|Standard user
+|===
+
+Unless otherwise instructed, authenticate to GitLab, Quay, and other integrated services using **Keycloak Single Sign-On (SSO)** with one of the lab accounts above.
 
 == Lab Environment
 
@@ -30,57 +71,29 @@ The following platform services are pre-configured and ready to use throughout t
 |Pre-configured
 |===
 
-== Lab Credentials
+== HashiCorp Vault (Pre-Deployed)
 
-Use the following user accounts throughout the lab.
+HashiCorp Vault provides centralized secrets management for the Application Platform Software Factory. It securely stores sensitive information such as passwords, API keys, tokens, and registry credentials, allowing applications and CI/CD pipelines to retrieve secrets at runtime instead of storing them in source code or configuration files.
 
-[cols="1,1,2",options="header"]
-|===
-|Username |Password |Purpose
-
-|`platform-admin`
-|`openshift`
-|Platform administrator
-
-|`platform-developer`
-|`openshift`
-|Application developer
-
-|`platform-user`
-|`openshift`
-|Standard user
-|===
-
-Unless otherwise instructed, authenticate to GitLab, Quay, and other integrated services using **Keycloak Single Sign-On (SSO)** with one of the lab accounts above.
-
-== OpenShift Clusters
-
-The lab environment consists of two OpenShift clusters.
+The Vault instance has already been deployed and configured as part of the workshop infrastructure.
 
 [cols="1,2",options="header"]
 |===
-|Cluster |Purpose
+|Property |Value
 
-|Primary Cluster
-|Development environment where you'll build, test, and deploy applications.
+|URL
+|Refer to the *RHDP Lab Information* page.
 
-|Secondary Cluster
-|Staging and Production environment used to demonstrate multi-cluster application promotion.
+|Authentication
+|OIDC (Sign in using your workshop credentials)
+
+|Supported Users
+|`platform-admin`, `platform-developer`
+
+|Purpose
+|Secure storage of application secrets and CI/CD credentials
 |===
 
-The required namespaces have already been created and are ready for use.
+Throughout this workshop, OpenShift Pipelines will securely retrieve credentials from Vault whenever they are required to access external services such as container registries.
 
-== What You'll Deploy
-
-Throughout this training, you'll deploy and configure the following application platform capabilities:
-
-* PostgreSQL
-* Red Hat AMQ Streams (Kafka)
-* Red Hat OpenShift Pipelines (Tekton)
-* Red Hat build of OpenTelemetry
-* Red Hat OpenShift Dev Spaces
-* Red Hat OpenShift GitOps (Argo CD)
-
-By the end of the _learning path_, these components will be integrated to create a complete *Application Platform Software Factory*.
-
-NOTE: Core infrastructure components—including Red Hat Build of Keycloak, GitLab, Red Hat Quay, and HashiCorp Vault—have already been provisioned and do not require installation.
+TIP: Open the Vault UI using the URL provided in the *RHDP Lab Information* page and sign in using your workshop credentials. If prompted for a role during login, leave the field blank unless instructed otherwise.

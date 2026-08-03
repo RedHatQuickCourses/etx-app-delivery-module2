@@ -3,7 +3,8 @@
 
 Now let's see what actually happens when a developer signs in and creates a development workspace.
 
-image::working.png[align="center"]
+.Workspace Creation Workflow(_Click the image to view it in full size in a new browser tab_)
+image::working.png[link={imagesdir}/working.png, width=700]
 
 == Workspace Creation Workflow
 
@@ -87,9 +88,9 @@ These templates ensure every developer starts from a consistent environment that
 Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.
 ====
 
-== Key Takeaway
-
-[NOTE]
+[.key-takeaway]
 ====
-OpenShift Dev Spaces automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.
+💡 **Key Takeaway**
+
+**OpenShift Dev Spaces** automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.
 ====

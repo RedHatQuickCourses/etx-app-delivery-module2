@@ -1,0 +1,16 @@
+= 📋 Summary
+:navtitle: 📋 Lab Summary
+
+You now have the following services deployed and ready:
+
+* **Vault** (pre-deployed) -- secrets management with Kubernetes authentication for pipeline access
+* **OpenShift Pipelines** -- Tekton CI engine ready to run pipelines
+* **AMQ Streams Kafka Cluster** -- `parasol-kafka-kafka-bootstrap:9092` with `intake` topic
+* **PostgreSQL Database** -- `parasol-db:5432` with database `parasol`
+* **OpenTelemetry** -- collector and auto-instrumentation configured for distributed tracing
+
+Your application can now connect to these services:
+
+* **Kafka bootstrap server:** `parasol-kafka-kafka-bootstrap:9092`
+* **PostgreSQL host:** `parasol-db:5432`
+* **Database credentials:** Available in `parasol-db-secret` Secret
