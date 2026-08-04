@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Software Factory &amp; Developer Experience</title>
+    <title>Deploy Supporting Services :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="../section2/lab-1.html">
+    <link rel="next" href="lab-2.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -81,27 +83,27 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../section3/index.html">Deploy Supporting Services</a>
+    <a class="nav-link" href="index.html">Deploy Supporting Services</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
+    <a class="nav-link" href="lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-3.html">Lab 3: Red Hat AMQ Streams</a>
+    <a class="nav-link" href="lab-3.html">Lab 3: Red Hat AMQ Streams</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-4.html">Lab 4: PostgreSQL Database</a>
+    <a class="nav-link" href="lab-4.html">Lab 4: PostgreSQL Database</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
+    <a class="nav-link" href="lab-5.html">Lab 5: Red Hat Build of OpenTelemetry</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-6.html">Lab 6: Automatic Instrumentation</a>
+    <a class="nav-link" href="lab-6.html">Lab 6: Automatic Instrumentation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section3/lab-summary.html">📋 Lab Summary</a>
+    <a class="nav-link" href="lab-summary.html">📋 Lab Summary</a>
   </li>
 </ul>
   </li>
@@ -183,6 +185,10 @@
 <button class="nav-toggle"></button>
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li><a href="index.html">Deploy Supporting Services</a></li>
+  </ul>
 </nav>
 </div>
   <div class="content">
@@ -190,156 +196,26 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<div class="sect1">
-<h2 id="_ai_integration_with_model_context_protocol_mcp"><a class="anchor" href="#_ai_integration_with_model_context_protocol_mcp"></a>AI Integration with Model Context Protocol (MCP)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>As organizations adopt AI-powered developer assistants, Large Language Models (LLMs) need secure access to enterprise knowledge and platform capabilities.</p>
-</div>
-<div class="paragraph">
-<p>The <strong>Model Context Protocol (MCP)</strong> provides a standardized way for AI applications, also known as <strong>MCP clients</strong>, to communicate with external systems through <strong>MCP servers</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Instead of requiring every AI assistant to implement custom integrations for different tools, MCP defines a common protocol for discovering and invoking capabilities exposed by external systems.</p>
-</div>
-<div class="imageblock text-center unresolved">
+<h1 class="page">Deploy Supporting Services</h1>
+<div class="module-card">
+<div class="module-header">
+<div class="imageblock text-left">
 <div class="content">
-<img src="mcp-overview.png" alt="mcp overview">
+<img src="../_images/mini-illustration-book-red-RH.Large_square_transparent.png" alt="mini illustration book red RH.Large square transparent" width="40">
 </div>
 </div>
 <div class="paragraph">
-<p>An MCP server exposes a collection of <strong>tools</strong>, where each tool performs a specific action against an external system. These tools can retrieve information, query APIs, access documentation, or interact with platform services.</p>
-</div>
-<div class="paragraph">
-<p>Examples include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Querying software catalogs</p>
-</li>
-<li>
-<p>Retrieving documentation</p>
-</li>
-<li>
-<p>Searching source code repositories</p>
-</li>
-<li>
-<p>Accessing monitoring systems</p>
-</li>
-<li>
-<p>Performing web searches</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-MCP standardizes how AI assistants access external systems. It does not replace those systems.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_mcp_in_red_hat_developer_hub"><a class="anchor" href="#_mcp_in_red_hat_developer_hub"></a>MCP in Red Hat Developer Hub</h3>
-<div class="paragraph">
-<p>Red Hat Developer Hub includes support for MCP through the Backstage MCP plug-in.</p>
-</div>
-<div class="paragraph">
-<p>Unlike traditional MCP implementations that require building a separate MCP server, Developer Hub allows Platform Engineers to expose MCP tools by implementing simple Backstage backend plug-ins.</p>
-</div>
-<div class="paragraph">
-<p>This approach enables organizations to make platform knowledge available to AI assistants without introducing additional infrastructure.</p>
-</div>
-<div class="imageblock text-center unresolved">
-<div class="content">
-<img src="rhdh-mcp-architecture.png" alt="rhdh mcp architecture">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mcp_tools_in_developer_hub"><a class="anchor" href="#_mcp_tools_in_developer_hub"></a>MCP Tools in Developer Hub</h3>
-<div class="paragraph">
-<p>As an initial implementation, Red Hat provides two read-only MCP tool plug-ins.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Software Catalog MCP Tool</div>
-<div class="paragraph">
-<p>Allows AI assistants to query the complete Software Catalog, including component metadata such as ownership, lifecycle, relationships, repositories, and dependencies.</p>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">TechDocs MCP Tool</div>
-<div class="paragraph">
-<p>Allows AI assistants to retrieve documentation published through TechDocs, enabling developers to ask natural language questions about architecture, APIs, runbooks, and operational procedures.</p>
-</div>
+<p><strong>What&#8217;s in this section?</strong></p>
 </div>
 </div>
 <div class="paragraph">
-<p>These tools are intentionally read-only, allowing AI assistants to retrieve information without modifying platform resources.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Write operations require additional security controls and are typically introduced only after appropriate authentication, authorization, and governance mechanisms are in place.
-</td>
-</tr>
-</table>
+<p>In this lesson, you prepare the application platform services required by the training application. You install the required operators, deployed the supporting infrastructure, and verify that each service is running and ready for use in the remaining labs.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_why_mcp_matters"><a class="anchor" href="#_why_mcp_matters"></a>Why MCP Matters</h3>
-<div class="paragraph">
-<p>MCP helps extend the Developer Experience by allowing AI assistants to retrieve platform knowledge from trusted sources.</p>
-</div>
-<div class="paragraph">
-<p>Instead of manually searching documentation or navigating multiple tools, developers can ask questions such as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>"Who owns this service?"</p>
-</li>
-<li>
-<p>"Show me the documentation for this API."</p>
-</li>
-<li>
-<p>"Which Git repository contains this application?"</p>
-</li>
-<li>
-<p>"What is the lifecycle status of this component?"</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The AI assistant retrieves this information directly from Developer Hub using MCP, providing accurate and up-to-date responses.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Think of MCP as a standardized bridge between AI assistants and the Software Factory. It enables AI to retrieve trusted platform information while allowing organizations to maintain control over what information is exposed.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
+<nav class="pagination">
+  <span class="prev"><a href="../section2/lab-1.html">Lab1: Initial Setup</a></span>
+  <span class="next"><a href="lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a></span>
+</nav>
 </article>
   </div>
 </main>

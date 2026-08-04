@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Creating Your First Dev Workspace :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="lab-8.html">
-    <link rel="next" href="devfiles.html">
+    <title>DevEx and DevSpaces :: Software Factory &amp; Developer Experience</title>
+    <link rel="prev" href="../section3/lab-summary.html">
+    <link rel="next" href="devX.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -111,7 +111,7 @@
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">DevEx and DevSpaces</a>
 <ul class="nav-list">
@@ -133,7 +133,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="devspace_working.html">Creating a Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -188,7 +188,6 @@
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
     <li><a href="index.html">DevEx and DevSpaces</a></li>
-    <li><a href="devspace_working.html">Creating a Workspace</a></li>
   </ul>
 </nav>
 </div>
@@ -197,210 +196,28 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Creating Your First Dev Workspace</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Now let&#8217;s see what actually happens when a developer signs in and creates a development workspace.</p>
-</div>
-<div class="imageblock">
+<h1 class="page">DevEx and DevSpaces</h1>
+<div class="module-card">
+<div class="module-header">
+<div class="imageblock text-left">
 <div class="content">
-<a class="image" href="_images/working.png"><img src="_images/working.png" alt="working" width="700"></a>
-</div>
-<div class="title">Figure 1. Workspace Creation Workflow(<em>Click the image to view it in full size in a new browser tab</em>)</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_workspace_creation_workflow"><a class="anchor" href="#_workspace_creation_workflow"></a>Workspace Creation Workflow</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Creating a workspace is designed to be a simple self-service experience.</p>
-</div>
-<div class="paragraph">
-<p>Behind the scenes, Dev Spaces automatically provisions the required OpenShift resources so developers can begin coding within minutes.</p>
-</div>
-<div class="paragraph">
-<p>The workflow consists of the following steps:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The developer signs in to the Dev Spaces Dashboard using their OpenShift credentials.</p>
-</li>
-<li>
-<p>Dev Spaces authenticates the user through OpenShift OAuth.</p>
-</li>
-<li>
-<p>If this is the user&#8217;s first login, OpenShift automatically creates a dedicated namespace named <code>&lt;username&gt;-devspaces</code>.</p>
-</li>
-<li>
-<p>The developer creates either:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>An empty workspace, or</p>
-</li>
-<li>
-<p>A workspace based on a predefined template.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Dev Spaces creates a <strong>DevWorkspace</strong> resource.</p>
-</li>
-<li>
-<p>The DevWorkspace references a <strong>DevWorkspaceTemplate</strong>, which defines the containers, tools, storage, and runtime configuration required for the workspace.</p>
-</li>
-<li>
-<p>OpenShift provisions the workspace pod.</p>
-</li>
-<li>
-<p>The developer connects to the running workspace through their browser and begins coding.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default, OpenShift Dev Spaces integrates directly with the OpenShift authentication system.</p>
-</div>
-<div class="paragraph">
-<p>This provides a seamless sign-in experience using existing cluster credentials.</p>
-</div>
-<div class="paragraph">
-<p>Key points:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Uses OpenShift OAuth by default.</p>
-</li>
-<li>
-<p>Supports any OpenID Connect (OIDC) identity provider.</p>
-</li>
-<li>
-<p>Can integrate with Red Hat Single Sign-On (RHSSO) or Red Hat Build of Keycloak.</p>
-</li>
-<li>
-<p>Uses OpenShift Role-Based Access Control (RBAC) to control access to workspaces.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Because authentication is delegated to OpenShift, developers don&#8217;t need separate Dev Spaces accounts.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_automatic_workspace_isolation"><a class="anchor" href="#_automatic_workspace_isolation"></a>Automatic Workspace Isolation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Every developer receives an isolated workspace namespace.</p>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">alice-devspaces
-bob-devspaces
-charlie-devspaces</code></pre>
+<img src="../_images/mini-illustration-book-red-RH.Large_square_transparent.png" alt="mini illustration book red RH.Large square transparent" width="40">
 </div>
 </div>
 <div class="paragraph">
-<p>Each namespace contains only that developer&#8217;s workspaces and resources.</p>
+<p><strong>What&#8217;s in this section?</strong></p>
+</div>
 </div>
 <div class="paragraph">
-<p>This provides:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Resource isolation</p>
-</li>
-<li>
-<p>Better security</p>
-</li>
-<li>
-<p>Simplified administration</p>
-</li>
-<li>
-<p>Multi-tenant development environments</p>
-</li>
-</ul>
+<p>In this section, you prepare a complete cloud-native development environment using Red Hat Dev Spaces and GitLab.</p>
 </div>
 <div class="paragraph">
-<p>Platform Engineers can centrally manage resource quotas and permissions while developers remain isolated from one another.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_workspace_templates"><a class="anchor" href="#_workspace_templates"></a>Workspace Templates</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Developers don&#8217;t need to manually configure development environments.</p>
-</div>
-<div class="paragraph">
-<p>Instead, they create workspaces from reusable templates.</p>
-</div>
-<div class="paragraph">
-<p>A template typically defines:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Development container image</p>
-</li>
-<li>
-<p>IDE configuration</p>
-</li>
-<li>
-<p>Required tools and runtimes</p>
-</li>
-<li>
-<p>Persistent storage</p>
-</li>
-<li>
-<p>Environment variables</p>
-</li>
-<li>
-<p>Startup commands</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These templates ensure every developer starts from a consistent environment that follows organizational standards.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="key-card">
-<div class="paragraph">
-<div class="title">Key Takeaway</div>
-<p><strong>OpenShift Dev Spaces</strong> automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.</p>
-</div>
-</div>
+<p>You install and configure Red Hat Dev Spaces, integrate it with GitLab, create a reusable Devfile, and launch the <strong>ETX App Base application</strong> in a browser-based development workspace connected to the supporting platform services.</p>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="lab-8.html">Lab 8: Configure Red Hat Dev Spaces</a></span>
-  <span class="next"><a href="devfiles.html">Devfiles</a></span>
+  <span class="prev"><a href="../section3/lab-summary.html">📋 Lab Summary</a></span>
+  <span class="next"><a href="devX.html">Developer Experience Matters</a></span>
 </nav>
 </article>
   </div>

@@ -53,7 +53,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Software Factory Overview</span>
+    <a class="nav-link" href="../section1/index.html">Software Factory Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section1/intro.html">Introduction</a>
@@ -69,7 +69,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Version Control</span>
+    <a class="nav-link" href="../section2/index.html">Version Control</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section2/git.html">Collaborative Development</a>
@@ -85,7 +85,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Deploy Supporting Services</span>
+    <a class="nav-link" href="../section3/index.html">Deploy Supporting Services</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
@@ -113,7 +113,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">DevEx and DevSpaces</span>
+    <a class="nav-link" href="index.html">DevEx and DevSpaces</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="devX.html">Developer Experience Matters</a>
@@ -187,7 +187,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>DevEx and DevSpaces</li>
+    <li><a href="index.html">DevEx and DevSpaces</a></li>
     <li><a href="devspace_arch.html">Dev Spaces Architecture</a></li>
   </ul>
 </nav>
@@ -205,15 +205,6 @@
 </div>
 <div class="paragraph">
 <p>In this lesson, you&#8217;ll look behind the scenes to understand how Dev Spaces creates and manages developer workspaces on OpenShift.</p>
-</div>
-<div class="paragraph">
-<p>You don&#8217;t need to manage these components directly, but understanding their roles will help you see how Dev Spaces delivers secure, repeatable development environments.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<a class="image" href="_images/arch.png"><img src="_images/arch.png" alt="arch" width="600"></a>
-</div>
-<div class="title">Figure 1. DevSpaces Architecture(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 </div>
 </div>
@@ -255,6 +246,12 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>The architecture consists of several services that work together to provision and manage developer workspaces.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="_images/arch.png"><img src="_images/arch.png" alt="arch" width="600"></a>
+</div>
+<div class="title">Figure 1. DevSpaces Architecture(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -346,14 +343,10 @@
 </tr>
 </table>
 </div>
-<div class="exampleblock key-takeaway">
-<div class="content">
+<div class="key-card">
 <div class="paragraph">
-<p>💡 <strong>Key Takeaway</strong></p>
-</div>
-<div class="paragraph">
+<div class="title">Key Takeaway</div>
 <p><strong>OpenShift Dev Spaces</strong> combines Devfiles, platform services, and OpenShift to automatically provision standardized development workspaces, allowing developers to focus on building applications instead of configuring their development environment.</p>
-</div>
 </div>
 </div>
 </div>

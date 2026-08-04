@@ -1,6 +1,6 @@
 {
-  "totalSeconds": 1926,
-  "pageCount": 24,
+  "totalSeconds": 1933,
+  "pageCount": 28,
   "pages": [
     {
       "module": "ROOT",
@@ -9,8 +9,13 @@
     },
     {
       "module": "section1",
+      "page": "index.adoc",
+      "seconds": 20
+    },
+    {
+      "module": "section1",
       "page": "intro.adoc",
-      "seconds": 74
+      "seconds": 48
     },
     {
       "module": "section1",
@@ -19,13 +24,23 @@
     },
     {
       "module": "section2",
+      "page": "index.adoc",
+      "seconds": 12
+    },
+    {
+      "module": "section2",
       "page": "git.adoc",
-      "seconds": 139
+      "seconds": 119
     },
     {
       "module": "section2",
       "page": "lab-1.adoc",
       "seconds": 59
+    },
+    {
+      "module": "section3",
+      "page": "index.adoc",
+      "seconds": 14
     },
     {
       "module": "section3",
@@ -55,7 +70,12 @@
     {
       "module": "section3",
       "page": "lab-summary.adoc",
-      "seconds": 40
+      "seconds": 35
+    },
+    {
+      "module": "section4",
+      "page": "index.adoc",
+      "seconds": 18
     },
     {
       "module": "section4",
@@ -70,7 +90,7 @@
     {
       "module": "section4",
       "page": "devspace_arch.adoc",
-      "seconds": 35
+      "seconds": 43
     },
     {
       "module": "section4",
@@ -90,12 +110,12 @@
     {
       "module": "section4",
       "page": "devspace_working.adoc",
-      "seconds": 20
+      "seconds": 21
     },
     {
       "module": "section4",
       "page": "devfiles.adoc",
-      "seconds": 141
+      "seconds": 142
     },
     {
       "module": "section4",
@@ -115,7 +135,7 @@
     {
       "module": "section4",
       "page": "lab-summary.adoc",
-      "seconds": 66
+      "seconds": 50
     },
     {
       "module": "section4",

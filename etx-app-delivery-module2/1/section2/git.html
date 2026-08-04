@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Collaborative Development :: Software Factory &amp; Developer Experience</title>
-    <link rel="prev" href="../section1/day.html">
+    <link rel="prev" href="index.html">
     <link rel="next" href="lab-1.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -53,7 +53,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Software Factory Overview</span>
+    <a class="nav-link" href="../section1/index.html">Software Factory Overview</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section1/intro.html">Introduction</a>
@@ -69,7 +69,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Version Control</span>
+    <a class="nav-link" href="index.html">Version Control</a>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="git.html">Collaborative Development</a>
@@ -85,7 +85,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">Deploy Supporting Services</span>
+    <a class="nav-link" href="../section3/index.html">Deploy Supporting Services</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section3/lab-2.html">Lab 2: Red Hat OpenShift Pipelines</a>
@@ -113,7 +113,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">DevEx and DevSpaces</span>
+    <a class="nav-link" href="../section4/index.html">DevEx and DevSpaces</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section4/devX.html">Developer Experience Matters</a>
@@ -187,7 +187,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li>Version Control</li>
+    <li><a href="index.html">Version Control</a></li>
     <li><a href="git.html">Collaborative Development</a></li>
   </ul>
 </nav>
@@ -198,25 +198,6 @@
 </aside>
 <article class="doc">
 <h1 class="page">Collaborative Development</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>In this lesson, you&#8217;ll learn why version control is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD, and GitOps.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you&#8217;re already comfortable using Git and branching strategies, feel free to skim this lesson and continue to the hands-on lab. The concepts introduced here provide useful context for the Software Factory you&#8217;ll build throughout this course.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_connecting_the_dots"><a class="anchor" href="#_connecting_the_dots"></a>Connecting the Dots</h2>
 <div class="sectionbody">
@@ -431,7 +412,7 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reflection"><a class="anchor" href="#_reflection"></a>🤔 Reflection</h2>
+<h2 id="_reflection"><a class="anchor" href="#_reflection"></a>Reflection</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p></p>
@@ -439,6 +420,11 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 <details class="reflection-box">
 <summary class="title">Think about your own organization (Click to expand)</summary>
 <div class="content">
+<div class="imageblock text-left">
+<div class="content">
+<img src="../_images/mini-illustration-lightbulb-red-RH.Small_square_transparent.png" alt="mini illustration lightbulb red RH.Small square transparent" width="50">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -457,134 +443,16 @@ If you&#8217;re already comfortable using Git and branching strategies, feel fre
 </div>
 </div>
 </details>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_check_your_understanding"><a class="anchor" href="#_check_your_understanding"></a>🏁 Check Your Understanding</h2>
-<div class="sectionbody">
+<div class="key-card">
 <div class="paragraph">
-<p></p>
-</div>
-<details class="quiz-box">
-<summary class="title">Quiz Time! (Click to expand)</summary>
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Why do developers create feature branches?</p>
-<div class="olist upperalpha">
-<ol class="upperalpha" type="A">
-<li>
-<p>To replace the main branch<br></p>
-</li>
-<li>
-<p>To isolate changes before merging them into the shared codebase<br></p>
-</li>
-<li>
-<p>To improve Kubernetes performance<br></p>
-</li>
-<li>
-<p>To avoid using version control</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Answer</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>B</strong> — Feature branches allow developers to work independently without affecting the shared codebase until their changes are reviewed and merged.</p>
-</div>
-<hr>
-<div class="ulist">
-<ul>
-<li>
-<p>Which branching strategy is primarily used throughout this learning path?</p>
-<div class="olist upperalpha">
-<ol class="upperalpha" type="A">
-<li>
-<p>GitFlow<br></p>
-</li>
-<li>
-<p>GitHub Flow<br></p>
-</li>
-<li>
-<p>Trunk-Based Development<br></p>
-</li>
-<li>
-<p>No branching</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Answer</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>C</strong> — This course follows a simplified Trunk-Based Development approach with short-lived feature branches and frequent integration.</p>
-</div>
-<hr>
-<div class="ulist">
-<ul>
-<li>
-<p>Which Application Platform capabilities commonly begin with a Git commit?</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Capability</th>
-<th class="tableblock halign-left valign-top">Starts from Git?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CI/CD Pipeline</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GitOps Deployment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Security Scanning</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application Build</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Monitoring Existing Applications</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</details>
-<div class="exampleblock key-takeaway">
-<div class="content">
-<div class="paragraph">
-<p>💡 <strong>Key Takeaway</strong></p>
-</div>
-<div class="paragraph">
+<div class="title">Key Takeaway</div>
 <p>In a modern Software Factory, <strong>Git is often the event that starts the entire software delivery process</strong>. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
 <nav class="pagination">
-  <span class="prev"><a href="../section1/day.html">A Day in the Software Factory</a></span>
+  <span class="prev"><a href="index.html">Version Control</a></span>
   <span class="next"><a href="lab-1.html">Lab1: Initial Setup</a></span>
 </nav>
 </article>

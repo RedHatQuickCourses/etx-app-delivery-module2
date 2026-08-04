@@ -1,8 +1,6 @@
 /* reflection box */
 details.reflection-box {
-  background: #B2D959;
-  border: 1px solid #B2D959;
-  border-left: 5px solid #B2D959;
+  background: #e9f7df;
   border-radius: 16px;
   margin: 1.5rem 0 0.5rem 0;   /* top right bottom left */
   padding: 0.5rem 0.5rem;
@@ -178,29 +176,51 @@ details.flow-box summary::before {
 
 /* Key takeaway */
 
-.key-takeaway {
-  background: #F9B637;
-  border-left: 6px solid #FB6C00;
-  border-color: #FB6C00;
-  border-radius: 14px;
-  padding: 1.25rem 1.5rem;
-  margin: 2rem 0;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+.key-card {
+  background: #f5f5f5;
+  border-left: 6px solid #63993d; /* Red Hat red */
+  border-radius: 10px;
+  padding: 20px 20px;
+  margin: 1rem 0;
+  color: #151515;
+  font-family: "RedHatText", "Inter", Arial, sans-serif;
 }
 
-.key-takeaway p:first-child {
-  margin-top: 0;
+.key-card h2 {
+  margin: 0 0 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.key-takeaway p:last-child {
+.key-card p {
+    font-size: 1rem;          /* Same as normal body text */
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 1rem 0;
+    font-weight: 400;
+}
+
+.key-card .highlight {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.key-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.key-card p:last-child {
   margin-bottom: 0;
 }
 
-.key-takeaway strong {
-  color: #FB6C00;
-  font-size: 1.05rem;
+.key-card .highlight strong {
+  font-weight: 700;
+  color: #151515;
 }
-
 
 /* bullet-block */
 
@@ -249,4 +269,68 @@ details.flow-box summary::before {
 .button:hover {
   background: #C4E9FF;
   border-color: #7BC7F2;
+}
+
+/* section card */
+
+.module-card {
+  background: #f5f5f5;
+  border-left: 6px solid #ee0000; /* Red Hat red */
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin: 2rem 0;
+  color: #151515;
+  font-family: "RedHatText", "Inter", Arial, sans-serif;
+}
+
+.module-card h2 {
+  margin: 0 0 28px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.module-card p {
+    font-size: 1rem;          /* Same as normal body text */
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 1rem 0;
+    font-weight: 400;
+}
+
+.module-card .highlight {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.module-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.module-card p:last-child {
+  margin-bottom: 0;
+}
+
+.module-card .highlight strong {
+  font-weight: 700;
+  color: #151515;
+}
+
+.module-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+}
+
+.module-header img{
+    width:42px;
+    height:auto;
+}
+
+.module-header strong{
+    font-size:1.2rem;
+    font-weight:600;
 }
