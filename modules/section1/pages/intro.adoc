@@ -1,11 +1,5 @@
-= Introducing the Software Factory
-:navtitle: Software Factory Overview
-
-In the previous module, you learned how an *Application Platform* provides the capabilities required to build, deploy, secure, and operate modern applications.
-
-In this lesson, you'll discover how organizations use those capabilities to create a *Software Factory*—a standardized software delivery process that enables developers to build and deliver applications quickly, securely, and consistently.
-
-TIP: As you progress through this lesson, think about how a new developer joins your organization today. How many manual steps are required before they can deploy their first application?
+= Introduction to Software Factory
+:navtitle: Introduction 
 
 == The Challenge
 
@@ -90,13 +84,16 @@ A *Software Factory* is not a single product.
 It is a standardized software delivery approach built on an Application Platform that combines automation, reusable services, and organizational best practices into a consistent developer experience.
 ====
 
-== 🤔 Reflection
+== Reflection
 
 {empty}
 
 [.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
 ====
+
+image::mini-illustration-lightbulb-red-RH.Small_square_transparent.png[width=50, align=left]
+
 * Does every development team follow the same software delivery process?
 * Which activities are already automated?
 * Which steps still require manual effort?
@@ -104,30 +101,14 @@ It is a standardized software delivery approach built on an Application Platform
 ====
 
 
-== 🏁 Check Your Understanding
+++++
+<div class="key-card">
+++++
 
-{empty}
-
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-Which statement best describes a Software Factory?
-
-A. Every development team builds and maintains its own toolchain.
-
-B. A standardized platform that automates how software is built, secured, deployed, and operated.
-
-C. A collection of independent tools managed separately by each team.
-
-*Answer*
-
-**B** — A Software Factory provides standardized workflows, automation, reusable services, and organizational guardrails for software delivery.
-====
-
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+.Key Takeaway
 
 A *Software Factory* standardizes software delivery by providing reusable workflows, automation, and built-in engineering practices, allowing developers to focus on building applications instead of integrating tools.
-====
+
+++++
+</div>
+++++

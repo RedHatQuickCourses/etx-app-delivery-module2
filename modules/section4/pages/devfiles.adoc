@@ -115,9 +115,15 @@ This ensures every project follows organizational standards while reducing setup
 Devfiles define development environments as code, allowing organizations to deliver standardized, repeatable, and version-controlled workspaces across teams.
 ====
 
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+
+++++
+<div class="key-card">
+++++
+
+.Key Takeaway
 
 A **Devfile** is the blueprint for a Dev Spaces workspace. It defines the tools, containers, commands, and runtime configuration required for development, enabling consistent and reproducible environments for every developer.
-====
+
+++++
+</div>
+++++

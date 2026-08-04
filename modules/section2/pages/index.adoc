@@ -1,0 +1,26 @@
+= Git Version Control
+:navtitle: Git Version Control
+
+++++
+<div class="module-card">
+<div class="module-header">
+++++
+
+image::ROOT:mini-illustration-book-red-RH.Large_square_transparent.png[width=40,align=left]
+
+**What's in this section?**
+
+++++
+</div>
+++++
+
+In this lesson, you'll learn why *Git version control* is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD pipelines, and GitOps-based deployments.
+
+[TIP]
+====
+If you're already comfortable using Git and common branching strategies, feel free to skim this lesson and continue to xref:lab-1.adoc[Lab 1: Initial Setup]. The concepts introduced here provide useful context for the Software Factory you'll build throughout this course.
+====
+
+++++
+</div>
+++++

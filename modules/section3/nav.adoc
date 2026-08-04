@@ -1,5 +1,5 @@
-* Deploy Supporting Services
-//** xref:lab-2.adoc[]
+* xref:index.adoc[Deploy Supporting Services]
+
 ** xref:lab-2.adoc[]
 ** xref:lab-3.adoc[]
 ** xref:lab-4.adoc[]

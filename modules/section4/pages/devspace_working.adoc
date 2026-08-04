@@ -88,9 +88,14 @@ These templates ensure every developer starts from a consistent environment that
 Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.
 ====
 
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+++++
+<div class="key-card">
+++++
+
+.Key Takeaway
 
 **OpenShift Dev Spaces** automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.
-====
+
+++++
+</div>
+++++

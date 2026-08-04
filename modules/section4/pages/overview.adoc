@@ -129,45 +129,33 @@ For Platform Engineers:
 OpenShift Dev Spaces standardizes where developers build software, allowing Platform Engineers to centrally manage development environments while developers focus on delivering application features.
 ====
 
-== 🤔 Reflection
+
+== Reflection
 
 {empty}
 
 [.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
 ====
+
+image::ROOT:mini-illustration-lightbulb-red-RH.Small_square_transparent.png[width=50, align=left]
+
 * How long does it take to prepare a new developer workstation?
 * Which tools must developers install manually?
 * How often do environment differences cause development or deployment issues?
 * How could centralized development environments improve developer productivity?
 ====
 
-== 🏁 Check Your Understanding
 
-{empty}
+++++
+<div class="key-card">
+++++
 
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-Which statement best describes OpenShift Dev Spaces?
-
-A. A desktop IDE installed on developer laptops.
-
-B. A cloud-based development environment running on OpenShift that provides standardized workspaces.
-
-C. A Continuous Integration platform.
-
-D. A Git repository hosting service.
-
-*Answer*
-
-**B** — OpenShift Dev Spaces provides standardized, browser-based development environments running on OpenShift.
-====
-
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+.Key Takeaway
 
 **OpenShift DevSpaces** provides standardized Cloud Development Environments that eliminate workstation setup, improve consistency, and enable developers to start building applications quickly within the Software Factory.
-====
+
+++++
+</div>
+++++
+

@@ -1,10 +1,6 @@
 = 📋 Lab Summary
 :navtitle: 📋 Lab Summary
 
-In this section, you prepared a complete cloud-native development environment using Red Hat Dev Spaces and GitLab.
-
-You installed and configured Red Hat Dev Spaces, integrated it with GitLab, created a reusable Devfile, and launched the ETX App Base application in a browser-based development workspace connected to the supporting platform services.
-
 You now have the following components configured and ready:
 
 * **Red Hat Dev Spaces** – Browser-based development environments running on OpenShift.

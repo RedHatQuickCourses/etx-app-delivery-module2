@@ -1,0 +1,23 @@
+= DevEx and DevSpaces
+:navtitle: DevEx and DevSpaces
+
+++++
+<div class="module-card">
+<div class="module-header">
+++++
+
+image::ROOT:mini-illustration-book-red-RH.Large_square_transparent.png[width=40,align=left]
+
+**What's in this section?**
+
+++++
+</div>
+++++
+
+In this section, you prepare a complete cloud-native development environment using Red Hat Dev Spaces and GitLab.
+
+You install and configure Red Hat Dev Spaces, integrate it with GitLab, create a reusable Devfile, and launch the **ETX App Base application** in a browser-based development workspace connected to the supporting platform services.
+
+++++
+</div>
+++++

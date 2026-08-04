@@ -1,4 +1,4 @@
-* DevEx and DevSpaces
+* xref:index.adoc[DevEx and DevSpaces]
 ** xref:devX.adoc[Developer Experience Matters]
 ** xref:overview.adoc[]
 ** xref:devspace_arch.adoc[]

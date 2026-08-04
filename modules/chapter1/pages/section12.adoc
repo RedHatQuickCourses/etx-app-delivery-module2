@@ -204,9 +204,10 @@ image::deleteworkspace.png[width=500]
 
 . Confirm deletion and wait until the workspace disappears
 
-=== Create Workspace from Devfile
+=== Create Workspace from Devfile{}
 
 You can create a workspace using either a direct URL (faster) or the UI (manual).
+
 
 [tabs]
 ====

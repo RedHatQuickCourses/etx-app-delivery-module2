@@ -1,6 +1,7 @@
 = Introducing the Software Factory
 :navtitle: Software Factory Overview
 
+
 In the previous module, you learned how an *Application Platform* provides the capabilities required to build, deploy, secure, and operate modern applications.
 
 In this lesson, you'll discover how organizations use those capabilities to create a *Software Factory*—a standardized software delivery process that enables developers to build and deliver applications quickly, securely, and consistently.

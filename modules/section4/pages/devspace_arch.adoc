@@ -5,11 +5,6 @@ In the previous lesson, you learned how OpenShift Dev Spaces provides standardiz
 
 In this lesson, you'll look behind the scenes to understand how Dev Spaces creates and manages developer workspaces on OpenShift.
 
-You don't need to manage these components directly, but understanding their roles will help you see how Dev Spaces delivers secure, repeatable development environments.
-
-.DevSpaces Architecture(_Click the image to view it in full size in a new browser tab_)
-image::arch.png[link={imagesdir}/arch.png, width=600]
-
 == How a Workspace is Created
 
 When a developer creates a new workspace, Dev Spaces follows a simple workflow:
@@ -26,6 +21,10 @@ This process ensures every workspace is created from the same version-controlled
 == Core Components
 
 The architecture consists of several services that work together to provision and manage developer workspaces.
+
+.DevSpaces Architecture(_Click the image to view it in full size in a new browser tab_)
+image::arch.png[link={imagesdir}/arch.png, width=600]
+
 
 [cols="1,3",options="header"]
 |===
@@ -74,9 +73,15 @@ Because workspaces are defined as code and provisioned automatically, organizati
 Most developers interact only with the Dev Spaces Dashboard. The remaining components operate behind the scenes to automatically provision, secure, and manage development workspaces on OpenShift.
 ====
 
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+
+++++
+<div class="key-card">
+++++
+
+.Key Takeaway
 
 **OpenShift Dev Spaces** combines Devfiles, platform services, and OpenShift to automatically provision standardized development workspaces, allowing developers to focus on building applications instead of configuring their development environment.
-====
+
+++++
+</div>
+++++

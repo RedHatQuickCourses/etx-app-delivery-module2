@@ -1,10 +1,6 @@
 = Collaborative Development
 :navtitle: Collaborative Development
 
-In this lesson, you'll learn why version control is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD, and GitOps.
-
-TIP: If you're already comfortable using Git and branching strategies, feel free to skim this lesson and continue to the hands-on lab. The concepts introduced here provide useful context for the Software Factory you'll build throughout this course.
-
 == Connecting the Dots
 
 Once developers write code, they need a reliable way to share changes, review code, maintain version history, and trigger automated software delivery workflows.
@@ -111,79 +107,31 @@ You'll practice this workflow during the upcoming hands-on lab, where each Git c
 ====
 
 
-== 🤔 Reflection
+== Reflection
 
 {empty}
 
 [.reflection-box%collapsible]
 .Think about your own organization (Click to expand)
 ====
+
+image::ROOT:mini-illustration-lightbulb-red-RH.Small_square_transparent.png[width=50, align=left]
+
 * Which version control system does your organization use?
 * Which branching strategy is followed by your team?
 * Are code changes automatically validated through CI/CD?
 * How frequently are changes merged into the main branch?
 ====
 
-== 🏁 Check Your Understanding
 
-{empty}
+++++
+<div class="key-card">
+++++
 
-[.quiz-box%collapsible]
-.Quiz Time! (Click to expand)
-====
-
-* Why do developers create feature branches?
-
-A. To replace the main branch +
-B. To isolate changes before merging them into the shared codebase +
-C. To improve Kubernetes performance +
-D. To avoid using version control
-
-*Answer*
-
-**B** — Feature branches allow developers to work independently without affecting the shared codebase until their changes are reviewed and merged.
-
-'''
-
-* Which branching strategy is primarily used throughout this learning path?
-
-A. GitFlow +
-B. GitHub Flow +
-C. Trunk-Based Development +
-D. No branching
-
-*Answer*
-
-**C** — This course follows a simplified Trunk-Based Development approach with short-lived feature branches and frequent integration.
-
-'''
-
-* Which Application Platform capabilities commonly begin with a Git commit?
-
-|===
-|Capability |Starts from Git?
-
-|CI/CD Pipeline
-|Yes
-
-|GitOps Deployment
-|Yes
-
-|Security Scanning
-|Yes
-
-|Application Build
-|Yes
-
-|Monitoring Existing Applications
-|No
-|===
-
-====
-
-[.key-takeaway]
-====
-💡 **Key Takeaway**
+.Key Takeaway
 
 In a modern Software Factory, **Git is often the event that starts the entire software delivery process**. A single commit can automatically trigger builds, testing, security validation, deployments, and GitOps synchronization.
-====
+
+++++
+</div>
+++++
