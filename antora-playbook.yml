@@ -1,5 +1,5 @@
 site:
-  title: Software Factory & Developer Experience
+  title: Software Factory Foundations with OpenShift Dev Spaces
   start_page: etx-app-delivery-module2::index.adoc
 
 content:

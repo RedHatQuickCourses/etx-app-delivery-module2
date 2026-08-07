@@ -1,5 +1,5 @@
-* xref:index.adoc[DevEx and DevSpaces]
-** xref:devX.adoc[Developer Experience Matters]
+* xref:index.adoc[Red Hat Dev Spaces]
+// ** xref:devX.adoc[Developer Experience Matters] 
 ** xref:overview.adoc[]
 ** xref:devspace_arch.adoc[]
 ** xref:lab-7.adoc[]
@@ -11,4 +11,3 @@
 ** xref:lab10.adoc[]
 ** xref:lab-11.adoc[]
 ** xref:lab-summary.adoc[]
-* xref:next.adoc[What's next?]

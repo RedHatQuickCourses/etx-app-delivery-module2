@@ -1,7 +1,7 @@
 = Developing Applications with OpenShift Dev Spaces
 :navtitle: Dev Spaces Overview
 
-In the previous lesson, you learned how a **Software Factory** standardizes software delivery by providing developers with reusable services, automation, and engineering best practices.
+In the previous sections, you learned how a **Software Factory** standardizes software delivery by providing developers with reusable services, automation, and engineering best practices.
 
 One of the first capabilities provided by a Software Factory is a standardized development environment.
 

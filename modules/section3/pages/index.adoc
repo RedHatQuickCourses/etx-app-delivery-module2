@@ -14,7 +14,7 @@ image::ROOT:mini-illustration-book-red-RH.Large_square_transparent.png[width=40,
 </div>
 ++++
 
-In this lesson, you prepare the application platform services required by the training application. You install the required operators, deployed the supporting infrastructure, and verify that each service is running and ready for use in the remaining labs.
+In this section, you prepare the application platform services required by installing the required operators, deploy the supporting infrastructure, and verify that each service is running and ready for use in the remaining labs.
 
 ++++
 </div>

@@ -6,7 +6,7 @@ In this lab, you'll install the Red Hat OpenShift Pipelines Operator from Operat
 
 By the end of this lab, you will have:
 
-* Installed the Red Hat OpenShift Pipelines Operator
+* Installed the Red Hat OpenShift Pipelines Operator 
 * Verified that the operator installed successfully
 * Confirmed that the Tekton controllers are running
 
@@ -16,12 +16,23 @@ OpenShift Pipelines is delivered as an Operator that installs and manages the Te
 
 . Open the OpenShift web console.
 . Sign in using the `admin` credentials provided on the RHDP Lab Environment page.
-. From the navigation menu, select menu:Ecosystem[OperatorHub].
+. From the navigation menu, select btn:[Ecosystem] -> btn:[Software Catalog].
++
+.Ecosystem -> Software Catalog(_Click the image to view it in full size in a new browser tab_)
+image::menu.png[link={imagesdir}/menu.png, width=350,window=_blank]
++
 . Search for *Red Hat OpenShift Pipelines*.
++
+.Red Hat OpenShift Pipelines Operator(_Click the image to view it in full size in a new browser tab_)
+image::pipeline_operator.png[link={imagesdir}/pipeline_operator.png, width=350,window=_blank]
 +
 NOTE: It may take a few moments for OperatorHub to finish loading all available operators.
 +
 . Select the operator and click btn:[Install].
++
+.Red Hat OpenShift Pipelines Install(_Click the image to view it in full size in a new browser tab_)
+image::pipeline_install.png[link={imagesdir}/pipeline_install.png, width=350,window=_blank]
++
 . Accept the default installation settings:
 +
 * *Update channel:* `latest`
@@ -29,10 +40,14 @@ NOTE: It may take a few moments for OperatorHub to finish loading all available 
 * *Installed namespace:* `openshift-operators`
 +
 . Click btn:[Install].
++
+.Red Hat OpenShift Pipelines Install(_Click the image to view it in full size in a new browser tab_)
+image::pipeine_install2.png[link={imagesdir}/pipeine_install2.png, width=350,window=_blank]
++
 . Wait until the operator status changes to *Succeeded*.
 +
 .Red Hat OpenShift Pipelines Operator(_Click the image to view it in full size in a new browser tab_)
-image::pipeline_installed.png[link=pipeline_installed.png, width=500]
+image::pipeline_installed.png[link={imagesdir}/pipeline_installed.png, width=500,window=_blank]
 
 NOTE: Installing the operator deploys the Tekton controllers and supporting components that provide the pipeline execution engine used throughout the remaining labs.
 

@@ -1,11 +1,11 @@
 :experimental:
 
-= Lab 10: Create and Configure a Dev Spaces Workspace
-:navtitle: Lab 10: Dev Spaces Workspace
+= Lab 10: Red Hat Openshift Dev Spaces Workspace
+:navtitle: Lab 10: Red Hat Openshift Dev Spaces Workspace
 
-In this lab, you'll create a Red Hat Dev Spaces workspace for the ETX App Base application, configure it with a custom Devfile, and verify that it is ready for cloud-native application development.
+In this lab, you'll create a Red Hat Openshift Dev Spaces workspace for the **ETX App Base** application, configure it with a custom **Devfile**, and verify that it is ready for cloud-native application development.
 
-The Devfile defines the development environment, including the container image, development commands, environment variables, and IDE extensions. By storing the Devfile in the Git repository, every developer can create an identical workspace with a single click.
+The **Devfile** defines the development environment, including the container image, development commands, environment variables, and IDE extensions. By storing the Devfile in the Git repository, every developer can create an identical workspace with a single click.
 
 By the end of this lab, you will have:
 
@@ -36,11 +36,13 @@ IMPORTANT: Red Hat Dev Spaces uses OpenShift OAuth for authentication. No additi
 
 The `etx_app_base_app` repository does not yet contain a Devfile. In this section, you'll create a temporary workspace that you'll use to add the `devfile.yaml` to the repository.
 
-. From the Dev Spaces dashboard, click btn:[Create Workspace].
-. Select *Import from Git*.
-
-Retrieve the GitLab URL.
-
+. From the Dev Spaces dashboard, click btn:[Create Workspace] and select *Import from Git*.
++
+.Red Hat Openshift Dev Spaces Home Page(_Click the image to view it in full size in a new browser tab_)
+image::import.png[link={imagesdir}/import.png, width=500]
++
+. Retrieve the GitLab URL.
++
 [source,bash,role=execute]
 ----
 GITLAB_URL="https://$(oc get route \
@@ -50,30 +52,33 @@ GITLAB_URL="https://$(oc get route \
 
 echo "${GITLAB_URL}"
 ----
-
-Paste the following repository URL into Dev Spaces.
-
++
+. Paste the following repository URL into Dev Spaces.
++
 [source,text,subs="attributes+"]
 ----
 {GITLAB_URL}/software-factory/etx_app_base_app.git
 ----
-
-image::git.png[width=700]
-
++
+.Sample Git URL(_Click the image to view it in full size in a new browser tab_)
+image::git.png[link={imagesdir}/git.png, width=500]
++
 . Click btn:[Create & Open].
 . If prompted, authorize GitLab access using OAuth.
-
-image::auth.png[width=700]
-
++
+.Authorize GitLab Access(_Click the image to view it in full size in a new browser tab_)
+image::auth.png[link={imagesdir}/auth.png, width=500]
++
 NOTE: Because the repository does not yet contain a `devfile.yaml`, Dev Spaces automatically creates the workspace using the Universal Developer Image (UDI).
 
-== Configure Git
+== Configure Git inside your Workspaces
 
 After the workspace opens, configure your Git identity.
 
-Open a terminal by selecting menu:Terminal[New Terminal].
+Open a terminal by clicking btn:[hamburger icon] and selecting menu:Terminal[New Terminal].
 
-image::terminal.png[width=700]
+.Terminal Option(_Click the image to view it in full size in a new browser tab_)
+image::terminal.png[link={imagesdir}/terminal.png, width=500]
 
 Run the following commands.
 
@@ -88,6 +93,8 @@ git config --global user.name "Platform Developer"
 The Devfile defines the development environment for the application, including the container image, development commands, environment variables, and IDE configuration.
 
 Create the `devfile.yaml` file using the following command.
+
+NOTE: Make sure to execute below command inside the newly opened terminal in your workspaces.
 
 [source,bash,role=execute]
 ----
@@ -206,11 +213,13 @@ Now that the repository contains a Devfile, recreate the workspace so Dev Spaces
 . Return to the Dev Spaces dashboard.
 . Locate your workspace.
 
-image::workspace.png[width=500]
+.Workspace Menu(_Click the image to view it in full size in a new browser tab_)
+image::workspace.png[link={imagesdir}/workspace.png, width=500]
 
 . Open the options menu and select *Delete Workspace*.
 
-image::deleteworkspace.png[width=500]
+.Delete Option(_Click the image to view it in full size in a new browser tab_)
+image::deleteworkspace.png[link={imagesdir}/deleteworkspace.png, width=500]
 
 . Confirm the deletion.
 
@@ -283,7 +292,7 @@ After the workspace opens, verify that it has been configured correctly.
 
 === Verify the Repository
 
-Open a terminal.
+Open a terminal in your newly created workspace.
 
 [source,bash,role=execute]
 ----

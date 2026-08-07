@@ -72,7 +72,7 @@ spec:
 EOF
 ----
 
-IMPORTANT: Red Hat Dev Spaces uses OpenShift OAuth for authentication by default. Users sign in with their OpenShift credentials, and no external identity provider configuration is required.
+IMPORTANT: Red Hat Openshift Dev Spaces uses OpenShift OAuth for authentication by default. Users sign in with their OpenShift credentials, and no external identity provider configuration is required.
 
 == Verify the Dev Spaces Deployment
 
@@ -122,21 +122,22 @@ oc get checluster devspaces \
   -o jsonpath='{.status.cheURL}{"\n"}'
 ----
 
-Open the URL in your web browser.
+Open the URL in your web browser. When prompted, sign in using your OpenShift credentials provided in RHDP Lab Environment page (for example, `admin` and the cluster administrator password).
 
-When prompted, sign in using your OpenShift credentials (for example, `admin` and the cluster administrator password).
+.Red Hat Openshift Login(_Click the image to view it in full size in a new browser tab_)
+image::login.png[link={imagesdir}/login.png, width=500]
 
 If prompted to authorize access, click btn:[Allow selected permissions].
 
 .Authorize Dev Spaces Access(_Click the image to view it in full size in a new browser tab_)
-image::allow.png[link=allow.png, width=500]
+image::allow.png[link={imagesdir}/allow.png, width=500]
 
-After authentication completes, the Dev Spaces home page is displayed.
+After authentication completes, the Red Hat Openshift Dev Spaces home page is displayed.
 
 .Dev Spaces Home Page(_Click the image to view it in full size in a new browser tab_)
-image::devspaceimage.png[link=devspaceimage.png, width=500]
+image::devspaceimage.png[link={imagesdir}/devspaceimage.png, width=500]
 
-TIP: You can also access Red Hat Dev Spaces directly from the OpenShift web console by clicking the Application Launcher in the upper-right corner and selecting *Red Hat OpenShift Dev Spaces*. You'll be automatically authenticated using your existing OpenShift session.
+TIP: You can also access Red Hat Openshift Dev Spaces directly from the OpenShift web console by clicking the Application Launcher in the upper-right corner and selecting *Red Hat OpenShift Dev Spaces*. You'll be automatically authenticated using your existing OpenShift session.
 
 == Appendix: Administrator Reference Commands
 

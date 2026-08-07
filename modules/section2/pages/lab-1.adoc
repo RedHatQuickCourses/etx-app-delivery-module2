@@ -12,20 +12,20 @@ By the end of this lab, you will have:
 
 == Sign in to GitLab
 
-The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).
+The training uses **GitLab** as the central source code repository. Authentication is handled through **Keycloak** using **Single Sign-On (SSO)**.
 
-. Navigate to the *GitLab URL* provided on your lab information page (for example, `https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io`).
+. Navigate to the *GitLab URL* provided on your RHDP lab information page (for example, `https://gitlab.apps.cluster-GUID.dyn.redhatworkshops.io`).
 . On the GitLab sign-in page, click btn:[ETX Lab SSO].
 +
 .Signin into GitLab(_Click the image to view it in full size in a new browser tab_)
-image::signin.png[link=signin.png, width=400]
+image::signin.png[link={imagesdir}/signin.png, width=400]
 +
-. Sign in using any one of the provided credentials in the xref:chapter1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
+. Sign in using any one of the provided credentials in the xref:section1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
 
 . After successful authentication, you'll be redirected back to GitLab.
 +
 .Sample GitLab Home Page(_Click the image to view it in full size in a new browser tab_)
-image::gitlab.png[link=signin.png, width=500]
+image::gitlab.png[link={imagesdir}/signin.png, width=500]
 +
 NOTE: The first time you sign in, GitLab automatically creates a user profile linked to your Keycloak identity.
 
@@ -35,12 +35,14 @@ Throughout the learning path, you'll work with the **ETX App Base** application.
 
 Before cloning the repository, sign in to the OpenShift web console.
 
-. Open the *OpenShift Console URL* listed on the **RHDP Lab Environment** page.
-. Sign in using any one of the credentials listed in the xref:lab-env-overview.adoc#lab-credentials[Lab Credentials] section.
+. Open the *OpenShift Console URL* listed on the **RHDP Lab Environment** page and sign in using any one of the credentials listed in the **Info** page.
 
-
-. After signing in, open the *Developer* perspective.
 . Click the **>_** (*Web Terminal*) icon in the upper-right corner to launch a terminal session.
+
+.Web Terminal in Openshift console(_Click the image to view it in full size in a new browser tab_)
+image::commandline.png[link={imagesdir}/commandline.png, width=500]
+
+Retrieve the **GitLab** route from your OpenShift cluster and store it in a variable for use in next steps.
 
 [source,bash,role=execute]
 ----
@@ -63,7 +65,7 @@ git clone ${GITLAB_URL}/software-factory/etx_app_base_app.git
 cd etx_app_base_app
 ----
 
-NOTE: The Git repository is named `etx_app_base_app`. Kubernetes resources created later in the workshop use the naming convention `etx-app-base-app-*`.
+NOTE: The Git repository is named `etx_app_base_app`. Kubernetes resources created later in the training use the naming convention `etx-app-base-app-*`.
 
 IMPORTANT: This repository intentionally does **not** contain a `devfile.yaml`. In the next lab, you'll create one yourself and use it to launch a Dev Spaces workspace.
 

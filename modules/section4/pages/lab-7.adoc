@@ -14,8 +14,17 @@ By the end of this lab, you will have:
 Install the Red Hat Dev Spaces Operator from OperatorHub. This operator manages the lifecycle of Dev Spaces and the developer workspaces that you'll create later in this training.
 
 . Open the OpenShift web console.
-. From the navigation menu, select menu:Ecosystem[Software Catalog].
+. Sign in using the `admin` credentials provided on the RHDP Lab Environment page.
+. From the navigation menu, select btn:[Ecosystem] -> btn:[Software Catalog].
++
+.Ecosystem -> Software Catalog(_Click the image to view it in full size in a new browser tab_)
+image::menu.png[link={imagesdir}/menu.png, width=350,window=_blank]
++
 . Search for *Red Hat OpenShift Dev Spaces*.
++
+.Red Hat Openshift DevSpaces Operator(_Click the image to view it in full size in a new browser tab_)
+image::devspaces_operator.png[link={imagesdir}/devspaces_operator.png, width=350,window=_blank]
++
 . Select the operator and click btn:[Install].
 . Accept the default installation settings:
 +
@@ -23,13 +32,16 @@ Install the Red Hat Dev Spaces Operator from OperatorHub. This operator manages 
 * *Installed namespace:* `openshift-operators`
 * *Approval strategy:* `Automatic`
 +
+.Install Red Hat Openshift DevSpaces(_Click the image to view it in full size in a new browser tab_)
+image::devspaces_info.png[link={imagesdir}/devspaces_info.png, width=350,window=_blank]
++
 . Click btn:[Install].
 . Wait until the operator status changes to *Succeeded*.
 +
 .Dev Spaces Operator Installed(_Click the image to view it in full size in a new browser tab_)
-image::devs.png[link=devs.png, width=500]
+image::devs.png[link={imagesdir}/devs.png, width=500]
 
-NOTE: Installing the Dev Spaces Operator also installs the DevWorkspace Operator, which manages the lifecycle of developer workspaces.
+NOTE: Installing the Red Hat Openshift Dev Spaces Operator also installs the DevWorkspace Operator, which manages the lifecycle of developer workspaces.
 
 == Verify the Operator Installation
 

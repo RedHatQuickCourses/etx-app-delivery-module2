@@ -18,8 +18,16 @@ By the end of this lab, you will have:
 Install the Red Hat AMQ Streams Operator from OperatorHub. This operator installs and manages the Kafka components required by the training application.
 
 . Open the OpenShift web console.
-. From the navigation menu, select menu:Operators[OperatorHub].
+. Sign in using the `admin` credentials provided on the RHDP Lab Environment page.
+. From the navigation menu, select btn:[Ecosystem] -> btn:[Software Catalog].
++
+.Ecosystem -> Software Catalog(_Click the image to view it in full size in a new browser tab_)
+image::menu.png[link={imagesdir}/menu.png, width=350,window=_blank]
++
 . Search for *Streams for Apache Kafka*.
++
+.Streams for Apache Kafka(_Click the image to view it in full size in a new browser tab_)
+image::stream.png[link={imagesdir}/stream.png, width=500,window=_blank]
 +
 WARNING: Install *Streams for Apache Kafka* only. Do *not* install *Streams for Apache Kafka Proxy*.
 +
@@ -30,11 +38,15 @@ WARNING: Install *Streams for Apache Kafka* only. Do *not* install *Streams for 
 * *Installation mode:* `All namespaces`
 * *Installed namespace:* `openshift-operators`
 +
+.Install Streams for Apache Kafka(_Click the image to view it in full size in a new browser tab_)
+image::stream_info.png[link={imagesdir}/stream_info.png, width=350,window=_blank]
++
 . Click btn:[Install].
++
 . Wait until the operator status changes to *Succeeded*.
 +
 .Red Hat AMQ Streams Operator(_Click the image to view it in full size in a new browser tab_)
-image::kafka.png[link=kafka.png, width=500]
+image::kafka.png[link={imagesdir}/kafka.png, width=500,window=_blank]
 
 NOTE: Installing the operator deploys the components required to create and manage Apache Kafka clusters on OpenShift.
 

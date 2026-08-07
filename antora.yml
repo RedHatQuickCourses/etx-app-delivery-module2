@@ -1,5 +1,5 @@
 name: etx-app-delivery-module2
-title: Software Factory & Developer Experience
+title: Software Factory Foundations with OpenShift Dev Spaces
 version: 1
 nav:
 - modules/ROOT/nav.adoc
@@ -8,4 +8,5 @@ nav:
 - modules/section2/nav.adoc
 - modules/section3/nav.adoc
 - modules/section4/nav.adoc
+- modules/quiz/nav.adoc
 #- modules/chapter1/nav.adoc

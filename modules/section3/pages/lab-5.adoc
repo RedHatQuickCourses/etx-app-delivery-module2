@@ -18,8 +18,17 @@ By the end of this lab, you will have:
 Install the Red Hat Build of OpenTelemetry Operator from OperatorHub. This operator manages the lifecycle of OpenTelemetry Collectors and enables automatic instrumentation for supported applications.
 
 . Open the OpenShift web console.
-. From the navigation menu, select menu:Operators[OperatorHub].
+. Sign in using the `admin` credentials provided on the RHDP Lab Environment page.
+. From the navigation menu, select btn:[Ecosystem] -> btn:[Software Catalog].
++
+.Ecosystem -> Software Catalog(_Click the image to view it in full size in a new browser tab_)
+image::menu.png[link={imagesdir}/menu.png, width=350,window=_blank]
++
 . Search for *Red Hat build of OpenTelemetry*.
++
+.Red Hat build of OpenTelemetry Operator(_Click the image to view it in full size in a new browser tab_)
+image::opentelemetry_operator.png[link={imagesdir}/opentelemetry_operator.png, width=350,window=_blank]
++
 . Select the operator and click btn:[Install].
 . Accept the default installation settings:
 +
@@ -28,6 +37,10 @@ Install the Red Hat Build of OpenTelemetry Operator from OperatorHub. This opera
 * *Installed namespace:* `openshift-opentelemetry-operator`
 +
 . Click btn:[Install].
++
+.Install Red Hat build of OpenTelemetry Operator(_Click the image to view it in full size in a new browser tab_)
+image::open_info.png[link={imagesdir}/open_info.png, width=350,window=_blank]
++
 . Wait until the operator status changes to *Succeeded*.
 +
 .Red Hat Build of OpenTelemetry Operator(_Click the image to view it in full size in a new browser tab_)
