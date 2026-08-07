@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Creating Your First Dev Workspace :: Software Factory &amp; Developer Experience</title>
+    <title>Creating Your First Dev Workspace :: Software Factory Foundations with OpenShift Dev Spaces</title>
     <link rel="prev" href="lab-8.html">
     <link rel="next" href="devfiles.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
@@ -20,7 +20,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory Foundations with OpenShift Dev Spaces</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -40,7 +40,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+    <h3 class="title"><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -120,11 +120,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">DevEx and DevSpaces</a>
+    <a class="nav-link" href="index.html">Red Hat Dev Spaces</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
   </li>
@@ -150,7 +147,7 @@
     <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+    <a class="nav-link" href="lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
@@ -160,8 +157,15 @@
   </li>
 </ul>
   </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+    <a class="nav-link" href="../quiz/index.html">Knowledge Check</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quiz/next.html">Summary and What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -170,12 +174,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="title">Software Factory Foundations with OpenShift Dev Spaces</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <a class="title" href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -193,8 +197,8 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="index.html">DevEx and DevSpaces</a></li>
+    <li><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></li>
+    <li><a href="index.html">Red Hat Dev Spaces</a></li>
     <li><a href="devspace_working.html">Creating a Workspace</a></li>
   </ul>
 </nav>
@@ -225,7 +229,7 @@
 <p>Creating a workspace is designed to be a simple self-service experience.</p>
 </div>
 <div class="paragraph">
-<p>Behind the scenes, Dev Spaces automatically provisions the required OpenShift resources so developers can begin coding within minutes.</p>
+<p>Behind the scenes, Red Hat Openshift Dev Spaces automatically provisions the required OpenShift resources so developers can begin coding within minutes.</p>
 </div>
 <div class="paragraph">
 <p>The workflow consists of the following steps:</p>
@@ -233,10 +237,10 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The developer signs in to the Dev Spaces Dashboard using their OpenShift credentials.</p>
+<p>The developer signs in to the Red Hat Openshift Dev Spaces Dashboard using their OpenShift credentials.</p>
 </li>
 <li>
-<p>Dev Spaces authenticates the user through OpenShift OAuth.</p>
+<p>Red Hat Openshift Dev Spaces authenticates the user through OpenShift OAuth.</p>
 </li>
 <li>
 <p>If this is the user&#8217;s first login, OpenShift automatically creates a dedicated namespace named <code>&lt;username&gt;-devspaces</code>.</p>
@@ -255,7 +259,7 @@
 </div>
 </li>
 <li>
-<p>Dev Spaces creates a <strong>DevWorkspace</strong> resource.</p>
+<p>Red Hat Openshift Dev Spaces creates a <strong>DevWorkspace</strong> resource.</p>
 </li>
 <li>
 <p>The DevWorkspace references a <strong>DevWorkspaceTemplate</strong>, which defines the containers, tools, storage, and runtime configuration required for the workspace.</p>
@@ -274,7 +278,7 @@
 <h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default, OpenShift Dev Spaces integrates directly with the OpenShift authentication system.</p>
+<p>By default, OpenShift Red Hat Openshift Dev Spaces integrates directly with the OpenShift authentication system.</p>
 </div>
 <div class="paragraph">
 <p>This provides a seamless sign-in experience using existing cluster credentials.</p>
@@ -299,7 +303,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Because authentication is delegated to OpenShift, developers don&#8217;t need separate Dev Spaces accounts.</p>
+<p>Because authentication is delegated to OpenShift, developers don&#8217;t need separate Red Hat Openshift Dev Spaces accounts.</p>
 </div>
 </div>
 </div>
@@ -391,7 +395,7 @@ charlie-devspaces</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Developers simply choose a template and start coding. Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.</p>
+<p>Developers simply choose a template and start coding. Red Hat Openshift Dev Spaces automatically provisions the required OpenShift resources, creates the development workspace, and provides browser-based access to a fully configured environment.</p>
 </div>
 </td>
 </tr>
@@ -400,7 +404,7 @@ charlie-devspaces</code></pre>
 <div class="key-card">
 <div class="paragraph">
 <div class="title">Key Takeaway</div>
-<p><strong>OpenShift Dev Spaces</strong> automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.</p>
+<p><strong>Red Hat OpenShift Red Hat Openshift Dev Spaces</strong> automates workspace provisioning by authenticating users through OpenShift, creating isolated namespaces, and provisioning standardized development environments from reusable workspace templates.</p>
 </div>
 </div>
 </div>

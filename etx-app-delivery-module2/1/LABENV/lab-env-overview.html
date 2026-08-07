@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Environment :: Software Factory &amp; Developer Experience</title>
+    <title>Lab Environment :: Software Factory Foundations with OpenShift Dev Spaces</title>
     <link rel="prev" href="../index.html">
     <link rel="next" href="../section1/index.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
@@ -20,7 +20,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory Foundations with OpenShift Dev Spaces</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -40,7 +40,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+    <h3 class="title"><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -120,11 +120,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../section4/index.html">DevEx and DevSpaces</a>
+    <a class="nav-link" href="../section4/index.html">Red Hat Dev Spaces</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section4/devX.html">Developer Experience Matters</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section4/overview.html">Dev Spaces Overview</a>
   </li>
@@ -150,7 +147,7 @@
     <a class="nav-link" href="../section4/lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section4/lab10.html">Lab 10: Dev Spaces Workspace</a>
+    <a class="nav-link" href="../section4/lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section4/lab-11.html">Lab 11: Application Deployment</a>
@@ -160,8 +157,15 @@
   </li>
 </ul>
   </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../section4/next.html">What&#8217;s next?</a>
+    <a class="nav-link" href="../quiz/index.html">Knowledge Check</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quiz/next.html">Summary and What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -170,12 +174,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="title">Software Factory Foundations with OpenShift Dev Spaces</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <a class="title" href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -193,7 +197,7 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></li>
     <li><a href="lab-env-overview.html">Lab Environment</a></li>
   </ul>
 </nav>
@@ -207,10 +211,31 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before starting the hands-on exercises, provision the required lab environments from the Red Hat Demo Platform (RHDP).</p>
+<p>Before starting the hands-on exercises, provision the required lab environments from the <a href="https://demo.redhat.com/">Red Hat Demo Platform (RHDP)</a>.</p>
 </div>
 <div class="paragraph">
 <p>This learning path uses two OpenShift clusters that represent different stages of a software delivery pipeline. Both environments should be provisioned before you begin the labs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>RHDP for RedHat associates: <a href="https://demo.redhat.com/" class="bare">https://demo.redhat.com/</a></p>
+</li>
+<li>
+<p>RHDP for RedHat partners: <a href="https://partner.demo.redhat.com/" class="bare">https://partner.demo.redhat.com/</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -246,9 +271,9 @@
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 50%;">
-<col style="width: 25%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
 </colgroup>
 <thead>
 <tr>
@@ -259,14 +284,35 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Platform Software Factory</strong> (Primary Cluster)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Enablement: App Platform Software Factory</strong> (Primary Cluster)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Development platform where you&#8217;ll build the internal developer platform, configure CI/CD, and deploy applications.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Modules 2(current), 3, 4, and 5</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://redhatquickcourses.github.io/etx-app-delivery-module2/etx-app-delivery-module2/1/index.html">Software Factory Foundations with OpenShift Dev Spaces</a></p>
+</li>
+<li>
+<p><a href="https://redhatquickcourses.github.io/etx-app-delivery-module3/etx-app-delivery-module3/1/index.html">Module 3</a></p>
+</li>
+<li>
+<p><a href="https://redhatquickcourses.github.io/etx-app-delivery-module4/etx-app-delivery-module4/1/index.html">Module 4</a></p>
+</li>
+<li>
+<p><a href="https://redhatquickcourses.github.io/etx-app-delivery-module5/etx-app-delivery-module5/1/index.html">Module 5</a></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Platform Runtime</strong> (Secondary Cluster)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Service Enablement: App Platform Runtime</strong> (Secondary Cluster)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runtime environment used to demonstrate GitOps-based promotion between environments.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Module 3</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><a href="https://redhatquickcourses.github.io/etx-app-delivery-module3/etx-app-delivery-module3/1/index.html">Module 3</a></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -358,7 +404,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>All service URLs are available from the <strong>RHDP Lab Information</strong> page.</p>
+<p>All service URLs are available from the <strong><a href="https://demo.redhat.com/">Red Hat Demo Platform (RHDP)</a> Lab Information</strong> in <strong>My Services</strong> section page.</p>
 </div>
 </div>
 </div>

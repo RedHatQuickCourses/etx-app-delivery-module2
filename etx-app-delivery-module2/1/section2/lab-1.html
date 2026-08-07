@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 1: Initial Setup :: Software Factory &amp; Developer Experience</title>
+    <title>Lab 1: Initial Setup :: Software Factory Foundations with OpenShift Dev Spaces</title>
     <link rel="prev" href="git.html">
     <link rel="next" href="../section3/index.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
@@ -20,7 +20,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory Foundations with OpenShift Dev Spaces</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -40,7 +40,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+    <h3 class="title"><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -120,11 +120,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../section4/index.html">DevEx and DevSpaces</a>
+    <a class="nav-link" href="../section4/index.html">Red Hat Dev Spaces</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section4/devX.html">Developer Experience Matters</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section4/overview.html">Dev Spaces Overview</a>
   </li>
@@ -150,7 +147,7 @@
     <a class="nav-link" href="../section4/lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../section4/lab10.html">Lab 10: Dev Spaces Workspace</a>
+    <a class="nav-link" href="../section4/lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../section4/lab-11.html">Lab 11: Application Deployment</a>
@@ -160,8 +157,15 @@
   </li>
 </ul>
   </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../section4/next.html">What&#8217;s next?</a>
+    <a class="nav-link" href="../quiz/index.html">Knowledge Check</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quiz/next.html">Summary and What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -170,12 +174,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="title">Software Factory Foundations with OpenShift Dev Spaces</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <a class="title" href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -193,7 +197,7 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
+    <li><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></li>
     <li><a href="index.html">Version Control</a></li>
     <li><a href="lab-1.html">Lab1: Initial Setup</a></li>
   </ul>
@@ -232,30 +236,30 @@
 <h2 id="_sign_in_to_gitlab"><a class="anchor" href="#_sign_in_to_gitlab"></a>Sign in to GitLab</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The workshop uses GitLab as the central source code repository. Authentication is handled through Keycloak using Single Sign-On (SSO).</p>
+<p>The training uses <strong>GitLab</strong> as the central source code repository. Authentication is handled through <strong>Keycloak</strong> using <strong>Single Sign-On (SSO)</strong>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Navigate to the <strong>GitLab URL</strong> provided on your lab information page (for example, <code><a href="https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io" class="bare">https://gitlab.apps.cluster-gnkbp.dyn.redhatworkshops.io</a></code>).</p>
+<p>Navigate to the <strong>GitLab URL</strong> provided on your RHDP lab information page (for example, <code><a href="https://gitlab.apps.cluster-GUID.dyn.redhatworkshops.io" class="bare">https://gitlab.apps.cluster-GUID.dyn.redhatworkshops.io</a></code>).</p>
 </li>
 <li>
 <p>On the GitLab sign-in page, click <b class="button">ETX Lab SSO</b>.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="signin.png"><img src="_images/signin.png" alt="signin" width="400"></a>
+<a class="image" href="_images/signin.png"><img src="_images/signin.png" alt="signin" width="400"></a>
 </div>
 <div class="title">Figure 1. Signin into GitLab(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 </li>
 <li>
-<p>Sign in using any one of the provided credentials in the <a href="../chapter1/lab-env-overview.html#_lab_credentials" class="xref page">Lab Credentials</a> section (for example, <code>username: platform-developer</code> / <code>password: openshift</code>).</p>
+<p>Sign in using any one of the provided credentials in the <a href="#section1:lab-env-overview.adoc#_lab_credentials" class="xref unresolved">Lab Credentials</a> section (for example, <code>username: platform-developer</code> / <code>password: openshift</code>).</p>
 </li>
 <li>
 <p>After successful authentication, you&#8217;ll be redirected back to GitLab.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="signin.png"><img src="_images/gitlab.png" alt="gitlab" width="500"></a>
+<a class="image" href="_images/signin.png"><img src="_images/gitlab.png" alt="gitlab" width="500"></a>
 </div>
 <div class="title">Figure 2. Sample GitLab Home Page(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
@@ -288,18 +292,21 @@ The first time you sign in, GitLab automatically creates a user profile linked t
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <strong>OpenShift Console URL</strong> listed on the <strong>RHDP Lab Environment</strong> page.</p>
-</li>
-<li>
-<p>Sign in using any one of the credentials listed in the <a href="#lab-env-overview.adoc#lab-credentials" class="xref unresolved">Lab Credentials</a> section.</p>
-</li>
-<li>
-<p>After signing in, open the <strong>Developer</strong> perspective.</p>
+<p>Open the <strong>OpenShift Console URL</strong> listed on the <strong>RHDP Lab Environment</strong> page and sign in using any one of the credentials listed in the <strong>Info</strong> page.</p>
 </li>
 <li>
 <p>Click the <strong>&gt;_</strong> (<strong>Web Terminal</strong>) icon in the upper-right corner to launch a terminal session.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="_images/commandline.png"><img src="_images/commandline.png" alt="commandline" width="500"></a>
+</div>
+<div class="title">Figure 3. Web Terminal in Openshift console(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
+<div class="paragraph">
+<p>Retrieve the <strong>GitLab</strong> route from your OpenShift cluster and store it in a variable for use in next steps.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">
@@ -330,7 +337,7 @@ cd etx_app_base_app</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Git repository is named <code>etx_app_base_app</code>. Kubernetes resources created later in the workshop use the naming convention <code>etx-app-base-app-*</code>.
+The Git repository is named <code>etx_app_base_app</code>. Kubernetes resources created later in the training use the naming convention <code>etx-app-base-app-*</code>.
 </td>
 </tr>
 </table>

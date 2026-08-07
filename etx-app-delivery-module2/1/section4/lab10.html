@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab 10: Create and Configure a Dev Spaces Workspace :: Software Factory &amp; Developer Experience</title>
+    <title>Lab 10: Red Hat Openshift Dev Spaces Workspace :: Software Factory Foundations with OpenShift Dev Spaces</title>
     <link rel="prev" href="lab-9.html">
     <link rel="next" href="lab-11.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
@@ -20,7 +20,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory &amp; Developer Experience</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Software Factory Foundations with OpenShift Dev Spaces</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -40,7 +40,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Software Factory &amp; Developer Experience</a></h3>
+    <h3 class="title"><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -120,11 +120,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">DevEx and DevSpaces</a>
+    <a class="nav-link" href="index.html">Red Hat Dev Spaces</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="devX.html">Developer Experience Matters</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="overview.html">Dev Spaces Overview</a>
   </li>
@@ -150,7 +147,7 @@
     <a class="nav-link" href="lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="lab10.html">Lab 10: Dev Spaces Workspace</a>
+    <a class="nav-link" href="lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lab-11.html">Lab 11: Application Deployment</a>
@@ -160,8 +157,15 @@
   </li>
 </ul>
   </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="next.html">What&#8217;s next?</a>
+    <a class="nav-link" href="../quiz/index.html">Knowledge Check</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quiz/next.html">Summary and What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -170,12 +174,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="title">Software Factory Foundations with OpenShift Dev Spaces</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">Software Factory & Developer Experience</a>
+      <a class="title" href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -193,9 +197,9 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Software Factory & Developer Experience</a></li>
-    <li><a href="index.html">DevEx and DevSpaces</a></li>
-    <li><a href="lab10.html">Lab 10: Dev Spaces Workspace</a></li>
+    <li><a href="../index.html">Software Factory Foundations with OpenShift Dev Spaces</a></li>
+    <li><a href="index.html">Red Hat Dev Spaces</a></li>
+    <li><a href="lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a></li>
   </ul>
 </nav>
 </div>
@@ -204,14 +208,14 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab 10: Create and Configure a Dev Spaces Workspace</h1>
+<h1 class="page">Lab 10: Red Hat Openshift Dev Spaces Workspace</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this lab, you&#8217;ll create a Red Hat Dev Spaces workspace for the ETX App Base application, configure it with a custom Devfile, and verify that it is ready for cloud-native application development.</p>
+<p>In this lab, you&#8217;ll create a Red Hat Openshift Dev Spaces workspace for the <strong>ETX App Base</strong> application, configure it with a custom <strong>Devfile</strong>, and verify that it is ready for cloud-native application development.</p>
 </div>
 <div class="paragraph">
-<p>The Devfile defines the development environment, including the container image, development commands, environment variables, and IDE extensions. By storing the Devfile in the Git repository, every developer can create an identical workspace with a single click.</p>
+<p>The <strong>Devfile</strong> defines the development environment, including the container image, development commands, environment variables, and IDE extensions. By storing the Devfile in the Git repository, every developer can create an identical workspace with a single click.</p>
 </div>
 <div class="paragraph">
 <p>By the end of this lab, you will have:</p>
@@ -279,16 +283,16 @@ Red Hat Dev Spaces uses OpenShift OAuth for authentication. No additional login 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>From the Dev Spaces dashboard, click <b class="button">Create Workspace</b>.</p>
+<p>From the Dev Spaces dashboard, click <b class="button">Create Workspace</b> and select <strong>Import from Git</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="_images/import.png"><img src="_images/import.png" alt="import" width="500"></a>
+</div>
+<div class="title">Figure 1. Red Hat Openshift Dev Spaces Home Page(<em>Click the image to view it in full size in a new browser tab</em>)</div>
+</div>
 </li>
 <li>
-<p>Select <strong>Import from Git</strong>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
 <p>Retrieve the GitLab URL.</p>
-</div>
 <div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">GITLAB_URL="https://$(oc get route \
@@ -299,9 +303,9 @@ Red Hat Dev Spaces uses OpenShift OAuth for authentication. No additional login 
 echo "${GITLAB_URL}"</code></pre>
 </div>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>Paste the following repository URL into Dev Spaces.</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">{GITLAB_URL}/software-factory/etx_app_base_app.git</code></pre>
@@ -309,23 +313,21 @@ echo "${GITLAB_URL}"</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/git.png" alt="git" width="700">
+<a class="image" href="_images/git.png"><img src="_images/git.png" alt="git" width="500"></a>
 </div>
+<div class="title">Figure 2. Sample Git URL(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Click <b class="button">Create &amp; Open</b>.</p>
 </li>
 <li>
 <p>If prompted, authorize GitLab access using OAuth.</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/auth.png" alt="auth" width="700">
+<a class="image" href="_images/auth.png"><img src="_images/auth.png" alt="auth" width="500"></a>
 </div>
+<div class="title">Figure 3. Authorize GitLab Access(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -339,21 +341,25 @@ Because the repository does not yet contain a <code>devfile.yaml</code>, Dev Spa
 </tr>
 </table>
 </div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configure_git"><a class="anchor" href="#_configure_git"></a>Configure Git</h2>
+<h2 id="_configure_git_inside_your_workspaces"><a class="anchor" href="#_configure_git_inside_your_workspaces"></a>Configure Git inside your Workspaces</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>After the workspace opens, configure your Git identity.</p>
 </div>
 <div class="paragraph">
-<p>Open a terminal by selecting <span class="menuseq"><b class="menu">Terminal</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">New Terminal</b></span>.</p>
+<p>Open a terminal by clicking <b class="button">hamburger icon</b> and selecting <span class="menuseq"><b class="menu">Terminal</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">New Terminal</b></span>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/terminal.png" alt="terminal" width="700">
+<a class="image" href="_images/terminal.png"><img src="_images/terminal.png" alt="terminal" width="500"></a>
 </div>
+<div class="title">Figure 4. Terminal Option(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="paragraph">
 <p>Run the following commands.</p>
@@ -374,6 +380,18 @@ git config --global user.name "Platform Developer"</code></pre>
 </div>
 <div class="paragraph">
 <p>Create the <code>devfile.yaml</code> file using the following command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure to execute below command inside the newly opened terminal in your workspaces.
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock execute">
 <div class="content">
@@ -510,8 +528,9 @@ git push origin feature/add-devfile</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/workspace.png" alt="workspace" width="500">
+<a class="image" href="_images/workspace.png"><img src="_images/workspace.png" alt="workspace" width="500"></a>
 </div>
+<div class="title">Figure 5. Workspace Menu(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -522,8 +541,9 @@ git push origin feature/add-devfile</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/deleteworkspace.png" alt="deleteworkspace" width="500">
+<a class="image" href="_images/deleteworkspace.png"><img src="_images/deleteworkspace.png" alt="deleteworkspace" width="500"></a>
 </div>
+<div class="title">Figure 6. Delete Option(<em>Click the image to view it in full size in a new browser tab</em>)</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -666,7 +686,7 @@ The direct workspace URL can be bookmarked and reused for future development ses
 <div class="sect2">
 <h3 id="_verify_the_repository"><a class="anchor" href="#_verify_the_repository"></a>Verify the Repository</h3>
 <div class="paragraph">
-<p>Open a terminal.</p>
+<p>Open a terminal in your newly created workspace.</p>
 </div>
 <div class="listingblock execute">
 <div class="content">

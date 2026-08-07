@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Software Factory &amp; Developer Experience :: Software Factory &amp; Developer Experience</title>
+    <title>Software Factory Foundations with OpenShift Dev Spaces :: Software Factory Foundations with OpenShift Dev Spaces</title>
     <link rel="next" href="LABENV/lab-env-overview.html">
     <meta name="generator" content="Antora 3.2.0-alpha.12">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -19,7 +19,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../..">Software Factory &amp; Developer Experience</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../..">Software Factory Foundations with OpenShift Dev Spaces</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -39,7 +39,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html">Software Factory &amp; Developer Experience</a></h3>
+    <h3 class="title"><a href="index.html">Software Factory Foundations with OpenShift Dev Spaces</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -119,11 +119,8 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="section4/index.html">DevEx and DevSpaces</a>
+    <a class="nav-link" href="section4/index.html">Red Hat Dev Spaces</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section4/devX.html">Developer Experience Matters</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section4/overview.html">Dev Spaces Overview</a>
   </li>
@@ -149,7 +146,7 @@
     <a class="nav-link" href="section4/lab-9.html">Lab 9: GitLab Integration and Shared Secrets</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section4/lab10.html">Lab 10: Dev Spaces Workspace</a>
+    <a class="nav-link" href="section4/lab10.html">Lab 10: Red Hat Openshift Dev Spaces Workspace</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section4/lab-11.html">Lab 11: Application Deployment</a>
@@ -159,8 +156,15 @@
   </li>
 </ul>
   </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="section4/next.html">What&#8217;s next?</a>
+    <a class="nav-link" href="quiz/index.html">Knowledge Check</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="quiz/next.html">Summary and What&#8217;s next?</a>
   </li>
 </ul>
   </li>
@@ -169,12 +173,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Software Factory &amp; Developer Experience</span>
+    <span class="title">Software Factory Foundations with OpenShift Dev Spaces</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="index.html">Software Factory & Developer Experience</a>
+      <a class="title" href="index.html">Software Factory Foundations with OpenShift Dev Spaces</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="index.html">1</a>
@@ -192,7 +196,7 @@
   <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">Software Factory & Developer Experience</a></li>
+    <li><a href="index.html">Software Factory Foundations with OpenShift Dev Spaces</a></li>
     <li><a href="index.html">Software Factory &amp; Developer Experience</a></li>
   </ul>
 </nav>
@@ -202,12 +206,12 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Software Factory &amp; Developer Experience</h1>
+<h1 class="page">Software Factory Foundations with OpenShift Dev Spaces</h1>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to this quick course on the <em><strong>Software Factory &amp; Developer Experience</strong></em>.
+<p>Welcome to this quick course on the <em><strong>Software Factory Foundations with OpenShift Dev Spaces</strong></em>.
 This course is the <code>second</code> in a series of <code>six</code> courses about <strong>Application Platform Delivery</strong>:</p>
 </div>
 <div class="ulist">
@@ -216,7 +220,7 @@ This course is the <code>second</code> in a series of <code>six</code> courses a
 <p><a href="https://link" target="browser"><em>Application Platform Delivery Foundations</em></a></p>
 </li>
 <li>
-<p><em>Software Factory &amp; Developer Experience</em>(<em>This course</em>)</p>
+<p><em>Software Factory Foundations with OpenShift Dev Spaces</em> (<em>This course</em>)</p>
 </li>
 <li>
 <p><a href="https://link" target="browser"><em>Software Factory and CI/CD</em></a></p>
@@ -238,10 +242,13 @@ This course is the <code>second</code> in a series of <code>six</code> courses a
 <h2 id="_whats_in_this_course"><a class="anchor" href="#_whats_in_this_course"></a>What&#8217;s in this course?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By the end of this module, you will be able to deploy, configure, and use Red Hat OpenShift Dev Spaces to develop, build, and deploy applications through integrated GitLab and CI/CD workflows.</p>
+<p>In this module, you&#8217;ll learn how an Application Platform enables a <strong>Software Factory</strong> and why <strong>Git</strong> is fundamental to modern application delivery. You&#8217;ll prepare the required platform services, configure a cloud-native development environment using <strong>Red Hat OpenShift Dev Spaces</strong> and <strong>GitLab</strong>, and deploy the <strong>ETX App Base application</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Duration: 2.5 hours</p>
+<p>By the end of this module, you&#8217;ll have a fully configured development environment and a running application that you&#8217;ll use throughout the remainder of this learning path.</p>
+</div>
+<div class="paragraph">
+<p>Duration: 3:00 hours</p>
 </div>
 </div>
 </div>
@@ -254,13 +261,40 @@ This course is the <code>second</code> in a series of <code>six</code> courses a
 <div class="ulist">
 <ul>
 <li>
-<p>.. (SME)</p>
+<p>Andrew Block (SME)</p>
 </li>
 <li>
-<p>.. (SME)</p>
+<p>Bill Wheatley (SME)</p>
+</li>
+<li>
+<p>Bryan Saunders (SME)</p>
+</li>
+<li>
+<p>Evan Shortiss (SME)</p>
+</li>
+<li>
+<p>Julio Villarreal Pelegrino (SME)</p>
+</li>
+<li>
+<p>Kristopher Godek (SME)</p>
+</li>
+<li>
+<p>Roman Martin Gil (SME)</p>
+</li>
+<li>
+<p>Senthil Kumar (SME)</p>
+</li>
+<li>
+<p>Sergio Canales Espinoza (SME)</p>
 </li>
 <li>
 <p>Yogita Soni (Content Architect)</p>
+</li>
+<li>
+<p>Lisa Edgell (Learning Product Manager)</p>
+</li>
+<li>
+<p>Caitlyn Rymarchyk (Learning Product Manager)</p>
 </li>
 <li>
 <p>Anna Swicegood (Learning Product Manager)</p>
@@ -275,48 +309,27 @@ This course is the <code>second</code> in a series of <code>six</code> courses a
 <div class="paragraph">
 <p>On completing this course, you should be able to:</p>
 </div>
-<div class="paragraph">
-<p>Based on the section index, here are concise learning objectives:</p>
-</div>
-<div class="sect2">
-<h3 id="_learning_objectives"><a class="anchor" href="#_learning_objectives"></a>Learning Objectives</h3>
-<div class="paragraph">
-<p>By the end of this module, you will be able to:</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Describe the purpose and architecture of Red Hat OpenShift Dev Spaces.</p>
+<p>Explain how an Application Platform enables a <strong>Software Factory</strong> for standardized software delivery.</p>
 </li>
 <li>
-<p>Explain the key concepts and core components of Dev Spaces.</p>
+<p>Describe the role of Git in collaborative development, CI/CD pipelines, and GitOps workflows.</p>
 </li>
 <li>
-<p>Understand how Dev Spaces fits into a Software Factory and supports cloud-native application development.</p>
+<p>Configure <strong>Red Hat OpenShift Dev Spaces</strong> and integrate it with <strong>GitLab</strong>.</p>
 </li>
 <li>
-<p>Identify the supporting services required to enable an integrated developer platform.</p>
+<p>Create and use a reusable Devfile to provision cloud-native development workspaces.</p>
 </li>
 <li>
-<p>Deploy and configure the Red Hat OpenShift Dev Spaces Operator on an OpenShift cluster.</p>
+<p>Launch a browser-based development environment and connect it to the application platform.</p>
 </li>
 <li>
-<p>Integrate Dev Spaces with GitLab to enable source code management and developer workflows.</p>
-</li>
-<li>
-<p>Create and use Dev Spaces workspaces for cloud-native application development.</p>
-</li>
-<li>
-<p>Understand how Continuous Integration (CI) pipelines are triggered and executed from developer workspaces.</p>
-</li>
-<li>
-<p>Deploy applications to OpenShift using automated delivery workflows.</p>
-</li>
-<li>
-<p>Explain the role of promotion pipelines in advancing applications across development, testing, and production environments.</p>
+<p>Deploy the <strong>ETX App Base application</strong> and verify that it is running successfully.</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
