@@ -1,5 +1,5 @@
 {
-  "totalSeconds": 1968,
+  "totalSeconds": 1976,
   "pageCount": 29,
   "pages": [
     {
@@ -10,7 +10,7 @@
     {
       "module": "LABENV",
       "page": "lab-env-overview.adoc",
-      "seconds": 98
+      "seconds": 106
     },
     {
       "module": "section1",
