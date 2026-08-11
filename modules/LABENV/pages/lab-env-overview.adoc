@@ -18,6 +18,17 @@ Provision the following RHDP catalog items:
 * https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/openshift-cnv.app-platform-factory-cnv.prod&utm_source=webapp&utm_medium=share-link[**Service Enablement: App Platform Software Factory**]
 * https://catalog.demo.redhat.com/catalog/babylon-catalog-prod?item=babylon-catalog-prod/openshift-cnv.app-platform-runtime-cnv.prod&utm_source=webapp&utm_medium=share-link[**Service Enablement: App Platform Runtime**]
 
+[IMPORTANT]
+====
+Make sure you continue using the **same lab environment** provisioned for this module throughout the following modules:
+
+* https://redhatquickcourses.github.io/etx-app-delivery-module3/etx-app-delivery-module3/1/index.html[_Software Delivery with OpenShift Pipelines and GitOps_]
+* https://redhatquickcourses.github.io/etx-app-delivery-module4/etx-app-delivery-module4/1/index.html[_DevEx with Red Hat Developer Hub_]
+* https://redhatquickcourses.github.io/etx-app-delivery-module5/etx-app-delivery-module5/1/index.html[_Application Modernization with MTA_]
+
+Do **not delete, reset, or reprovision** the lab environment after completing this module. The following modules build progressively on the **applications, configurations, and platform resources** created in the previous modules.
+====
+
 Provisioning each environment typically takes about an hour. Once complete, the cluster URLs and credentials are available from the **My Services** page in RHDP.
 
 .Sample **RHDP My Services** Screenshot(_Click the image to view it in full size in a new browser tab_)
