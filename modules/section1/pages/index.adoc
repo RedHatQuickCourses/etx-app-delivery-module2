@@ -18,11 +18,6 @@ In the previous module, you learned how an *Application Platform* provides the c
 
 In this lesson, you'll discover how organizations use those capabilities to create a *Software Factory*—a standardized software delivery process that enables developers to build and deliver applications quickly, securely, and consistently.
 
-[TIP]
-====
-As you progress through this lesson, think about how a new developer joins your organization today. How many manual steps are required before they can deploy their first application?
-====
-
 ++++
 </div>
 ++++

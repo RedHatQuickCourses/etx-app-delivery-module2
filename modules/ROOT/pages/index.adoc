@@ -19,7 +19,7 @@ In this module, you'll learn how an Application Platform enables a **Software Fa
 
 By the end of this module, you'll have a fully configured development environment and a running application that you'll use throughout the remainder of this learning path.
 
-Duration: 3:00 hours
+Duration: 3.00 hours
 
 == Contributors
 
