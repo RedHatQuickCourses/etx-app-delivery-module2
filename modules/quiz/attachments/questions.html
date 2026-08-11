@@ -240,73 +240,37 @@ A: Request infrastructure → Configure local environment → Deploy manually
 Incorrect: One of the key benefits of a Software Factory is eliminating these manual tasks by providing self-service development workspaces, standardized tooling, and automated deployment workflows.
 
 ---
-Q3: What is the primary benefit of using OpenShift Dev Spaces in a Software Factory?
+Q3: Which statement best explains the role of Devfiles in OpenShift Dev Spaces?
 
-A: It replaces Git repositories with browser-based workspaces.
-Incorrect: Dev Spaces provides development workspaces but still relies on Git repositories for source code management.
+A: Devfiles store application source code and Git history
+Incorrect: Application source code and Git history are typically managed in Git repositories. Devfiles define the configuration of the development environment.
 
-A. It provides standardized, cloud-based development environments that reduce onboarding time and improve consistency.
-Correct: This sequence matches Emma's journey. She starts with a ready-to-use development workspace, writes and commits code, while the Software Factory automatically performs builds, security validation, GitOps deployment, and continuous monitoring.
+A: Devfiles replace the OpenShift API
+Incorrect: Dev Spaces uses the OpenShift API to create and manage the Kubernetes resources required for developer workspaces. Devfiles provide the configuration that guides workspace creation.
 
-A: Write code → Deploy directly to production → Build application → Monitor
-Incorrect: Applications are built, validated, and tested before deployment. A Software Factory automates these stages to ensure software quality and security prior to production deployment.
+A: Devfiles are used only to configure the Dev Spaces Dashboard
+Incorrect: Devfiles primarily define the development workspace environment. The Dev Spaces platform uses these definitions to provision the workspace on OpenShift.
 
-A: Request infrastructure → Configure local environment → Deploy manually
-Incorrect: One of the key benefits of a Software Factory is eliminating these manual tasks by providing self-service development workspaces, standardized tooling, and automated deployment workflows.
-
----
-Q3: What is the primary benefit of using OpenShift Dev Spaces in a Software Factory?
-
-A. It replaces Git repositories with browser-based workspaces.
-Incorrect: Dev Spaces provides development workspaces but still relies on Git repositories for source code management.
-
-A. It provides standardized, cloud-based development environments that reduce onboarding time and improve consistency.
-Correct: OpenShift Dev Spaces provides consistent, browser-based Cloud Development Environments that eliminate local setup, reduce onboarding time, and ensure developers work with the same tools and dependencies.
-
-A. It automatically deploys applications to production without validation.
-Incorrect: Application deployment is handled by the Software Factory using automated pipelines and GitOps, not by Dev Spaces itself.
-
-A. It requires every developer to maintain their own local development tools.
-Incorrect: Dev Spaces reduces the need for local installations by providing preconfigured development environments on OpenShift.
+A: Devfiles define reproducible workspace configurations as code
+Correct: Devfiles describe the tools, runtimes, commands, components, and other configuration required for a development workspace, allowing environments to be consistently created and reproduced.
 
 ---
-Q4: Which challenge does OpenShift Dev Spaces primarily help organizations overcome?
+Q4: What happens when a developer creates their first OpenShift Dev Spaces workspace?
 
-A. Managing production monitoring dashboards.
-Incorrect: Monitoring is a platform capability and is not the primary purpose of Dev Spaces.
+A: Dev Spaces authenticates the developer, creates an isolated namespace, provisions a DevWorkspace from a template, and starts the workspace
+Correct: This sequence describes the automated workspace creation process. OpenShift handles authentication and resource provisioning while Dev Spaces creates the standardized development environment.
 
-A. Eliminating inconsistent local development environments and lengthy workstation setup.
-Correct: Dev Spaces provides standardized Cloud Development Environments, eliminating workstation configuration differences and helping developers start coding quickly.
+A: The developer manually creates a namespace and installs the required development tools
+Incorrect: Dev Spaces automates namespace creation and workspace provisioning, so developers do not need to perform these setup tasks manually.
 
-A. Replacing CI/CD pipelines with manual deployments.
-Incorrect: Dev Spaces complements CI/CD pipelines by providing development environments; it does not replace them.
+A: The developer creates a virtual machine and installs an IDE before accessing the workspace
+Incorrect: Dev Spaces provides browser-based workspaces running as containers on OpenShift, eliminating the need for a manually configured virtual machine.
 
-A. Storing container images for production deployments.
-Incorrect: Container images are typically stored in a container registry such as Quay, not in Dev Spaces.
-
----
-Q4: Who is most likely responsible for improving developer onboarding?
-
-A: Platform Engineer
-Correct: Improving developer onboarding is a common Platform Engineering responsibility.
-
-A: Operations Engineer
-Incorrect: Operations focuses on runtime availability and operational controls.
-
-A: Application Developer
-Incorrect: Developers benefit from onboarding improvements but typically do not own the platform onboarding experience.
+A: The developer logs in with a separate Dev Spaces account and manually configures the workspace
+Incorrect: Dev Spaces uses OpenShift authentication by default, and reusable workspace templates provide the required configuration automatically.
 
 ---
-Q5: Who is most likely responsible for enforcing organizational security standards?
 
-A: Operations Engineer
-Correct: Operations commonly enforces organizational security and compliance standards on the platform.
-
-A: Platform Engineer
-Incorrect: Platform engineers may encode standards into the platform, but enforcement is typically an operations responsibility in this lesson.
-
-A: Application Developer
-Incorrect: Developers follow standards; enforcement is not primarily their role.
 `;
 
       // --- PARSING LOGIC ---
