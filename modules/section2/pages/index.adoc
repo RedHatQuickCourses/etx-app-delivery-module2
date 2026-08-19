@@ -14,7 +14,7 @@ image::ROOT:mini-illustration-book-red-RH.Large_square_transparent.png[width=40,
 </div>
 ++++
 
-In this lesson, you'll learn why *Git version control* is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD pipelines, and GitOps-based deployments.
+In this section, you'll learn why *Git version control* is a foundational capability of a modern Application Platform and how it enables collaborative software development, CI/CD pipelines, and GitOps-based deployments.
 
 [TIP]
 ====
