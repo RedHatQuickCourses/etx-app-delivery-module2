@@ -20,7 +20,7 @@ The workshop uses GitLab as the central source code repository. Authentication i
 .Signin into GitLab(_Click the image to view it in full size in a new browser tab_)
 image::signin.png[link=signin.png, width=400]
 +
-. Sign in using any one of the provided credentials in the xref:chapter1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
+. Sign in using any one of the provided credentials in the xref:LABENV:lab-env-overview.adoc#lab-credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
 
 . After successful authentication, you'll be redirected back to GitLab.
 +
@@ -36,7 +36,7 @@ Throughout the learning path, you'll work with the **ETX App Base** application.
 Before cloning the repository, sign in to the OpenShift web console.
 
 . Open the *OpenShift Console URL* listed on the **RHDP Lab Environment** page.
-. Sign in using any one of the credentials listed in the xref:lab-env-overview.adoc#lab-credentials[Lab Credentials] section.
+. Sign in using any one of the credentials listed in the xref:LABENV:lab-env-overview.adoc#lab-credentials[Lab Credentials] section.
 
 
 . After signing in, open the *Developer* perspective.

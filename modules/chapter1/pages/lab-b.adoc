@@ -136,7 +136,7 @@ Retrieve the service endpoint.
 ----
 oc get service parasol-kafka-kafka-bootstrap \
   -n etx-app-dev \
-  -o jsonpath='{.metadata.name}:{.spec.ports[0].port}{"\n"}'
+  -o jsonpath='{.metadata.name}:{.spec.ports[?(@.name=="tcp-clients")].port}{"\n"}'
 ----
 
 The command should return:

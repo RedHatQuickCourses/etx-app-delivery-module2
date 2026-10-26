@@ -20,7 +20,7 @@ The training uses **GitLab** as the central source code repository. Authenticati
 .Signin into GitLab(_Click the image to view it in full size in a new browser tab_)
 image::signin.png[link={imagesdir}/signin.png, width=400]
 +
-. Sign in using any one of the provided credentials in the xref:section1:lab-env-overview.adoc#_lab_credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
+. Sign in using any one of the provided credentials in the xref:LABENV:lab-env-overview.adoc#lab-credentials[Lab Credentials] section (for example, `username: platform-developer` / `password: openshift`).
 
 . After successful authentication, you'll be redirected back to GitLab.
 +

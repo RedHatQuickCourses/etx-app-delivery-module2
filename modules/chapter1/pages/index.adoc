@@ -1,2 +1,0 @@
-= Software Factory and DevSpaces
-:navtitle: Software Factory and DevSpaces

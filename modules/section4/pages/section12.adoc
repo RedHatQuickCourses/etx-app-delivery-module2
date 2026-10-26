@@ -334,4 +334,4 @@ timeout 3 bash -c "echo > /dev/tcp/$POSTGRESQL_HOST/5432" && echo "PostgreSQL co
 
 Expected: `PostgreSQL connection successful`
 
-If you get connection errors, verify you completed xref:lab-2.adoc[Lab 2 - Deploy Supporting Services].
+If you get connection errors, verify you completed xref:chapter1:lab-2.adoc[Lab 2 - Deploy Supporting Services].

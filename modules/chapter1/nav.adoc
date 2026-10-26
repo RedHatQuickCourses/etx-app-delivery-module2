@@ -1,5 +1,4 @@
 * Version Control
-//** xref:index.adoc[]
 ** xref:section3.adoc[]
 ** xref:lab-1.adoc[]
 * Deploy Supporting Services
