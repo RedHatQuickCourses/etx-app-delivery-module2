@@ -420,7 +420,7 @@ Ensure all Kafka pods are in the <code>Running</code> state before proceeding.
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get service parasol-kafka-kafka-bootstrap \
   -n etx-app-dev \
-  -o jsonpath='{.metadata.name}:{.spec.ports[0].port}{"\n"}'</code></pre>
+  -o jsonpath='{.metadata.name}:{.spec.ports[?(@.name=="tcp-clients")].port}{"\n"}'</code></pre>
 </div>
 </div>
 <div class="paragraph">
